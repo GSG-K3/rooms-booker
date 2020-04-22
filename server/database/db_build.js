@@ -17,4 +17,4 @@ const RunDbBuild = (sql, sql2) => {
 
 RunDbBuild(sql, sql2);
 
-module.exports = RunDbDuild;
+module.exports = RunDbBuild;
