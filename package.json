@@ -4,7 +4,6 @@
   "description": "K3 students projects # Problem  GSG has many rooms and many staff members with the ability to book any room but no one other than the admin can see the name of who booked the room. # soultion",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server/index.js"
   },
   "repository": {
@@ -19,7 +18,9 @@
   },
   "homepage": "https://github.com/GSG-K3/rooms-booker#readme",
   "dependencies": {
+    "env2": "^2.2.2",
     "express": "^4.17.1",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "pg": "^8.0.2"
   }
 }
