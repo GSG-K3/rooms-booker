@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-style {
+    font-size: 30px;
+}
+
+.navbar-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    margin: 5% 5%;
+}

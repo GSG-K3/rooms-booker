@@ -1,16 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-function App() {
+import NavBar from './Components/Common Components/NavBar Component/NavBar'
+
+function App () {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Hello world
-        </p>
-
+        <NavBar />
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
