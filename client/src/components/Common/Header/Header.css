@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 10em;
+}
+.profile{
+    width: 4em;
+    height: 4em;
+    margin: 3em 2.5em 2.5em 0;
+}
+.logo{
+    margin: 0;
+}
+
+@media only screen and (max-width: 700px){
+    .header{
+        height: 6em;
+    }
+    .profile{
+        width: 2.7em;
+        height: 2.7em;
+        margin: 2.5em 1.5em 1.5em 0;
+    }
+    .logo{
+        width: 65%;
+        height: 130%;
+    }
+
+}
+
+@media only screen and (max-width:450px){
+    .header{
+        width: 100%;
+        height: 4em;
+    }
+    .profile{
+        width: 2.2em;
+        height: 2.2em;
+        margin: 1.5em 0.5em 0.5em 0;
+    }
+    .logo{
+        width: 65%;
+        height: 130%;
+    }
+}
