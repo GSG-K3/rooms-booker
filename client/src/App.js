@@ -8,7 +8,6 @@ function App () {
     <Router>
       <Header />
       <switch>
-        {/* <Route exact path="/" component={Header} /> */}
         <Route exact path="/home" component={UserHome} />
       </switch>
     </Router>
