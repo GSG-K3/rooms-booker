@@ -1,6 +1,6 @@
 import React from 'react'
-import GSGlog from '../../../img/gsg_logo.jpg'
-import Profile from '../../../img/Ellipse 2.jpg'
+import GSGlog from '../../../Images/gsg_logo.jpg'
+import Profile from '../../../Images/Ellipse 2.jpg'
 import './Header.css'
 
 function Header () {
