@@ -32,23 +32,23 @@ input[type=email], input[type=password] {
       color:rgba(79, 178, 170, 0.4);
   }
 
-  .login-btn  {
+  .login-form__login__btn  {
     background-color: #3B5A9D;
     color: white;
     padding: 1.2vh 4vh;
     margin: 8px 0 ;
-    border-radius: 14%;
+    border-radius: 10px;
     border: none;
 
    
   }
   
-  .back-btn  {
+  .login-form__back__btn  {
     background-color: rgb(255, 255, 255);
     color: rgb(4, 11, 105);
     padding: 1.2vh 4vh;
     margin: 8px 0 ;
-    border-radius: 14%;
+    border-radius: 10px;
     border-color:#FFA633;
    
   }
@@ -60,6 +60,7 @@ input[type=email], input[type=password] {
   form{
       display: flex;
       justify-content: center;
+      align-items: center;
   }
 
 

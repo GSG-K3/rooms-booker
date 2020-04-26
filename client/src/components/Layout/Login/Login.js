@@ -8,21 +8,21 @@ class Login extends Component {
         <div className="login-form">
           <h1> LogIn </h1>
 
-          <div className="form-email">
-            <input type="email" className="email-input" placeholder="Email" />
+          <div className="login-form__email">
+            <input type="email" className="login-form__email__input" placeholder="Email" />
           </div>
 
-          <div className="form-password">
+          <div className="login-form__password">
             <input
               type="password"
-              className="password-input"
+              className="login-form__password__input"
               placeholder="Password"
             />
           </div>
-          <button type="submit" className="login-btn">
+          <button type="submit" className="login-form__login__btn">
             Login
           </button>
-          <button type="submit" className="back-btn">
+          <button type="submit" className="login-form__back__btn">
             Back
           </button>
         </div>
