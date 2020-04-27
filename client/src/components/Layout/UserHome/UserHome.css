@@ -23,12 +23,12 @@
 
 .events{
     color: #C4C4C4;
-    margin: 2.5em 0 0.7em 2.9em ;
+    margin: 2.5em 0 0.7em 2.1em ;
 }
 .event_card{
     border: #3B5A9D 1px solid;
     border-radius: 10px;
-    padding: 0.2em 1em 0.2em 1.5em;
+    padding: 0.4em 1em 0.4em 1.5em;
     display: flex;
     justify-content: space-between;
     margin: 1.3em 3em 1.3em 2em;
@@ -91,13 +91,16 @@
         margin: 0;
     }
     .event_option img{
-        height: 1em;
-        width: 1em;
-        margin: 1.5em 0.5em 1em 1.5em;
+        height: 1.4em;
+        width: 1.4em;
+        margin: 1.5em 0.6em 1em 1.5em;
     }
 }
 
 @media only screen and (max-width:450px){
+    .user_profile__div{
+        margin-left: 1.4em;
+    }
     .user_profile__div img{
         width: 2em;
         height: 2em;
@@ -108,7 +111,7 @@
         font-size: large;
     }
     .event_option img{
-        margin: 1em 0.3em 1em 0.7em;
+        margin: 1em 0.8em 1em 0.4em;
     }
     .event_option{
         margin-top: 0.5em;
@@ -119,7 +122,7 @@
         margin: 1.3em 1em 1.3em 1em;
     }
     .events{
-        margin: 2em 0 0.7em 1.6em;
+        margin: 2em 0 0.7em 1em;
     }
     .event_title h3{
         font-size: smaller;

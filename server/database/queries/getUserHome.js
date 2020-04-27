@@ -1,9 +1,9 @@
 const dbconniction = require('../db_connection')
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-const userHome = (reqbody, callBack) => {
+const userHome = (userId, callBack) => {
   const sql = {
     text: 'SELECT * FROM events WHERE user_id =$1',
-    values: [reqbody]
+    values: [userId]
   }
   dbconniction.query(sql, (err, resulte) => {
     if (err) {

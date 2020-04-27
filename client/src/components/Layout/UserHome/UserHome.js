@@ -9,7 +9,7 @@ class UserHome extends Component {
     events :[]
   }
   componentDidMount () {
-    const id = 11
+    const id = 13
        axios.get(`/api/user-events/${id}`)
       .then(res=>this.setState({events: res.data}))
       .catch(err => console.log(err))   
