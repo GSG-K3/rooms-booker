@@ -9,23 +9,24 @@ class UserHome extends Component {
     events :[]
   }
   componentDidMount () {
-       axios.get('/api/user-events')
+    const id = 11
+       axios.get(`/api/user-events/${id}`)
       .then(res=>this.setState({events: res.data}))
       .catch(err => console.log(err))   
    }
 
 
   render () {
-    return <div className='big_continer'>
-      <div className='user_profile'>
+    return <div className='component_continer'>
+      <div className='user_profile__div'>
         <img src={Profile} />
         <h2>Bayan_Seder</h2>
       </div>
-      <div className='continer_div'>
+      <div className='events_continer__div'>
         <h3 className='events'>Your Events</h3>
         {this.state.events.map((event)=>{
       return  <div className='event_card'>
-    <div className='title'>
+    <div className='event_title'>
       <h3>{event.event_title}</h3>
       <p>{event.event_date}</p>
     </div>
