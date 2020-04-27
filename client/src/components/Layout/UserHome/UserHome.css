@@ -1,31 +1,31 @@
-.component_continer{
+.Component_continer{
     display: flex;
     flex-direction: column;
 }
 
-.user_profile__div{
+.User_profile__div{
     margin: 1em 0 0 3em ;
     display: flex;
     align-self: start;
 }
-.user_profile__div img{
+.User_profile__div img{
     height: 3.2em;
     width: 3.2em;
     margin: 0em 2em 0.5em 0.5em;
 }
-.user_profile__div h2{
+.User_profile__div h2{
     margin-top: 0.8em;
     color: #4FB2AA;
 }
-.events_continer__div{
+.Events_continer__div{
     margin: 0.5em 1em 1em 1em;
 }
 
-.events{
+.Events{
     color: #C4C4C4;
     margin: 2.5em 0 0.7em 2.1em ;
 }
-.event_card{
+.Event_card{
     border: #3B5A9D 1px solid;
     border-radius: 10px;
     padding: 0.4em 1em 0.4em 1.5em;
@@ -33,31 +33,31 @@
     justify-content: space-between;
     margin: 1.3em 3em 1.3em 2em;
 }
-.event_title{
+.Event_title{
     width: 60%;
     height: 100%;
     margin-top: 0.5em;
 }
-.event_title h3{
+.Event_title h3{
     font-size: large;
     color: #FFA633;
     margin-bottom: 0.5em;
 }
-.event_title p{
+.Event_title p{
     font-size: medium;
     color: #3B5A9D;
 }
-.event_option img{
+.Event_option img{
     height: 1.7em;
     width: 1.7em;
     margin: 1em 0.5em 0em 3em;
 }
-.event_option{
+.Event_option{
     display: flex;
     align-items: center;
     height: 100%;
 }
-.back_button{
+.Back_button{
     width: 125px;
     height: 40px;
     border: 1px #FFA633 solid ;
@@ -72,25 +72,25 @@
 }
 
 @media only screen and (max-width:650px){
-    .user_profile__div img{
+    .User_profile__div img{
         width: 2.7em;
         height: 2.7em;
     }
-    .user_profile__div h2{
+    .User_profile__div h2{
         margin-top: 0.8em;
         font-size: larger;
     }
-    .user_profile__div{
+    .User_profile__div{
         margin: 1.5em 0 0 1em;
     }
-    .event_title h3{
+    .Event_title h3{
         font-size: medium;
     }
-    .event_title p{
+    .Event_title p{
         font-size: small;
         margin: 0;
     }
-    .event_option img{
+    .Event_option img{
         height: 1.4em;
         width: 1.4em;
         margin: 1.5em 0.6em 1em 1.5em;
@@ -98,33 +98,33 @@
 }
 
 @media only screen and (max-width:450px){
-    .user_profile__div{
+    .User_profile__div{
         margin-left: 1.4em;
     }
-    .user_profile__div img{
+    .User_profile__div img{
         width: 2em;
         height: 2em;
         margin-right: 1.2em;
     }
-    .user_profile__div h2{
+    .User_profile__div h2{
         margin-top: 0.5em;
         font-size: large;
     }
-    .event_option img{
+    .Event_option img{
         margin: 1em 0.8em 1em 0.4em;
     }
-    .event_option{
+    .Event_option{
         margin-top: 0.5em;
         margin-right: 0.4em;
     }
-    .event_card{
+    .Event_card{
         padding: 0.5em 0.2em 0.5em 1em;
         margin: 1.3em 1em 1.3em 1em;
     }
-    .events{
+    .Events{
         margin: 2em 0 0.7em 1em;
     }
-    .event_title h3{
+    .Event_title h3{
         font-size: smaller;
     }
     
