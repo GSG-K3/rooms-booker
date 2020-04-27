@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.events {
+  display: block;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+.event {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #3b5a9d;
+  border-radius: 12px;
+  margin: 1.3em 3em 1.3em 2em;
+  padding: 0.2em 1em 0.2em 1.5em;
+}
+
+.event h2 {
+  font-family: Roboto;
+  font-size: 15px;
+  color: #ffa633;
+}
+.event p {
+  font-family: Roboto;
+  font-size:small;
+  color: #3b5a9d;
+}
