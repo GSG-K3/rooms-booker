@@ -55,6 +55,20 @@
     align-items: center;
     height: 100%;
 }
+.back_button{
+    width: 125px;
+    height: 40px;
+    border: 1px #FFA633 solid ;
+    border-radius: 10px;
+    background-color: white;
+    color: #3B5A9D;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 2em 2em 2em 2em;
+}
+
 @media only screen and (max-width:650px){
     .user_profile img{
         width: 2.7em;
@@ -96,6 +110,7 @@
     }
     .event_option{
         margin-top: 0.5em;
+        margin-right: 0.6em;
     }
     .event_card{
         padding: 0.5em 0.2em 0.5em 1em;
