@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import './Events.css'
+import './events.css'
 
 class Events extends Component {
   constructor (props) {
@@ -24,11 +24,9 @@ class Events extends Component {
     const { events } = this.state
     return (
       <div className="events">
-
         {
           events.map(event => {
             return (
-             
               <div className="event">
                 <h2 >{event.event_title}</h2>
                 <p >{event.event_date}</p>
