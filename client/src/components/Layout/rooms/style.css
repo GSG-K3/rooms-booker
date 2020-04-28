@@ -1,0 +1,44 @@
+.rooms {
+  display: flex;
+  margin: 10vw;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+}
+
+.rooms__card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  justify-content: space-between;
+  padding: 0.8em 1em 0.2em 1.5em;
+  margin: 1em 0 1em 0;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.rooms__card h2 {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #4fb2aa;
+}
+.rooms__card__content {
+  display: none;
+  overflow: hidden;
+  width: 300px;
+  padding: 0.8em 0 1em 0.5em;
+  column-count: 2;
+  column-gap: 4px;
+  column-rule: 4px;
+}
+
+.rooms__card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+li {
+  list-style: none;
+}

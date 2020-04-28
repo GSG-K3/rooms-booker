@@ -1,0 +1,38 @@
+
+*{
+    margin: 0;
+    padding: 0;
+   
+
+}
+
+.SearchEvent{
+  margin-top: 50px;
+   display: flex;
+   justify-content: center;
+   
+}
+
+
+
+input[type=text]{
+    width: 210px;
+    height: 40px;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #4FB2AA ;
+}
+
+input::placeholder{
+    color: #C4C4C4;
+    font-size: 24px;
+}
+.Search{
+    margin-top: 15px;
+}
+.Search_logo{
+
+    margin-left: 10px;
+    width: 25px;
+    height: 25px;  
+}
