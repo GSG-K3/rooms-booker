@@ -2,7 +2,6 @@ import React from 'react'
 
 import NavBar from './Components/Common/NavBar/NavBar'
 
-// import AvailableRooms from './Components/Common/AvailableRooms/AvailableRooms';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 function App () {
   return (
@@ -12,7 +11,6 @@ function App () {
           <Switch>
             <Route exact path='/'>
               <NavBar />
-              {/* <AvailableRooms /> */}
             </Route>
           </Switch>
         </Router>
