@@ -4,13 +4,13 @@
 }
 
 .container {
-  margin: 10% 5%;
+  margin: 3% 5%;
 }
 
 .container__div {
   font-size: 30px;
-  margin: 2%;
   padding: 1%;
+  margin: 2%;
 }
 
 .container__div__list {
@@ -28,7 +28,7 @@
   line-height: 33px;
   display: flex;
   align-items: center;
-  margin: 5% 5%;
+  margin: 1% 5%;
 }
 
 .container__div__list__rooms-item {
@@ -39,7 +39,7 @@
   line-height: 33px;
   display: flex;
   align-items: center;
-  margin: 5% 5%;
+  margin: 1% 5%;
 }
 
 .link {
