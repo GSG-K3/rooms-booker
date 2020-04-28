@@ -7,20 +7,20 @@
   margin: 10% 5%;
 }
 
-.container__navbar {
+.container__div {
   font-size: 30px;
   margin: 2%;
   padding: 1%;
 }
 
-.container__navbar__list {
+.container__div__list {
   display: flex;
   flex-direction: row;
   justify-content: center;
   list-style-type: none;
 }
 
-.container__navbar__list__events-item {
+.container__div__list__events-item {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -31,7 +31,7 @@
   margin: 5% 5%;
 }
 
-.container__navbar__list__rooms-item {
+.container__div__list__rooms-item {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;

@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 
 import "./NavBar.css"
-import AvailableRooms from "../AvailableRooms/AvailableRooms"
 
 class NavBar extends Component {
   state = {
@@ -20,16 +19,16 @@ class NavBar extends Component {
     const {navBarStatus} = this.state
     return (
       <div className ='container'>
-        <nav className='container__navbar'>
-          <ul className='container__navbar__list'>
-            <li className='container__navbar__list__events-item'>
-              <button className='link' onClick={this.handleEvent}>Event</button>
+        <div className='container__div'>
+          <ul className='container__div__list'>
+            <li className='container__div__list__events-item'>
+              <button className='link' onClick={this.handleEvent}>Events</button>
             </li>
-            <li className='container__navbar__list__rooms-item'>
-              <button className='link' onClick={this.handleRoom}>Room</button>
+            <li className='container__div__list__rooms-item'>
+              <button className='link' onClick={this.handleRoom}>Rooms</button>
             </li>
           </ul>
-        </nav>
+        </div>
         {navBarStatus?<h1>Event is Here!</h1>:<h1>Room is Here!</h1>}
       </div>
     )

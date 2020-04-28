@@ -1,21 +1,22 @@
 import React from 'react'
 
-import NavBar from './Components/Common/NavBar/NavBar'
+import SerachEvent from './components/Common/SerachEvent/SearchEvent.js'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Header from './components/Common/Header/Header'
+import UserHome from './components/Layout/UserHome/UserHome'
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import NavBar from './components/Common/NavBar/NavBar'
+
 function App () {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <Router>
-          <Switch>
-            <Route exact path='/'>
-              <NavBar />
-            </Route>
-          </Switch>
-        </Router>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <SerachEvent/>
+      <Switch>
+        <Route exact path="/home" component={UserHome} />
+        <Route exact path='/'component={NavBar}/>
+      </Switch>
+    </Router>
   )
 }
 
