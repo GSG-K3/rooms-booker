@@ -1,9 +1,9 @@
 import React from 'react'
 
 import SerachEvent from './components/Common/SerachEvent/SearchEvent.js'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Common/Header/Header'
-// import UserHome from './components/Layout/UserHome/UserHome'
+import UserHome from './components/Layout/UserHome/UserHome'
 
 function App () {
   return (
@@ -11,7 +11,7 @@ function App () {
       <Header />
       <SerachEvent/>
       <switch>
-        {/* <Route exact path="/home" component={UserHome} /> */}
+        <Route exact path="/home" component={UserHome} />
       </switch>
     </Router>
   )
