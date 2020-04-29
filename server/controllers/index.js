@@ -5,9 +5,10 @@ const { getAllRooms } = require('./getAllRooms')
 const { getAllEvents } = require('./getAllEvents')
 const userEvents = require('./userHome')
 
+
+router.get('/api/user-events/:id', userEvents)
 router.get('/api/rooms', getAllRooms);
 router.get('/api/events', getAllEvents)
-router.get('/api/user-events/:id', userEvents)
 
 module.exports = router;
 
