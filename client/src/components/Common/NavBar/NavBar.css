@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: 3% 5%;
+}
+
+.container__div {
+  font-size: 30px;
+  padding: 1%;
+  margin: 2%;
+}
+
+.container__div__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.container__div__list__events-item {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  margin: 1% 5%;
+}
+
+.container__div__list__rooms-item {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  margin: 1% 5%;
+}
+
+.link {
+  text-decoration: none;
+  color: #3b5a9d;
+  border: none;
+  background-color: white;
+  font-size: 30px;
+}
+
+.link:hover,
+.link:active {
+  color: #4fb2aa;
+  border-bottom: 2px solid #ffa633;
+  outline: none;
+}
