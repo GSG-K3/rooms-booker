@@ -10,12 +10,9 @@ class BookingForm extends Component {
     super(props)
     this.state = {
       userId : 5,
-      date: '22/8/2020',
+      date: '2020-06-26T07:00:00.000Z',
       time: '9:00_11:00 Am',
-      room: {
-        room_id: 2,
-        room_name: 'Moscow'
-      },
+      room:  5,
       reminder: false
     }
   }
