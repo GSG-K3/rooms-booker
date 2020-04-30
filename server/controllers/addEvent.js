@@ -1,7 +1,9 @@
+const eventPost = require('../database/queries/eventPost')
 
 const addEvent = (req, res) => {
-  console.log('req body :', req.body)
-  res.send(req.body)
+  const data = req.body
+  eventPost(data)
+  res.send('done')
 }
 
 module.exports = addEvent

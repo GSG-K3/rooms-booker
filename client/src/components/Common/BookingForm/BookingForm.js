@@ -9,6 +9,7 @@ class BookingForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      userId : 5,
       date: '22/8/2020',
       time: '9:00_11:00 Am',
       room: {
@@ -31,10 +32,7 @@ class BookingForm extends Component {
    handelSubmit =(e) => {
       e.preventDefault();
       const formData = this.state
-      axios.post( '/api/booking', 
-      {
-        data : formData
-      })
+      axios.post( '/api/booking', formData)
       .then(response => console.log('response :',response))
       .catch(err => console.log(err))
     
@@ -60,47 +58,16 @@ class BookingForm extends Component {
         <form className="booking_form">
           <p>Please re-fill the following fileds to complete your booking process:</p>
           <hr className="label_line"/>
-          <input
-            type="text"
-            name="name"
-            onChange={this.handelChange}
-            placeholder="Your Name"
-            required
-          />
-          <input 
-            type="text" 
-            name="title"
-            onChange={this.handelChange} 
-            placeholder="Event Title"
-            required />
-          <input
-            type="text"
-            name="descripiton"
-            onChange={this.handelChange}
-            placeholder="Event Description" 
-            required
-          />
-          <input 
-            type="text" 
-            name="notes"
-            onChange={this.handelChange} 
-            placeholder=" Notes" />
+          <input type="text" name="name" onChange={this.handelChange} placeholder="Your Name" />
+          <input type="text" name="title" onChange={this.handelChange} placeholder="Event Title" />
+          <input type="text" name="description" onChange={this.handelChange} placeholder="Event Description" />
+          <input type="text" name="notes" onChange={this.handelChange} placeholder=" Notes" />
           <div className="remind_me_input__div">
-            <label htmlFor="reminder" className="radio_input">
-              <input 
-               type="radio"
-               onClick={this.handelChecked} 
-               checked={this.state.reminder} />
-              Remind me
-            </label>
+            <label htmlFor="reminder" className="radio_input"><input type="radio" onClick={this.handelChecked} checked={this.state.reminder} />Remind me</label>
           </div>
           <div className="buttons_continer">
-            <button className="back_button">Back</button>
-            <button type='submit'
-              onClick={this.handelSubmit}
-              className="book_button">
-              Book
-            </button>
+            <button className="back_button" onClick={this.hadelReturn} >Back</button>
+            <button type='submit' onClick={this.handelSubmit} className="book_button">Book</button>
           </div>
         </form>
       </div>
