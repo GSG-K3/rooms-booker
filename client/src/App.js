@@ -2,9 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SerachEvent from './components/Common/SerachEvent/SearchEvent.js'
 import Header from './components/Common/Header/Header'
-import Events from './components/Layout/Events/Events'
+import NavBar from './components/Common/NavBar/NavBar'
 import UserHome from './components/Layout/UserHome/UserHome'
-// import NavBar from './components/Common/NavBar/NavBar'
 
 function App () {
   return (
@@ -12,7 +11,7 @@ function App () {
       <Header />
       <SerachEvent/>
       <Switch>
-        <Route exact path = '/' component={Events}/>
+        <Route exact path = '/' component={NavBar}/>
         <Route exact path="/home" component={UserHome} />
       </Switch>
     </Router>

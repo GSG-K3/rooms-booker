@@ -1,17 +1,11 @@
-import React, { Compnent } from 'react'
+import React, { Component } from 'react'
 
-class AvailableRooms extends Compnent {
-  constructor (props) {
-    super(props)
-    this.state = {
-      availableRooms: []
-    }
-  }
+import './AvailableRooms.css'
 
+class AvailableRooms extends Component {
   render () {
-    return (
-      <h1>Hello!</h1>
-    )
+    console.log(this.props)
+    return <h1>hshzjkz</h1>
   }
 }
 

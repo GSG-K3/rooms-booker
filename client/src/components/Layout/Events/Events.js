@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './events.css'
-import NavBar from '../../Common/NavBar/NavBar.js'
 
 class Events extends Component {
   constructor (props) {
@@ -25,7 +24,6 @@ class Events extends Component {
     const { events } = this.state
     return (
       <div>
-        <NavBar />
         <div className="events">
           {
             events.map(event => {
