@@ -24,7 +24,7 @@ GSG Rooms booker website allow user to see the name of who booked the room and v
 <li>As a User can share an event.</li>
 </ul>
 # DB Schema
-![db](https://user-images.githubusercontent.com/55299644/80778835-611c5200-8b72-11ea-80a9-e152a2ef5a52.png)
+![DB (1)](https://user-images.githubusercontent.com/55299644/80779609-d0934100-8b74-11ea-9926-407f84b77458.png)
 
 # How To Run Our project
 - Clone this repo to your local machine using:
