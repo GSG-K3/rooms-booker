@@ -26,7 +26,6 @@
   color: #4fb2aa;
 }
 .rooms__card__content {
-  display: none;
   overflow: hidden;
   width: 300px;
   padding: 0.8em 0 1em 0.5em;
