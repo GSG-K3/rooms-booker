@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import searchIcon from '../../../Images/serach 2.png'
+import searchIcon from '../../../Images/serach.png'
 
 import './SearchAvailableRooms.css'
 
