@@ -11,7 +11,7 @@ class Events extends Component {
     super(props)
     this.state = {
       events: [],
-      eventName: '',
+      searchQuery: '',
      } 
   }
   componentDidMount () {
@@ -24,19 +24,12 @@ class Events extends Component {
       .catch((err) => console.log(err))
   }
 
-  changeInput =  (name) => {
-    this.setState({ eventName: name.target.value.substr(0,20)
-       })
-  }
+  setSearchQuery = name => this.setState({ searchQuery: name.target.value})
+  
 
   render () {
-  const { events, eventName} = this.state
-  const filtertsearch = events.filter(
-    (event) =>
-    {
-   return event.event_title.toLowerCase().indexOf(eventName.toLowerCase())!== -1
-    }
-  )
+  const { events, searchQuery} = this.state
+  const filterSearch = events.filter(event => event.event_title.toLowerCase().indexOf(searchQuery.toLowerCase())!== -1)
     return (
 
       <div>
@@ -45,8 +38,8 @@ class Events extends Component {
           <div>
             <input type='text'
               placeholder='Search for Event ... '
-              onChange={this.changeInput.bind(this)}
-              value ={eventName}
+              onChange={this.setSearchQuery}
+              value ={searchQuery}
             />
           </div>
           <div className='Search'>
@@ -60,12 +53,8 @@ class Events extends Component {
 
         <div className="events">
             {
-              filtertsearch.map((event)=>{
-                return (
-                 <Event event={event}  />
-                )
-              })
-            }
+              filterSearch.map((event)=> <Event event={event} />)
+             }
         </div>
       </div>
     )
