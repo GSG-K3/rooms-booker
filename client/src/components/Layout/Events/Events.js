@@ -24,11 +24,13 @@ class Events extends Component {
   }
   
   setSearchQuery = name => this.setState({ searchQuery: name.target.value})
+  filterSearch = () => {
+    const { events, searchQuery} = this.state
+    return events.filter( event => event.event_title.toLowerCase().indexOf(searchQuery.toLowerCase())!== -1)
+  }
 
   render () {
   const { events, searchQuery} = this.state
-  const filterSearch = events.filter( event => event.event_title.toLowerCase().indexOf(searchQuery.toLowerCase())!== -1)
-
     return (
 
       <div>
@@ -45,7 +47,9 @@ class Events extends Component {
 
         <div className="events">
             {
-               filterSearch.map((event)=> <Event event={event} />)
+               this.filterSearch().map(event => { 
+               return <Event event={event} />
+              })
             }
         </div>
       </div>
