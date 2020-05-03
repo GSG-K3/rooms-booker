@@ -29,7 +29,9 @@ CREATE TABLE events
 (
     event_id SERIAL PRIMARY KEY ,
     event_title VARCHAR(50) NOT NULL,
-    event_descriprion VARCHAR(500) NOT NULL,
+    event_author VARCHAR(10) NOT NULL,
+    event_description VARCHAR(500) NOT NULL,
+    event_note VARCHAR(500) NOT NULL,
     event_date TIMESTAMP,
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
