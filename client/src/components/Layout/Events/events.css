@@ -27,15 +27,6 @@ input::placeholder{
     color: #C4C4C4;
     font-size: 24px;
 }
-.Search{
-    margin-top: 15px;
-}
-.Search_logo{
-    margin-left: -50px;
-    width: 50px;
-    height: 19px;
-    margin-top: -3px;  
-}
 
 @media only screen and (min-width: 600px) {
   input[type=text]{

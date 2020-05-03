@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './events.css'
 import NavBar from '../../Common/NavBar/NavBar.js'
-import Serachlogo from '../../../Images/Serach.png'
 import Event from '../Event/Event'
 
 
@@ -23,13 +22,13 @@ class Events extends Component {
       })
       .catch((err) => console.log(err))
   }
-
-  setSearchQuery = name => this.setState({ searchQuery: name.target.value})
   
+  setSearchQuery = name => this.setState({ searchQuery: name.target.value})
 
   render () {
   const { events, searchQuery} = this.state
-  const filterSearch = events.filter(event => event.event_title.toLowerCase().indexOf(searchQuery.toLowerCase())!== -1)
+  const filterSearch = events.filter( event => event.event_title.toLowerCase().indexOf(searchQuery.toLowerCase())!== -1)
+
     return (
 
       <div>
@@ -42,19 +41,12 @@ class Events extends Component {
               value ={searchQuery}
             />
           </div>
-          <div className='Search'>
-            <img
-              className='Search_logo'
-              src={Serachlogo}
-              alt='logo'
-            /> 
-          </div>
         </div>
 
         <div className="events">
             {
-              filterSearch.map((event)=> <Event event={event} />)
-             }
+               filterSearch.map((event)=> <Event event={event} />)
+            }
         </div>
       </div>
     )
