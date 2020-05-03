@@ -22,9 +22,9 @@ class SearchAvailableRooms extends Component {
   }
 
   handleChange = (date) => {
+    console.log(date)
     this.setState({
       startDate: date,
-      
     })
   }
 
@@ -54,7 +54,7 @@ class SearchAvailableRooms extends Component {
             onClick={this.searchAvailableRooms}
           />
         </div>
-          {this.state.displayAvailableRooms ? <div>{this.state.startDate.toDateString()}</div>:<div> </div>}
+          {this.state.displayAvailableRooms ? <div className = "date-and-time">{this.state.startDate.toLocaleString()}</div>:<div> </div>}
           {this.state.displayAvailableRooms ? <AvailableRooms AvailableRooms = {this.state.availableRooms}/>:<div> </div> }
       </div>
     )

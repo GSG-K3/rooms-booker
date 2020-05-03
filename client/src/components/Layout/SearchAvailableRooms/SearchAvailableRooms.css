@@ -32,3 +32,17 @@
   background-size: 35px;
   margin-left: 5%;
 }
+
+.date-and-time{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFA633;
+  margin: 5%;
+  padding: 2%;
+}
