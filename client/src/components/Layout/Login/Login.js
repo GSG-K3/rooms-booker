@@ -21,6 +21,10 @@ handleForm = (e) => {
 console.log(this.state);
 
 }
+
+
+
+
 handleInput = (e)=> {
   e.preventDefault();
 const name = e.target.name
