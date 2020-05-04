@@ -5,10 +5,11 @@ import Login from './components/Layout/Login/Login.js';
 import Rooms from './components/Layout/rooms/Rooms.js';
 import Header from './components/Common/Header/Header';
 import SerachEvent from './components/Common/SerachEvent/SearchEvent.js'
+
 import Events from './components/Layout/Events/Events'
 import UserHome from './components/Layout/UserHome/UserHome'
 
-function App() {
+function App () {
   return (
     <Router>
       <Switch>
@@ -17,8 +18,9 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/rooms" component={Rooms} />
 
+
       </Switch>
     </Router>
-  );
+  )
 }
-export default App;
+export default App
