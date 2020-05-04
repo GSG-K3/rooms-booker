@@ -49,6 +49,10 @@
     align-items: center;
     justify-content: space-between;
 }
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
+}
 .back_button{
     width: 150px;
     height: 43px;
