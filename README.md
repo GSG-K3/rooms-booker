@@ -25,7 +25,8 @@ GSG Rooms booker website allow user to see the name of who booked the room and v
 </ul>
 # DB Schema
 
-![DB (1)](https://user-images.githubusercontent.com/55299644/80779609-d0934100-8b74-11ea-9926-407f84b77458.png)
+![schemaDB](https://user-images.githubusercontent.com/55299644/80927798-f2750980-8da8-11ea-8e85-9938219f5067.png)
+
 
 # How To Run Our project
 - Clone this repo to your local machine using:
