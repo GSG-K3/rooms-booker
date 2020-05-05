@@ -8,18 +8,21 @@ import './SearchAvailableRooms.css'
 import AvailableRooms from '../AvailableRooms/AvailableRooms'
 
 import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css';
+import 'react-datepicker/dist/react-datepicker.css'
+import axios from 'axios'
 
 class SearchAvailableRooms extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      Rooms: [{Name: 'Gaza', isReserved: false}, {Name: 'Nablus', isReserved: false}],
+      RoomsId: [],
       startDate:new Date(),
       displayAvailableRooms: false,
       availableRooms: []
     }
   }
+
+
 
   handleChange = (date) => {
     console.log(date)
@@ -30,10 +33,15 @@ class SearchAvailableRooms extends Component {
 
 
   searchAvailableRooms = () => {
-    const displayAvailableRooms = this.state.displayAvailableRooms
+    const date = this.state.startDate.toLocaleString()
     this.setState({displayAvailableRooms: true})
-    const Rooms = this.state.Rooms
-    this.state.availableRooms = Rooms.filter(Rooms => Rooms.isReserved === false)
+    const Rooms = this.state.RoomsId
+    // this.state.availableRooms = Rooms.filter(Rooms => Rooms.isReserved === false)
+    axios.get(`/api/available-rooms/${date}`)
+    .then(res => this.setState({RoomsId: res.result}))
+    .catch(err => err)
+
+    console.log(Rooms);
   }
 
   render () {

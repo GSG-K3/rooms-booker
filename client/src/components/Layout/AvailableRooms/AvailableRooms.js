@@ -5,9 +5,7 @@ import './AvailableRooms.css'
 import addRoomIcon from '../../../Images/addRoom.png'
 
 class AvailableRooms extends Component {
-
   routeToBookForm () {
-    console.log(',jdghksdb')
     history.push('/booking')
   }
 
