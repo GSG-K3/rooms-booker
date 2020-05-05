@@ -1,6 +1,6 @@
 
 const dbconniction = require('../db_connection')
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+/* process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 const getPassword = (email, callBack) => {
   const sql = {
     text: 'SELECT password FROM users where email=$1',
@@ -12,6 +12,17 @@ const getPassword = (email, callBack) => {
     }
     return callBack(null, resulte.rows[0])
   })
+} */
+
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+const getPassword = (email) => {
+  const sql = {
+  text: 'SELECT password FROM users where email=$1',
+  values: [email]
+}
+  return dbconniction
+    .query(sql)
 }
 
-module.exports = getPassword ;
+module.exports = getPassword

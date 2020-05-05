@@ -1,11 +1,12 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-h1 {
+
+.login-form h1 {
   color: #ffa633;
   margin: 8px 0;
 }
+
+.login-form p{
+  color: red;
+  }
 
 .login-form {
   margin: 10vw;

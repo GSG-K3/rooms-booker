@@ -3,37 +3,37 @@ import "./Login.css";
 import axios from "axios";
 
 class Login extends Component {
+  state = {
+    email: "",
+    password: "",
+    message: null,
+  };
 
-state = {
-  email:'',
-  password:'',
-  notEmpty: false,
-  message:''
-}
+  handleForm = (e) => {
+    e.preventDefault();
+    const data = { email: this.state.email, password: this.state.password };
 
-handleForm = (e) => {
-  e.preventDefault();
-  const data = {email: this.state.email, password: this.state.password }
+    axios
+      .post("/api/login", data)
+      .then((result) => {
+        console.log("status", result.data);
 
-  axios
-.post("/api/login",data)
-.then(result => {
-  if (result.data.status === 'sucess') {
-alert('sucess');
+        if (result.status === 200) {
+          alert("sucess");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ message: err.response.data.message });
+      });
+  };
 
-  } else {
-  this.setState({notEmpty:true , message: result.data.message })
-  }
-})
-.catch((err) => console.log(err))
-}
-
-handleInput = (e)=> {
-  e.preventDefault();
-const name = e.target.name
-const value = e.target.value
-this.setState({[name]: value, notEmpty:false})
-}
+  handleInput = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({ [name]: value, message: null });
+  };
 
   render() {
     return (
@@ -42,8 +42,13 @@ this.setState({[name]: value, notEmpty:false})
           <h1> LogIn </h1>
 
           <div className="login-form__email">
-            <input type="email" name="email"  onChange={this.handleInput}
- className="login-form__email__input" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              onChange={this.handleInput}
+              className="login-form__email__input"
+              placeholder="Email"
+            />
           </div>
 
           <div className="login-form__password">
@@ -55,7 +60,7 @@ this.setState({[name]: value, notEmpty:false})
               placeholder="Password"
             />
           </div>
-          {this.state.notEmpty ? <p> {this.state.message} </p> : null}
+          {this.state.message ? <p> {this.state.message} </p> : null}
 
           <button type="submit" className="login-form__login__btn">
             Login

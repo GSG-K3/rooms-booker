@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 const { sign } = require("jsonwebtoken");
 const getPassword = require("../database/queries/getPassword");
-require("dotenv").config();
 const { SECRET } = process.env;
 const createToken = (email, secret) => {
   return sign({ email }, secret);
@@ -10,39 +9,38 @@ const createToken = (email, secret) => {
 exports.login = (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res
-      .status(200)
-      .json({ message: 'all fields are required', status: '400' });
+    res.status(400).json({ message: "All Fields are Required", status: 400 });
   }
-  getPassword(email, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      if (result) {
-        const hash = result.password;
-        bcrypt
-          .compare(password, hash)
-          .then((result) => {
-            if (result) {
-              const token = createToken(email, SECRET);
-              res
-                .cookie('token', token, { maxAge: 900000, httpOnly: true })
-                .json({ status: 'sucess', token });
-            } else {
-              res
-                .status(200)
-                .json({
-                  message: 'incorrect email or password',
-                  status: '403'
-                });
-            }
-          })
-          .catch((err) => console.log(err));
-      } else {
-        res
-          .status(200)
-          .json({ message: 'incorrect email or password', status: '403' });
+
+  getPassword(email)
+    .then((result) => {
+      if (!result || result.rows.length === 0) {
+        throw { status: 403, message: "Incorrect Email or Password" };
       }
-    }
-  });
+
+      const hash = result.rows[0].password;
+
+      return bcrypt.compare(password, hash);
+    })
+    .then((bcryptRes) => {
+      if (!bcryptRes) {
+        throw { status: 403, message: " Incorrect Email or Password" };
+      }
+
+      const token = createToken(email, SECRET);
+      res
+        .cookie("token", token, { maxAge: 900000, httpOnly: true })
+        .status(200)
+        .json({ status: "sucess" });
+    })
+    .catch((err) => {
+      console.log("TEST");
+
+      if (err.status === 403) {
+        res.status(403).json({ message: err.message });
+      } else {
+        console.log("Error occured in getPassword(): " + err);
+        res.status(500).json({ message: "Unexpected error occured" });
+      }
+    });
 };
