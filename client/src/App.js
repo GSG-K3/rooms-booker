@@ -6,11 +6,13 @@ import Events from './components/Layout/Events/Events'
 import UserHome from './components/Layout/UserHome/UserHome'
 // import NavBar from './components/Common/NavBar/NavBar'
 import BookingForm from './components/Common/BookingForm/BookingForm'
+import SearchAvailableRooms from './components/Layout/SearchAvailableRooms/SearchAvailableRooms'
 
 function App () {
   return (
     <Router>
       <Header />
+      <SearchAvailableRooms />
       <Switch>
         <Route exact path = '/' component={Events}/>
         <Route exact path="/home" component={UserHome} />

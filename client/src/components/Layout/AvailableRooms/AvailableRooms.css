@@ -1,0 +1,44 @@
+.available-rooms-title{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: #FFA633;
+}
+
+.available-rooms-container__available-room {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: space-between;
+    padding: 0.8em 1em 0.2em 1.5em;
+    margin: 1em 0 1em 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+  }
+
+  .available-rooms-container__available-room__room-name{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 27px;
+    display: flex;
+    color: #4FB2AA;
+  }
+
+  .available-rooms-container__available-room__addIcon{
+    width: 35px;
+    height: 35px
+  }
+
+  .available-rooms-container__available-room:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
