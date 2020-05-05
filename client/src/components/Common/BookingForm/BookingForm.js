@@ -14,7 +14,7 @@ class BookingForm extends Component {
       date: '2020-05-23T11:00:00.000Z',
       roomId:  5,
       room_name : 'Moscow' ,
-      toggelReminder: false ,
+      reminder: false ,
       showPopup : false
     }
   }
@@ -24,18 +24,18 @@ class BookingForm extends Component {
     const value =e.target.value
     this.setState({[name]: value})
   }
-  handelChecked = ()=> {
-      this.setState({toggelReminder : !this.state.toggelReminder })
+  toggleReminder = ()=> {
+      this.setState({reminder : !this.state.reminder })
   }
 
    handelSubmit =(e) => {
       e.preventDefault();
       const formData = this.state
       axios.post( '/api/booking', formData)
-      .then(response => {if(response.status===200){
-        console.log( 'res :',response)
-       return this.setState({showPopup : !this.state.showPopup})}
-      // else  alert('A small error happend in the server in this booking operation!! try again !!')
+      .then(response => {
+        if(response.status===200){
+         this.setState({showPopup : !this.state.showPopup})
+        }
       })
       .catch(err => console.log(err))
    }
@@ -65,7 +65,7 @@ class BookingForm extends Component {
           <input type="text" name="description" onChange={this.handelChange} placeholder="Event Description" />
           <input type="text" name="notes" onChange={this.handelChange} placeholder=" Notes" />
           <div className="remind_me_input__div">
-            <label htmlFor="reminder" className="radio_input"><input type="radio" onClick={this.handelChecked} checked={this.state.reminder} />Remind me</label>
+            <label htmlFor="reminder" className="radio_input"><input type="radio" onClick={this.toggleReminder} checked={this.state.reminder} />Remind me</label>
           </div>
           <div className="buttons_continer">
             <Link to='/' className='text-link'>
