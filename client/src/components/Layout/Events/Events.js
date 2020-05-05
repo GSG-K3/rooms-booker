@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './events.css'
 import NavBar from '../../Common/NavBar/NavBar.js'
+import Event from '../Event/Event'
+
 
 class Events extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      events: []
-    }
+      events: [],
+      searchQuery: '',
+     } 
   }
-
   componentDidMount () {
     axios.get('/api/events')
       .then((res) => {
@@ -20,24 +22,37 @@ class Events extends Component {
       })
       .catch((err) => console.log(err))
   }
+  
+  setSearchQuery = name => this.setState({ searchQuery: name.target.value})
+  filterSearch = () => {
+    const { events, searchQuery} = this.state
+    return events.filter( event => event.event_title.toLowerCase().indexOf(searchQuery.toLowerCase())!== -1)
+  }
 
   render () {
-    const { events } = this.state
+  const { events, searchQuery} = this.state
     return (
+
       <div>
         <NavBar />
+        <div className='SearchEvent'>
+          <div>
+            <input type='text'
+              placeholder='Search for Event ... '
+              onChange={this.setSearchQuery}
+              value ={searchQuery}
+            />
+          </div>
+        </div>
+
         <div className="events">
-          {
-            events.map(event => {
-              return (
-                <div className="event">
-                  <h2 >{event.event_title}</h2>
-                  <p >{event.event_date}</p>
-                </div>
-              )
-            })
-          }
-        </div></div>
+            {
+               this.filterSearch().map(event => { 
+               return <Event event={event} />
+              })
+            }
+        </div>
+      </div>
     )
   }
 }
