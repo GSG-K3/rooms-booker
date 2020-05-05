@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './events.css'
-import NavBar from '../../Common/NavBar/NavBar.js'
 import Event from '../Event/Event'
 
 
@@ -34,7 +33,6 @@ class Events extends Component {
     return (
 
       <div>
-        <NavBar />
         <div className='SearchEvent'>
           <div>
             <input type='text'

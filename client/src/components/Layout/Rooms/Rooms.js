@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./style.css";
-
 class Rooms extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +28,7 @@ class Rooms extends Component {
   render() {
     const { rooms, shownCardId, show } = this.state;
     return (
+     
       <ul className="rooms">
         {rooms.map((rooms) => {
           return (
@@ -39,7 +39,7 @@ class Rooms extends Component {
               {rooms.room_id === shownCardId && show ? (
                 <div className="rooms__card__content">
                   <li className="li"> capacity : {rooms.capacity}</li>
-                  <li className="li"> space : {rooms.space + " m"}</li>
+                  <li className="li"> space : {rooms.space}</li>
                   <li className="li"> {rooms.datashow ? "DataShow" : null}</li>
                   <li className="li"> {rooms.wifi ? "Wifi" : null}</li>
                   <li className="li">
@@ -54,6 +54,7 @@ class Rooms extends Component {
           );
         })}
       </ul>
+     
     );
   }
 }
