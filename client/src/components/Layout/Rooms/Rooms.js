@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./style.css";
 
+import SearchAvailableRooms from "../SearchAvailableRooms/SearchAvailableRooms";
 class Rooms extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +30,8 @@ class Rooms extends Component {
   render() {
     const { rooms, shownCardId, show } = this.state;
     return (
+      <div>
+      <SearchAvailableRooms rooms = {rooms}/>
       <ul className="rooms">
         {rooms.map((rooms) => {
           return (
@@ -52,8 +55,9 @@ class Rooms extends Component {
               ) : null}
             </div>
           );
-        })}
-      </ul>
+        })} 
+      </ul></div>
+     
     );
   }
 }

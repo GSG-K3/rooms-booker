@@ -5,7 +5,6 @@ import axios from 'axios'
 
 import searchIcon from '../../../Images/search.png'
 import AvailableRooms from '../AvailableRooms/AvailableRooms'
-import Rooms from '../Rooms/Rooms'
 
 import './SearchAvailableRooms.css'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -17,10 +16,10 @@ class SearchAvailableRooms extends Component {
       RoomsId: [],
       startDate:new Date(),
       displayAvailableRooms: false,
-      availableRooms: []
+      availableRooms: [],
     }
   }
-
+  
   handleChange = (date) => {
     this.setState({
       startDate: date
@@ -28,15 +27,21 @@ class SearchAvailableRooms extends Component {
   }
 
   searchAvailableRooms = () => {
+    this.setState({displayAvailableRooms: true})
+    if(this.state.displayAvailableRooms === true){
+    let rooms = this.props.rooms
+    let { RoomsId } = this.state
     const date = moment(this.state.startDate.toLocaleString()).format('YYYY-MM-DD h:mm:ss')
     axios
       .get(`/api/available-rooms/${date}`)
       .then((res) => this.setState({ RoomsId: res.data }))
       .catch(err => err)
-    console.log(this.state.RoomsId)
-    this.setState({displayAvailableRooms: true})
-    // this.state.availableRooms = Rooms.filter(Rooms => room_id === false)
-  }
+    console.log(RoomsId)
+      this.state.availableRooms = rooms.filter(function(room) {
+        return !RoomsId.includes(room['room_id']); 
+      })
+      console.log(this.state.availableRooms)}
+}
 
   render () {
     return (

@@ -16,7 +16,7 @@ class AvailableRooms extends Component {
         <div className='available-rooms-container'>
           {this.props.AvailableRooms.map((AvailableRoom, i) => {
             return (<div key={i} className = "available-rooms-container__available-room">
-              <h2 className = "available-rooms-container__available-room__room-name">{this.props.AvailableRooms[i].Name}</h2>
+              <h2 className = "available-rooms-container__available-room__room-name">{this.props.AvailableRooms[i].room_name}</h2>
               <img src={addRoomIcon} className = "available-rooms-container__available-room__addIcon" onClick = {this.routeToBookForm}/>
             </div>)
           })}

@@ -12,7 +12,6 @@ function App () {
   return (
     <Router>
       <Header />
-      <SearchAvailableRooms />
       <Switch>
         <Route exact path = '/' component={Events}/>
         <Route exact path="/home" component={UserHome} />
