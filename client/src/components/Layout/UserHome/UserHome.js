@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Profile from '../../../Images/Ellipse 2.jpg'
 import Delete from '../../../Images/delete.jpg'
 import Edit from '../../../Images/Edit.png'
+import { Link } from 'react-router-dom'
+
 import './userHome.css'
 import axios from 'axios'
 class UserHome extends Component {
@@ -9,9 +11,10 @@ class UserHome extends Component {
     events :[]
   }
   componentDidMount () {
-    const id = 11
+    const id = 3
        axios.get(`/api/user-events/${id}`)
-      .then(res=>this.setState({events: res.data}))
+      .then(res=>{this.setState({events: res.data}) 
+      console.log(res.data)})
       .catch(err => console.log(err))   
    }
 
@@ -35,7 +38,10 @@ class UserHome extends Component {
       <img src={Delete} alt='delete' />
       </div>
       <div>
-      <img src={Edit} alt='edit' />
+      <Link to={`/event/edit/${event.event_id}`} className='btn'>
+            <img src={Edit}  alt='edit' />
+
+            </Link>
       </div>
     </div>
   </div>

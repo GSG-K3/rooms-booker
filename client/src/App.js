@@ -6,6 +6,7 @@ import Events from './components/Layout/Events/Events'
 import UserHome from './components/Layout/UserHome/UserHome'
 // import NavBar from './components/Common/NavBar/NavBar'
 import BookingForm from './components/Common/BookingForm/BookingForm'
+import EditEvent from './components/Common/EditEvent/EditEvent'
 
 function App () {
   return (
@@ -15,6 +16,7 @@ function App () {
         <Route exact path = '/' component={Events}/>
         <Route exact path="/home" component={UserHome} />
         <Route exact path="/rooms" component={Rooms} />
+        <Route exact path="/event/edit/:id" component={EditEvent} />
         <Route exact path="/booking" component={BookingForm} />
       </Switch>
     </Router>
