@@ -2,8 +2,8 @@ const dbconniction = require('../db_connection')
 
 const eventEdit = (data) => {
   const sql = {
-    text: 'UPDATE events SET event_title = $1 WHERE event_id = $2 ',
-    values: [data.event_title, data.event_id]
+    text: 'UPDATE events SET event_title = $1 , event_author = $2 , event_description = $3 , event_note = $4  WHERE event_id = $5 ',
+    values: [data.event_title, data.event_author, data.event_description, data.event_note, data.event_id]
   }
   dbconniction.query(sql, (err, result) => {
     if (err) throw err
