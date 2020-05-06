@@ -34,8 +34,6 @@ exports.login = (req, res) => {
         .json({ status: "sucess" });
     })
     .catch((err) => {
-      console.log("TEST");
-
       if (err.status === 403) {
         res.status(403).json({ message: err.message });
       } else {
