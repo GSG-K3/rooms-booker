@@ -34,6 +34,8 @@
 }
 
 .date-and-time{
+  display: flex;
+  flex-direction: column;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -43,6 +45,27 @@
   align-items: center;
   text-align: center;
   color: #FFA633;
-  margin: 5%;
+  width: 60%;
+  margin: 2%;
   padding: 2%;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 3%;
+}
+
+.date {
+  display: flex;
+  margin: 4%;
+  width: 90%;
+  justify-content: flex-start;
+}
+
+.time {
+  display: flex;
+  margin: 4%;
+  width: 90%;
+  justify-content: flex-start;
 }

@@ -4,6 +4,8 @@ import moment from 'moment'
 import axios from 'axios'
 
 import searchIcon from '../../../Images/search.png'
+import calenderIcon from '../../../Images/calendar_icon.png'
+import clockIcon from '../../../Images/clock_icon.png'
 import AvailableRooms from '../AvailableRooms/AvailableRooms'
 
 import './SearchAvailableRooms.css'
@@ -27,21 +29,27 @@ class SearchAvailableRooms extends Component {
   }
 
   searchAvailableRooms = () => {
-    this.setState({displayAvailableRooms: true})
-    if(this.state.displayAvailableRooms === true){
-    let rooms = this.props.rooms
-    let { RoomsId } = this.state
+    this.state.availableRooms = []
+    // this.setState({displayAvailableRooms: true})
+    // console.log(this.state.displayAvailableRooms);
     const date = moment(this.state.startDate.toLocaleString()).format('YYYY-MM-DD h:mm:ss')
     axios
       .get(`/api/available-rooms/${date}`)
-      .then((res) => this.setState({ RoomsId: res.data }))
+      .then((res) => this.setState({ RoomsId: res.data,  displayAvailableRooms: true}))
       .catch(err => err)
-    console.log(RoomsId)
-      this.state.availableRooms = rooms.filter(function(room) {
-        return !RoomsId.includes(room['room_id']); 
-      })
-      console.log(this.state.availableRooms)}
-}
+    this.filterRooms()
+    }
+
+    filterRooms () {
+      let rooms = this.props.rooms
+      let temp = []
+      let { RoomsId , availableRooms } = this.state
+      for(let i = 0; i < RoomsId.length;i++)
+      { temp.push((rooms.filter(room => (room.room_id === RoomsId[i].room_id))))}
+      temp.forEach( (valuesObj) => {
+        availableRooms.push(valuesObj[0].room_name)
+      }); 
+    }
 
   render () {
     return (
@@ -61,7 +69,7 @@ class SearchAvailableRooms extends Component {
             onClick={this.searchAvailableRooms}
           />
         </div>
-          {this.state.displayAvailableRooms ? <div className = "date-and-time">{this.state.startDate.toLocaleString()}</div>:<div> </div>}
+          {/* {this.state.displayAvailableRooms ? <div className = "date-and-time"><div className = 'date'><img src = {calenderIcon} className = 'icon'/>{this.state.startDate.toLocaleDateString()}</div><div className = 'time'><img src = {clockIcon} className = 'icon'/>{this.state.startDate.toLocaleTimeString()}</div></div>:<div> </div>} */}
           {this.state.displayAvailableRooms ? <AvailableRooms AvailableRooms = {this.state.availableRooms}/>:<div> </div> }
       </div>
     )
