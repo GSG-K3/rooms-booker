@@ -14,7 +14,7 @@ class Popup extends Component {
     return (
       <div className='popup'>
         <div className='popup_inner'>
-          <p>You booked {this.props.room} room for your event  successfully !</p>
+          <p>You booked <strong>{this.props.room}</strong> room for your event  successfully !</p>
           <div className='btns_div'>
             <Link className='text-link' to='/'>
               <button className='back_btn'>Back</button>
