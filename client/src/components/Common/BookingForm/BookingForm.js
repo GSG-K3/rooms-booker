@@ -16,6 +16,7 @@ class BookingForm extends Component {
       roomName: "Moscow",
       reminder: false,
       showPopup: false,
+      showNote : false
     };
   }
 
@@ -30,15 +31,14 @@ class BookingForm extends Component {
 
   handelSubmit = (e) => {
     e.preventDefault();
-    const formData = this.state;
-    axios
-      .post("/api/booking", formData)
-      .then((response) => {
-        if (response.status === 200) {
-          this.setState({ showPopup: !this.state.showPopup });
-        }
-      })
-      .catch((err) => console.log(err));
+    if(this.state.name!=null && this.state.title!=null && this.state.description!=null){
+      const formData = this.state;
+      axios
+        .post("/api/booking", formData)
+        .then((response) => this.setState({ showPopup: !this.state.showPopup }))
+        .catch((err) => alert('An Error happend in the server !! try again '));
+    }
+    else this.setState({showNote : !this.state.showNote})
   };
 
   render() {
@@ -64,6 +64,7 @@ class BookingForm extends Component {
             process:
           </p>
           <hr className="label_line" />
+          {this.state.showNote? <small className='message'>Please fill the first 3 fields</small> :null}
           <input
             type="text"
             name="name"
