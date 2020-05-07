@@ -1,11 +1,11 @@
-const getEditEvent = require('../database/queries/getEditEvent')
+const getEditEvent = require("../database/queries/getEditEvent");
 
 const eventToEdit = (req, res) => {
-  const eventId = req.params.id
-  getEditEvent(eventId, (err, response) => {    
-    if (err) console.log(err)
-    else res.send(response)
-  })
-}
+  const eventId = req.params.id;
 
-module.exports = eventToEdit
+  getEditEvent(eventId)
+    .then((data) => res.json(data[0]))
+    .catch((err) => console.log(err));
+};
+
+module.exports = eventToEdit;

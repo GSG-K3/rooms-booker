@@ -16,7 +16,7 @@
     height: 1.8em;
     margin-right: 1.5em;
 }
-.booking_form{
+.edit_form {
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -24,20 +24,23 @@
     color: #3B5A9D;
     font-size: 20px;
 }
-.booking_form p{
+.edit_form p{
     text-align: center;
     margin: 0 1em 0 1em;
+}
+.edit_form_message{
+    color: red;
 }
 .label_line{
     margin: 0.4em 1.2em 0.4em 1.2em;
     border-top:#4FB2AA solid 3px ;
     align-items: center;
 }
-.booking_form input{
+.edit_form input{
     margin: 1.4em 0 0.3em 2.3em;
     font-size: 20px;
 }
-.booking_form input[type=text]::placeholder{
+.edit_form input[type=text]::placeholder{
     color: rgba(79, 178, 170, 0.336);
 }
 .remind_me_input__div input{
@@ -62,7 +65,7 @@
     border: #FFA633 solid 1px;
     margin:  1.5em 0em 1em 0.3em;
 }
-.book_button{
+.save_button{
     color: white;
     background-color: #3B5A9D;
     width: 150px;
@@ -79,14 +82,14 @@
 }
 
 @media only screen and (min-width:600px){
-    .booking_form{
+    .edit_form  {
         margin: 0 4em 1em 4em;
     }
-    .booking_form input[type=text]{
+    .edit_form input[type=text]{
         width: 400px;
         margin-left: 4em;
     }
-    .booking_form p{
+    .edit_form p{
         margin: 0.5em 0 0 2em;
     }
     .label_line{
@@ -102,14 +105,14 @@
 
 }
 @media only screen and (min-width:800px){
-    .booking_form input[type=text]{
+    .edit_form input[type=text]{
         width: 500px;
     }
-    .booking_form p{
+    .edit_form p{
         text-align: left;
         margin-left: 4em;
     }
-    .booking_form{
+    .edit_form {
         margin: 0 8em 1em 8em;
         padding: 0 2em 0 2em;
     }
