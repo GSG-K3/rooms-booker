@@ -6,8 +6,6 @@ const postEvent = (data) => {
     values: [data.title, data.description, data.notes, data.date, data.userId, data.roomId, data.name]
   }
   dbConniction.query(sql)
-    .then(response => console.log(response.rows))
-    .catch(err => console.log(err))
 }
 
 module.exports = postEvent
