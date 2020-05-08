@@ -69,3 +69,13 @@
   width: 90%;
   justify-content: flex-start;
 }
+
+.message {
+  margin-top: 5%;
+  color: #FFA633;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+}
