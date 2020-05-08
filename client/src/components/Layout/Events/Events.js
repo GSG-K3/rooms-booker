@@ -3,7 +3,7 @@ import axios from 'axios'
 import './events.css'
 import NavBar from '../../Common/NavBar/NavBar.js'
 import Event from '../Event/Event'
-
+import EventInfo from '../EventInfo/EventInfo'
 
 class Events extends Component {
   constructor (props) {
@@ -14,6 +14,7 @@ class Events extends Component {
      } 
   }
   componentDidMount () {
+    const { history } = this.props
     axios.get('/api/events')
       .then((res) => {
         this.setState({
@@ -47,8 +48,18 @@ class Events extends Component {
 
         <div className="events">
             {
-               this.filterSearch().map(event => { 
-               return <Event event={event} />
+               this.filterSearch().map((event,i) => { 
+               return <Event 
+               event={event} 
+              event_title= {event.event_title}
+               event_date = {event.event_date}
+               event_description = {event.event_description}
+               event_author = {event.event_author}
+               event_note = {event.event_note}
+               history={this.props.history}
+               key = {i}
+               
+               />
               })
             }
         </div>

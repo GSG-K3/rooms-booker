@@ -4,9 +4,8 @@ import Rooms from './components/Layout/Rooms/Rooms.js'
 import Header from './components/Common/Header/Header'
 import Events from './components/Layout/Events/Events'
 import UserHome from './components/Layout/UserHome/UserHome'
-// import NavBar from './components/Common/NavBar/NavBar'
 import BookingForm from './components/Common/BookingForm/BookingForm'
-
+import EventInfo from './components/Layout/EventInfo/EventInfo'
 function App () {
   return (
     <Router>
@@ -16,6 +15,7 @@ function App () {
         <Route exact path="/home" component={UserHome} />
         <Route exact path="/rooms" component={Rooms} />
         <Route exact path="/booking" component={BookingForm} />
+        <Route exact path = '/event:title' component={EventInfo}/>
       </Switch>
     </Router>
   )
