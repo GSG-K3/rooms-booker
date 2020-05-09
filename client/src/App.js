@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
 import Rooms from './components/Layout/Rooms/Rooms.js'
 import Header from './components/Common/Header/Header'
 import Login from './components/Layout/Login/Login.js'
