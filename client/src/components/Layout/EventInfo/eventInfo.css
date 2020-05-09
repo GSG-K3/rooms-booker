@@ -1,0 +1,37 @@
+.eventinfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    margin-top: 50px;
+}
+.eventinfo__title {
+color: #FFA633;
+font-size: 20px;
+}
+.event_info{
+    border: 1px solid #4FB2AA;
+    border-radius: 12px;
+    margin-top: 15px;
+    color:#3B5A9D ;
+}
+.event_info h2 {
+    font-size: 20px;
+}
+.event_info p {
+    font-size: small;
+}
+
+.event_info__description{
+    margin: 15px 10px 0px 10px;
+}
+
+.event_info__author{
+    margin: 15px 0px 0px 10px;
+}
+.event_info__date{
+    margin: 15px 0px 0px 10px;
+}
+.event_info__note{
+    margin: 15px 10px 15px 10px;
+}
