@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -16,15 +17,12 @@ class Login extends Component {
     axios
       .post("/api/login", data)
       .then((result) => {
-
         if (result.status === 200) {
           alert("sucess");
         }
       })
-      .catch((err) => {
-        console.log(err);
-        this.setState({ message: err.response.data.message });
-      });
+      .catch((err) => 
+        this.setState({ message: err.response.data.message }));
   };
 
   handleInput = (e) => {
@@ -36,10 +34,9 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleForm}>
+      <form>
         <div className="login-form">
           <h1> LogIn </h1>
-
           <div className="login-form__email">
             <input
               type="email"
@@ -49,7 +46,6 @@ class Login extends Component {
               placeholder="Email"
             />
           </div>
-
           <div className="login-form__password">
             <input
               type="password"
@@ -60,13 +56,18 @@ class Login extends Component {
             />
           </div>
           {this.state.message ? <p> {this.state.message} </p> : null}
-
-          <button type="submit" className="login-form__login__btn">
+          <button
+            type="submit"
+            onClick={this.handleForm}
+            className="login-form__login__btn"
+          >
             Login
           </button>
-          <button type="submit" className="login-form__back__btn">
-            Back
-          </button>
+          <Link to="/" className="text-link">
+            <button type="submit" className="login-form__back__btn">
+              Back
+            </button>
+          </Link>
         </div>
       </form>
     );

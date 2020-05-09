@@ -37,8 +37,7 @@ exports.login = (req, res) => {
       if (err.status === 403) {
         res.status(403).json({ message: err.message });
       } else {
-        console.log("Error occured in getPassword(): " + err);
-        res.status(500).json({ message: "Unexpected error occured" });
+        res.status(500).json({ message: "Unexpected error occured" })
       }
-    });
+    })
 };

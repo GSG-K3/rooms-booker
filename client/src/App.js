@@ -6,7 +6,6 @@ import Header from './components/Common/Header/Header'
 import Login from './components/Layout/Login/Login.js'
 import Events from './components/Layout/Events/Events'
 import UserHome from './components/Layout/UserHome/UserHome'
-// import NavBar from './components/Common/NavBar/NavBar'
 import BookingForm from './components/Common/BookingForm/BookingForm'
 
 function App () {
