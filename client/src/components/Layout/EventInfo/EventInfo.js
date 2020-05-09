@@ -32,6 +32,12 @@ const EventInfo = (props) => {
         </div>
 
       </div>
+      <div className ='eventinfo_button'>
+        <div>
+        <button className='eventinfo_button__back'>Back</button>
+        </div>
+        <button className='eventinfo_button__remindme'>Remind me</button>
+      </div>
     </div>
   )
 }
