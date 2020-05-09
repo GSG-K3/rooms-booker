@@ -1,12 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-const EventInfo = props => {
-  const data = sessionStorage.getItem('EventInfo')
-  const eventinfo = JSON.parse(data)
+const EventInfo = (props) => {
+  const data = sessionStorage.getItem('event')
+  const eventInfo = JSON.parse(data)
 
   return (
     <div>
-      <h2>{eventinfo.event_title}</h2>
+      <p> {eventInfo.event_title} </p>
+      <p> {eventInfo.event_description}</p>
+      <p> {eventInfo.event_author}</p>
+      <p> {eventInfo.event_date}</p>
+      <p> {eventInfo.event_note}</p>
     </div>
   )
 }

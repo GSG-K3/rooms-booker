@@ -53,9 +53,6 @@ class Events extends Component {
                event={event} 
               event_title= {event.event_title}
                event_date = {event.event_date}
-               event_description = {event.event_description}
-               event_author = {event.event_author}
-               event_note = {event.event_note}
                history={this.props.history}
                key = {i}
                

@@ -15,7 +15,7 @@ function App () {
         <Route exact path="/home" component={UserHome} />
         <Route exact path="/rooms" component={Rooms} />
         <Route exact path="/booking" component={BookingForm} />
-        <Route exact path = '/event:title' component={EventInfo}/>
+        <Route exact path = '/event' component={EventInfo}/>
       </Switch>
     </Router>
   )

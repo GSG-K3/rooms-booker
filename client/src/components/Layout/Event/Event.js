@@ -5,11 +5,10 @@ import EventInfo from '../EventInfo/EventInfo'
 
 class Event extends Component {
   showInfo = () => {
-    
     const { event , history  } = this.props
-    sessionStorage.setItem('EventInfo', JSON.stringify(event))
+    sessionStorage.setItem('event', JSON.stringify(event))
     history.push({
-      pathname: `/event/${event.event_title}`
+      pathname: '/event'
     })
   }
   render () {
