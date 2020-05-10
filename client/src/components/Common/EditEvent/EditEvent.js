@@ -21,7 +21,6 @@ class EditEvent extends Component {
       eventDescription: "",
       eventNote: "",
       message: null,
-
     };
   }
 
@@ -42,8 +41,8 @@ class EditEvent extends Component {
   }
 
   handelChange = (e) => {
-    const {name, value} = e.target
-    this.setState({ [name]: value ,message: null });
+    const { name, value } = e.target;
+    this.setState({ [name]: value, message: null });
   };
 
   handelSubmit = (e) => {
@@ -54,7 +53,7 @@ class EditEvent extends Component {
       eventAuthor: this.state.eventAuthor,
       eventDescription: this.state.eventDescription,
       eventNote: this.state.eventNote,
-    }
+    };
     axios
       .post("/api/update-event", editData)
       .then((response) => this.setState({ showPopup: !this.state.showPopup }))
@@ -115,7 +114,9 @@ class EditEvent extends Component {
             placeholder=" event Notes"
             value={eventNote}
           />
-          {this.state.message ? <p className='edit_form_message'> {this.state.message} </p> : null}
+          {this.state.message ? (
+            <p className="edit_form_message"> {this.state.message} </p>
+          ) : null}
 
           <div className="buttons_continer">
             <Link to="/home" className="text-link">
