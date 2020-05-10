@@ -23,15 +23,15 @@
   "homepage": "https://github.com/GSG-K3/rooms-booker#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
     "concurrently": "^5.1.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
     "env2": "^2.2.2",
     "express": "^4.17.1",
-    "moment": "^2.25.3",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.3",
-    "pg": "^7.4.3",
-    "react-datepicker": "^2.14.1",
-    "react-moment": "^0.9.7",
-    "react-router-dom": "^5.1.2"
+    "pg": "^7.4.3"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
