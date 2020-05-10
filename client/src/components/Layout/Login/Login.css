@@ -50,7 +50,7 @@ input::placeholder {
 button:hover {
   opacity: 0.8;
 }
-form {
+.form-container {
   display: flex;
   justify-content: center;
   align-items: center;
