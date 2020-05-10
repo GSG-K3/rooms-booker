@@ -12,31 +12,32 @@ font-size: 20px;
 .event_info{
     border: 1px solid #4FB2AA;
     border-radius: 12px;
-    margin-top: 15px;
+    margin-top: 20px;
     color:#3B5A9D ;
 }
 .event_info h2 {
-    font-size: 20px;
+    font-size: 16px;
 }
 .event_info p {
+    margin-top: 5px;
     font-size: small;
 }
 
 .event_info__description{
-    margin: 15px 10px 0px 10px;
+    margin: 15px 15px 0px 30px;
 }
 
 .event_info__author{
-    margin: 15px 0px 0px 10px;
+    margin: 15px 0px 0px 30px;
 }
 .event_info__date{
-    margin: 15px 0px 0px 10px;
+    margin: 15px 0px 0px 30px;
 }
 .event_info__room{
-    margin: 15px 0px 0px 10px;  
+    margin: 15px 0px 0px 30px;  
 }
 .event_info__note{
-    margin: 15px 10px 15px 10px;
+    margin: 15px 10px 30px 30px;
 }
 .eventinfo_button{
     margin-top: 10px;
@@ -73,14 +74,14 @@ font-size: 20px;
 
 @media only screen and (min-width: 885px) {
     .eventinfo__title {
-        font-size: 40px;
+        font-size: 30px;
         }
 
         .event_info h2 {
-            font-size: 40px;
+            font-size: 25px;
         }
         .event_info p {
-            font-size: 25px;
+            font-size: 20px;
         }
         .eventinfo_button__back{
             width: 120px;
@@ -91,5 +92,6 @@ font-size: 20px;
             height: 50px;
             font-size: 18px;
         }
+
 }
 

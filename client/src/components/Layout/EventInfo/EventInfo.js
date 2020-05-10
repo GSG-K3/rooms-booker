@@ -19,17 +19,17 @@ const data = sessionStorage.getItem('event')
     <div className='event_info'>
 
       <div className ='event_info__description'>
-        <h2>Description About The Event:</h2>
+        <h2>Description:</h2>
         <p> {eventInfo.event_description}</p>
       </div>
 
       <div className ='event_info__author'>
-        <h2>Event Author:</h2>
+        <h2>Author:</h2>
         <p> {eventInfo.event_author}</p>
       </div>
 
       <div className ='event_info__date'>
-        <h2>Event Date:</h2>
+        <h2>Date:</h2>
         <p> {eventInfo.event_date}</p>
       </div>
 
@@ -55,7 +55,7 @@ const data = sessionStorage.getItem('event')
       <button className='eventinfo_button__remindme'>Remind me</button>
 
     </div>
-    
+
   </div>
 )
 }

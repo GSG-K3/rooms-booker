@@ -8,7 +8,7 @@ class Event extends Component {
     const { event , history  } = this.props
     sessionStorage.setItem('event', JSON.stringify(event))
     history.push({
-      pathname: '/event'
+      pathname: `/event/${event.event_id}`
     })
   }
   render () {
