@@ -31,7 +31,6 @@ class Rooms extends Component {
     const { rooms, shownCardId, show } = this.state;
     return (
       <div>
-      <SearchAvailableRooms rooms = {rooms}/>
       <ul className="rooms">
         {rooms.map((rooms) => {
           return (
