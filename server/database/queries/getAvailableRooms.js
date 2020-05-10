@@ -3,7 +3,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 const availableRooms = (eventDate) => {
   const sql = {
-    text: 'SELECT room_id FROM events WHERE event_date !=$1',
+    text: 'SELECT room_name FROM rooms WHERE room_id NOT IN (SELECT room_id FROM events WHERE event_date = $1)',
     values: [eventDate]
   }
 

@@ -12,54 +12,57 @@ import './SearchAvailableRooms.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
 class SearchAvailableRooms extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
-      roomId: [],
       startDate: new Date(),
       display: false,
       availableRooms: [],
     }
   }
 
-  handleChange = (date) => {
-    this.setState({
-      startDate: date
+  handleChange =  (date) => {
+    this.setState ({
+      startDate: date,
     })
   }
 
-  searchAvailableRooms = () => {  
-    const date = moment(this.state.startDate.toLocaleString()).format('YYYY-MM-DD h:mm:ss')
+  searchAvailableRooms =  () => {
+    const date = moment (this.state.startDate.toLocaleString ()).format (
+      'YYYY-MM-DD h:mm:ss'
+    )
     axios
-      .get(`/api/available-rooms/${date}`)
-      .then((res) => this.setState({ roomId: res.data })).then(() => {
-        this.setState({
-          availableRooms: [],
-        })
-        this.filterRooms()
-      }
-      )
-      .catch(err => err)
+      .get (`/api/available-rooms`, {
+        params: {
+          date: date,
+        },
+      })
+      .then ( (res) => this.setState ({ availableRooms: res.data, display: true }))
+      .catch ( (err) => err)
   }
 
-  filterRooms() {
-    const { rooms } = this.props
-    let temp = []
-    let { roomId, availableRooms } = this.state
-
-    for (let i = 0; i < roomId.length; i++) { temp.push((rooms.filter(room => (room.room_id === roomId[i].room_id)))) }
-
-    temp.forEach((room) => {
-      availableRooms.push(room[0].room_name)
-    });
-
-    this.setState({ display: true })
+  renderAvailableRooms () {
+    return  (
+      <div>
+        <div className='date-and-time'>
+          <div className='date'>
+            <img src={calenderIcon} className='icon' />
+            {this.state.startDate.toLocaleDateString ()}
+          </div>
+          <div className='time'>
+            <img src={clockIcon} className='icon' />
+            {this.state.startDate.toLocaleTimeString ()}
+          </div>
+        </div>
+        <AvailableRooms availableRooms={this.state.availableRooms} />
+      </div>
+    )
   }
 
-  render() {
-    return (
+  render () {
+    return  (
       <div className='available-rooms-container'>
-        <div className="available-rooms-container__search-bar">
+        <div className='available-rooms-container__search-bar'>
           <DatePicker
             placeholderText='Enter Date'
             className='available-rooms-container__date-picker'
@@ -74,8 +77,11 @@ class SearchAvailableRooms extends Component {
             onClick={this.searchAvailableRooms}
           />
         </div>
-        {this.state.display ? <div className = "date-and-time"><div className = 'date'><img src = {calenderIcon} className = 'icon'/>{this.state.startDate.toLocaleDateString()}</div><div className = 'time'><img src = {clockIcon} className = 'icon'/>{this.state.startDate.toLocaleTimeString()}</div></div>:<div> </div>}
-        {this.state.display ? <AvailableRooms availableRooms={this.state.availableRooms} /> : <p className = "message"> Enter Date to check available rooms. </p>}
+        {this.state.availableRooms.length > 0 ?  (
+          this.renderAvailableRooms ()
+        ) :  (
+          <p className='message'> Enter Date to check available rooms. </p>
+        )}
       </div>
     )
   }

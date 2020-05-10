@@ -9,7 +9,7 @@ const searchAvailableRooms = require('./getAvailableRooms')
 router.get('/api/rooms', getAllRooms)
 router.get('/api/user-events/:id', userEvents)
 router.get('/api/events', getAllEvents)
-router.get('/api/available-rooms/:date', searchAvailableRooms)
+router.get('/api/available-rooms', searchAvailableRooms)
 router.post('/api/booking', addEvent)
 
 module.exports = router
