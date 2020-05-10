@@ -32,11 +32,14 @@ font-size: 20px;
 .event_info__date{
     margin: 15px 0px 0px 10px;
 }
+.event_info__room{
+    margin: 15px 0px 0px 10px;  
+}
 .event_info__note{
     margin: 15px 10px 15px 10px;
 }
 .eventinfo_button{
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     
 }

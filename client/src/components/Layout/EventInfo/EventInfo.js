@@ -11,6 +11,7 @@ const data = sessionStorage.getItem('event')
  const eventInfo = JSON.parse(data)
  return (
   <div className='eventinfo'>
+
     <div>
       <h2 className ='eventinfo__title'> {eventInfo.event_title} </h2>
     </div>
@@ -32,6 +33,11 @@ const data = sessionStorage.getItem('event')
         <p> {eventInfo.event_date}</p>
       </div>
 
+      <div className ='event_info__room'>
+        <h2>Address_Room:</h2>
+        <p>{eventInfo.room_name}</p>
+      </div>
+
       <div className ='event_info__note'>
         <h2>Notes:</h2>
         <p> {eventInfo.event_note}</p>
@@ -39,14 +45,17 @@ const data = sessionStorage.getItem('event')
 
     </div>
     <div className ='eventinfo_button'>
+
       <div>
         <button className='eventinfo_button__back' onClick={ () => {
           this.goBack()
-        }} >Back</button>
+        }} >Back</button> 
       </div>
-      <button className='eventinfo_button__remindme'>Remind me</button>
-    </div>
 
+      <button className='eventinfo_button__remindme'>Remind me</button>
+
+    </div>
+    
   </div>
 )
 }
