@@ -1,0 +1,125 @@
+.date_info_continer__div{
+    margin: 1.5em 0 1em 1.2em;
+
+}
+.date_info__div{
+    display: flex;
+    width: 200px;
+    margin: 0.5em 0 0.5em 2em;
+    color: #FFA633;
+}
+.date_info__div h4{
+    margin-top: 0.4em;
+}
+.date_info__div img{
+    width: 1.8em;
+    height: 1.8em;
+    margin-right: 1.5em;
+}
+.edit_form {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: 0 2em 1em 1em;
+    color: #3B5A9D;
+    font-size: 20px;
+}
+.edit_form p{
+    text-align: center;
+    margin: 0 1em 0 1em;
+}
+.edit_form_message{
+    color: red;
+}
+.label_line{
+    margin: 0.4em 1.2em 0.4em 1.2em;
+    border-top:#4FB2AA solid 3px ;
+    align-items: center;
+}
+.edit_form input{
+    margin: 1.4em 0 0.3em 2.3em;
+    font-size: 20px;
+}
+.edit_form input[type=text]::placeholder{
+    color: rgba(79, 178, 170, 0.336);
+}
+.remind_me_input__div input{
+    margin-right: 0.7em;
+    
+}
+.buttons_continer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
+}
+.back_button{
+    width: 150px;
+    height: 43px;
+    font-size: 25px;
+    border-radius: 10px;
+    color: #3B5A9D;
+    border: #FFA633 solid 1px;
+    margin:  1.5em 0em 1em 0.3em;
+}
+.save_button{
+    color: white;
+    background-color: #3B5A9D;
+    width: 150px;
+    height: 43px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+    margin:  1.5em 0em 1em 0.2em;
+
+}
+.message {
+    color: #FFA633;
+    font-size: 18px;
+}
+
+@media only screen and (min-width:600px){
+    .edit_form  {
+        margin: 0 4em 1em 4em;
+    }
+    .edit_form input[type=text]{
+        width: 400px;
+        margin-left: 4em;
+    }
+    .edit_form p{
+        margin: 0.5em 0 0 2em;
+    }
+    .label_line{
+        margin: 1.4em 2.5em 1.4em 2.5em;
+    }
+    .date_info_continer__div{
+        margin-left: 10em;
+    }
+    .radio_input{
+        margin-left: 2em;
+        margin-top: 2em;
+    }
+
+}
+@media only screen and (min-width:800px){
+    .edit_form input[type=text]{
+        width: 500px;
+    }
+    .edit_form p{
+        text-align: left;
+        margin-left: 4em;
+    }
+    .edit_form {
+        margin: 0 8em 1em 8em;
+        padding: 0 2em 0 2em;
+    }
+    .buttons_continer{
+        margin: 0 3em 0 3em;
+    }
+    .date_info_continer__div{
+        margin-left: 16em;
+    }
+}
