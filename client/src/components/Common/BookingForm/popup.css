@@ -30,6 +30,9 @@
     margin : 1em 1em 1em 1em;
     text-align: center;
 }
+.popup_inner strong{
+    color: #4FB2AA;
+}
 
 .btns_div {
     display: flex;
