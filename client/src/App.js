@@ -7,6 +7,7 @@ import NavBar from './components/Common/NavBar/NavBar'
 import BookingForm from './components/Common/BookingForm/BookingForm'
 import EditEvent from './components/Common/EditEvent/EditEvent'
 import Rooms from './components/Layout/Rooms/Rooms'
+
 function App() {
   return (
     <Router>
