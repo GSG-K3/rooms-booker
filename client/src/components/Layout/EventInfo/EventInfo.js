@@ -1,9 +1,9 @@
 import React from 'react'
 import './eventInfo.css'
+
 const EventInfo = (props) => {
   const data = sessionStorage.getItem('event')
   const eventInfo = JSON.parse(data)
-
   return (
     <div className='eventinfo'>
       <div>
@@ -34,7 +34,7 @@ const EventInfo = (props) => {
       </div>
       <div className ='eventinfo_button'>
         <div>
-        <button className='eventinfo_button__back'>Back</button>
+          <button className='eventinfo_button__back' >Back</button>
         </div>
         <button className='eventinfo_button__remindme'>Remind me</button>
       </div>
