@@ -25,19 +25,14 @@ class EditEvent extends Component {
   }
 
   componentDidMount() {
-    let eventId = this.props.match.params.id;
-    axios
-      .get(`/api/edit-event/${eventId}`)
-      .then((res) =>
-        this.setState({
-          eventId: res.data.event_id,
-          eventTitle: res.data.event_title,
-          eventAuthor: res.data.event_author,
-          eventDescription: res.data.event_description,
-          eventNote: res.data.event_note,
-        })
-      )
-      .catch((err) => console.log("axios", err));
+    let event = this.props.location.state.event;
+    this.setState({
+      eventId: event.event_id,
+      eventTitle: event.event_title,
+      eventAuthor: event.event_author,
+      eventDescription: event.event_description,
+      eventNote: event.event_note,
+    });
   }
 
   handelChange = (e) => {
@@ -57,10 +52,7 @@ class EditEvent extends Component {
     axios
       .post("/api/update-event", editData)
       .then((response) => this.setState({ showPopup: !this.state.showPopup }))
-      .catch((err) => {
-        console.log(err);
-        this.setState({ message: err.response.data.message });
-      });
+      .catch((err) => this.setState({ message: err.response.data.message }));
   };
 
   render() {

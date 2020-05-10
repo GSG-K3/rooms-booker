@@ -9,7 +9,7 @@ import axios from "axios";
 class UserHome extends Component {
   goBack = () => {
     this.props.history.goBack();
-  }
+  };
   state = {
     events: [],
   };
@@ -17,8 +17,7 @@ class UserHome extends Component {
     const id = 3;
     axios
       .get(`/api/user-events/${id}`)
-      .then((res) => 
-        this.setState({ events: res.data }))
+      .then((res) => this.setState({ events: res.data }))
       .catch((err) => console.log(err));
   }
 
@@ -33,7 +32,7 @@ class UserHome extends Component {
           <h3 className="events">Your Events</h3>
           {this.state.events.map((event) => {
             return (
-              <div className="event_card">
+              <div key={event.event_id} className="event_card">
                 <div className="event_title">
                   <h3>{event.event_title}</h3>
                   <p>{event.event_date}</p>
@@ -43,7 +42,13 @@ class UserHome extends Component {
                     <img src={Delete} alt="delete" />
                   </div>
                   <div>
-                    <Link to={`/event/edit/${event.event_id}`} className="btn">
+                    <Link
+                      to={{
+                        pathname: `/event/edit/${event.event_id}`,
+                        state: { event: event },
+                      }}
+                      className="btn">
+                    
                       <img src={Edit} alt="edit" />
                     </Link>
                   </div>
@@ -52,12 +57,16 @@ class UserHome extends Component {
             );
           })}
         </div>
-        <button className='back_button' onClick={() => {
-          this.goBack();
-        }}>Back</button>
+        <button
+          className="back_button"
+          onClick={() => {
+            this.goBack();
+          }}
+        >
+          Back
+        </button>
       </div>
     );
-      
   }
 }
 export default UserHome;
