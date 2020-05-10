@@ -5,6 +5,9 @@ import Edit from '../../../Images/Edit.png'
 import './userHome.css'
 import axios from 'axios'
 class UserHome extends Component {
+  goBack = () => {
+    this.props.history.goBack();
+  }
   state = {
     events :[]
   }
@@ -41,7 +44,10 @@ class UserHome extends Component {
   </div>
     })}
       </div>
-      <button className='back_button'>Back</button>
+      
+      <button className='back_button' onClick={() => {
+          this.goBack();
+        }}>Back</button>
     </div>
   }
 }

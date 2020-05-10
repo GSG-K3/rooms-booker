@@ -5,5 +5,5 @@ exports.getAllEvents = (req, res) => {
     .then(data =>
       res.json(data))
 
-    .catch(err => console.log(err))
+    .catch(err => res.send({ message: err.message }))
 }
