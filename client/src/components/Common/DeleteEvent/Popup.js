@@ -10,7 +10,6 @@ class Popup extends Component {
 
   render() {
     let id = this.props.eventId;
-    let Submit = this.props.handelSubmit;
     return (
       <div className="popup">
         <div className="popup_inner">
@@ -29,7 +28,7 @@ class Popup extends Component {
             </button>
             <button
               onClick={() => {
-                DeleteEvent(id, Submit);
+                DeleteEvent(id);
               }}
               className="delete_btn"
             >

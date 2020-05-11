@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const DeleteEvent = (Id, Submit) => {
+const DeleteEvent = (Id) => {
   let eventId = { eventId: Id };
 
   axios
