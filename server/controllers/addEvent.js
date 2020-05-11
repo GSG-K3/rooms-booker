@@ -11,7 +11,7 @@ const addEvent = (req, res) => {
   } else {
     eventPost(data)
       .then(response => res.send(response))
-      .catch(err => res.send({ message: err.message }))
+      .catch(err => res.status(500).json({ message: err.message }))
   }
 }
 

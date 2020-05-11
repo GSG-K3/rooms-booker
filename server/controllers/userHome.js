@@ -6,7 +6,7 @@ const userEvents = (req, res) => {
     .then(result => {
       res.json(result.rows)
     })
-    .catch(err => res.send({ message: err.message }))
+    .catch(err => res.status(500).json({ message: err.message }))
 }
 
 module.exports = userEvents

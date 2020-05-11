@@ -20,7 +20,7 @@ class UserHome extends Component {
     axios
       .get(`/api/user-events/${id}`)
       .then((res) => this.setState({ events: res.data }))
-      .catch((err) => console.log(err));
+      .catch((err) => this.setState({errorFound : !this.state.errorFound}));
   }
 
   render() {
