@@ -34,6 +34,8 @@ class Events extends Component {
     const { events, searchQuery } = this.state
     return (
       <>{
+        this.state.errorFound ? 
+          <ServerErr /> :
         !events ?
           <div className="loading-spinner">
             <ClipLoader
@@ -43,8 +45,7 @@ class Events extends Component {
               color={'#123abc'}
             />
           </div>
-          : this.state.errorFound ? 
-          <ServerErr /> :
+          : 
           <div>
             <div className='SearchEvent'>
               <div>

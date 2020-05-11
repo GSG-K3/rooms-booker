@@ -3,8 +3,7 @@ import ClipLoader from 'react-spinners/ClipLoader'
 import axios from "axios";
 import "./style.css";
 import ServerErr from './../../Errors/Err500/ServerErr'
-import SeacrchAvailableRooms from '../SearchAvailableRooms/SearchAvailableRooms'
-import SearchAvailableRooms from "../SearchAvailableRooms/SearchAvailableRooms";
+import SearchAvailableRooms from './../SearchAvailableRooms/SearchAvailableRooms';
 
 class Rooms extends Component {
   constructor(props) {
@@ -34,6 +33,9 @@ class Rooms extends Component {
   render() {
     const { rooms, shownCardId, show } = this.state;
     return (
+      this.state.errorFound ? 
+          <ServerErr />
+          :
       <div>
         <SearchAvailableRooms />
         <ul className="rooms">
@@ -46,9 +48,7 @@ class Rooms extends Component {
                 color={'#123abc'}
               />
             </div>
-          : this.state.errorFound ? 
-          <ServerErr />
-          :
+          : 
           rooms.map((rooms) => {
             return (
               <div key={rooms.room_id} className="rooms__card">
