@@ -30,13 +30,10 @@
     margin : 1em 1em 1em 1em;
     text-align: center;
 }
-.popup_inner strong{
-    color: #4FB2AA;
-}
 
 .btns_div {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 1em 0.5em 1em 0.5em;
 }
 .back_btn{
@@ -46,15 +43,6 @@
     width: 140px;
     height: 33px;
     background: white;
-    font-size: 16px;  
-}
-.send_btn{
-    color: white;
-    background-color: #3B5A9D;
-    border-radius: 10px;
-    border: none;
-    width: 140px;
-    height: 33px;
     font-size: 16px;  
 }
 @media only screen and (min-width:500px){

@@ -1,23 +1,24 @@
 import React, { Component } from 'react'
 import './event.css'
-import EventInfo from '../EventInfo/EventInfo'
-
-
+import { Link } from 'react-router-dom'
 class Event extends Component {
   showInfo = () => {
-    const { event , history  } = this.props
+    const { event} = this.props
     sessionStorage.setItem('event', JSON.stringify(event))
-    history.push({
-      pathname: `/event/${event.event_id}`
-    })
   }
   render () {
     const { event_title , event_date } = this.props
     return (
-      <div className="event" onClick={this.showInfo}>
+      <div  onClick={this.showInfo}>
+        <Link className='link' to = {{pathname:`/event/${this.props.event.event_id}`
+      }}>
+        <div className="event">
         <h2>{event_title}</h2>
         <p>{event_date}</p>
-      </div>
+        </div>
+        </Link>
+      </div> 
+      
     )
   }
 }

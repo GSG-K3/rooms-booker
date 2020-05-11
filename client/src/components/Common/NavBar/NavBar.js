@@ -1,6 +1,9 @@
+
 import React, { Component } from "react"
 
 import "./NavBar.css"
+import Rooms from '../../Layout/Rooms/Rooms'
+import Events from '../../Layout/Events/Events'
 
 class NavBar extends Component {
   state = {
@@ -29,7 +32,7 @@ class NavBar extends Component {
             </li>
           </ul>
         </div>
-        {navBarStatus?<h1>Event is Here!</h1>:<h1>Room is Here!</h1>}
+        {navBarStatus?<Events/>:<Rooms/>}
       </div>
     )
   }
