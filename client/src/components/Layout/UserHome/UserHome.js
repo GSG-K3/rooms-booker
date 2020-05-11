@@ -3,23 +3,31 @@ import Profile from "../../../Images/Ellipse 2.jpg";
 import Delete from "../../../Images/delete.jpg";
 import Edit from "../../../Images/Edit.png";
 import { Link } from "react-router-dom";
-
 import "./userHome.css";
 import axios from "axios";
+import Popup from "../../Common/DeleteEvent/Popup";
 class UserHome extends Component {
   goBack = () => {
     this.props.history.goBack();
   };
   state = {
     events: [],
+    showPopup: false,
+    eventId: "",
+    eventName:""
   };
   componentDidMount() {
+
     const id = 3;
     axios
       .get(`/api/user-events/${id}`)
       .then((res) => this.setState({ events: res.data }))
       .catch((err) => console.log(err));
   }
+
+  handelSubmit = (id,name) => {
+    this.setState({ showPopup: !this.state.showPopup, eventId: id , eventName:name});
+  };
 
   render() {
     return (
@@ -39,7 +47,13 @@ class UserHome extends Component {
                 </div>
                 <div className="event_option">
                   <div>
-                    <img src={Delete} alt="delete" />
+                    <img
+                      onClick={() => {
+                        this.handelSubmit(event.event_id,event.event_title);
+                      }}
+                      src={Delete}
+                      alt="delete"
+                    />
                   </div>
                   <div>
                     <Link
@@ -47,8 +61,8 @@ class UserHome extends Component {
                         pathname: `/event/edit/${event.event_id}`,
                         state: { event: event },
                       }}
-                      className="btn">
-                    
+                      className="btn"
+                    >
                       <img src={Edit} alt="edit" />
                     </Link>
                   </div>
@@ -65,6 +79,14 @@ class UserHome extends Component {
         >
           Back
         </button>
+        {this.state.showPopup ? (
+          <Popup
+            handelSubmit={this.handelSubmit}
+            eventId={this.state.eventId}
+            eventName={this.state.eventName}
+
+          />
+        ) : null}
       </div>
     );
   }
