@@ -3,6 +3,9 @@ import ClipLoader from 'react-spinners/ClipLoader'
 import axios from "axios";
 import "./style.css";
 import ServerErr from './../../Errors/Err500/ServerErr'
+import SeacrchAvailableRooms from '../SearchAvailableRooms/SearchAvailableRooms'
+import SearchAvailableRooms from "../SearchAvailableRooms/SearchAvailableRooms";
+
 class Rooms extends Component {
   constructor(props) {
     super(props);
@@ -31,17 +34,18 @@ class Rooms extends Component {
   render() {
     const { rooms, shownCardId, show } = this.state;
     return (
-
-      <ul className="rooms">
-        {!rooms ?
-          <div className="loading-spinner">
-            <ClipLoader
-              className="loading-spinner__home"
-              sizeUnit={'px'}
-              size={80}
-              color={'#123abc'}
-            />
-          </div>
+      <div>
+        <SearchAvailableRooms />
+        <ul className="rooms">
+          {!rooms ?
+            <div className="loading-spinner">
+              <ClipLoader
+                className="loading-spinner__home"
+                sizeUnit={'px'}
+                size={80}
+                color={'#123abc'}
+              />
+            </div>
           : this.state.errorFound ? 
           <ServerErr />
           :
@@ -68,9 +72,9 @@ class Rooms extends Component {
               </div>
             );
           })
-
-        }
-      </ul>
+          }
+        </ul>
+      </div>
 
     );
   }
