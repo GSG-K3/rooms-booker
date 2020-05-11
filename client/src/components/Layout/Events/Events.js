@@ -4,7 +4,6 @@ import axios from 'axios'
 import './events.css'
 import Event from '../Event/Event'
 
-
 class Events extends Component {
   constructor(props) {
     super(props)
@@ -13,7 +12,7 @@ class Events extends Component {
       searchQuery: '',
     }
   }
-  componentDidMount() {
+  componentDidMount () {
     axios.get('/api/events')
       .then((res) => {
         this.setState({
@@ -54,14 +53,19 @@ class Events extends Component {
               </div>
             </div>
 
-            <div className="events">
-              {
-                this.filterSearch().map(event => {
-                  return <Event event={event} />
-                })
-              }
-            </div>
-          </div>
+        <div className="events">
+            {
+               this.filterSearch().map((event,i) => { 
+               return <Event 
+               event={event} 
+               event_title= {event.event_title}
+               event_date = {event.event_date}
+               key = {i}
+               />
+              })
+            }
+        </div>
+      </div>
       }
       </>
     )

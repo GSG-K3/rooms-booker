@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from './components/Common/Header/Header'
 import Login from './components/Layout/Login/Login.js'
 import UserHome from './components/Layout/UserHome/UserHome'
+import EventInfo from './components/Layout/EventInfo/EventInfo'
 import NavBar from './components/Common/NavBar/NavBar'
 import BookingForm from './components/Common/BookingForm/BookingForm'
 import EditEvent from './components/Common/EditEvent/EditEvent'
 import Rooms from './components/Layout/Rooms/Rooms'
 
-function App() {
+function App () {
   return (
     <Router>
       <Header />
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/event/edit/:id" component={EditEvent} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/booking" component={BookingForm} />
+        <Route exact path ='/event/:id' component={EventInfo}/>
       </Switch>
     </Router>
   )
