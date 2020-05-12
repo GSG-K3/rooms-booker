@@ -8,7 +8,6 @@ const addEvent = require('./addEvent')
 const { authontication } = require('../middlewares/authontication')
 const searchAvailableRooms = require('./getAvailableRooms')
 const editEvent = require('./editEvent.js')
-
 router.get('/api/rooms', getAllRooms)
 router.get('/api/user-events/:id', authontication, userEvents)
 router.post('/api/update-event', editEvent)
