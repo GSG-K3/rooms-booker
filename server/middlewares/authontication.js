@@ -10,7 +10,10 @@ exports.authontication = (req, res, next) => {
         return res.status(400)
           .json({ status: 'fail', message: 'unauthorized' })
       }
-      next()
+      if (result) {
+        req.email = result.email
+        return next()
+      }
     })
   } else {
     return res.status(400).json({ status: 'fail', message: 'not token' })
