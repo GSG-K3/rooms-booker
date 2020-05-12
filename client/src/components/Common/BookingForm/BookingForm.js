@@ -6,14 +6,22 @@ import "./bookingForm.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
+import moment from 'moment'
+import AvailableRooms from '../../Layout/AvailableRooms/AvailableRooms'
+
 class BookingForm extends Component {
   constructor(props) {
     super(props);
+    let {roomName, date} = this.props.location.bookingProps
+    date = moment (date.toLocaleString ()).format (
+      'YYYY-MM-DD H:mm:ss'
+    )
+    console.log(this.props)
     this.state = {
       userId: 3,
-      date: "2020-05-23T11:00:00.000Z",
+      date: date,
       roomId: 5,
-      roomName: "Moscow",
+      roomName: roomName,
       reminder: false,
       showPopup: false,
       showNote : false
@@ -25,6 +33,7 @@ class BookingForm extends Component {
     const value = e.target.value;
     this.setState({ [name]: value });
   };
+
   toggleReminder = () => {
     this.setState({ reminder: !this.state.reminder });
   };
@@ -47,15 +56,15 @@ class BookingForm extends Component {
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
-            <h4>{this.state.date.slice(0, 10)}</h4>
+            {this.props.location.bookingProps.date.toLocaleDateString ()}
           </div>
           <div className="date_info__div">
             <img src={Clock} alt="clock" />
-            <h4>{this.state.date.slice(11, 16)}</h4>
+            <h4>{this.props.location.bookingProps.date.toLocaleTimeString ()}</h4>
           </div>
           <div className="date_info__div">
             <img src={RoomIcon} alt="room" />
-            <h4>{this.state.roomName}</h4>
+            <h4>{this.props.location.bookingProps.roomName}</h4>
           </div>
         </div>
         <form className="booking_form">
@@ -70,18 +79,21 @@ class BookingForm extends Component {
             name="name"
             onChange={this.handelChange}
             placeholder="Your Name"
+            required
           />
           <input
             type="text"
             name="title"
             onChange={this.handelChange}
             placeholder="Event Title"
+            required
           />
           <input
             type="text"
             name="description"
             onChange={this.handelChange}
             placeholder="Event Description"
+            required
           />
           <input
             type="text"
@@ -100,7 +112,7 @@ class BookingForm extends Component {
             </label>
           </div>
           <div className="buttons_continer">
-            <Link to="/" className="text-link">
+            <Link to = '/'  className="text-link">
               <button className="back_button">Back</button>
             </Link>
             <button

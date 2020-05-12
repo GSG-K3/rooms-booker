@@ -29,7 +29,7 @@ class SearchAvailableRooms extends Component {
 
   searchAvailableRooms =  () => {
     const date = moment (this.state.startDate.toLocaleString ()).format (
-      'YYYY-MM-DD h:mm:ss'
+      'YYYY-MM-DD H:mm:ss'
     )
     axios
       .get (`/api/available-rooms`, {
@@ -54,7 +54,7 @@ class SearchAvailableRooms extends Component {
             {this.state.startDate.toLocaleTimeString ()}
           </div>
         </div>
-        <AvailableRooms availableRooms={this.state.availableRooms} />
+        <AvailableRooms availableRooms={this.state.availableRooms} date = {this.state.startDate}/>
       </div>
     )
   }
@@ -70,6 +70,9 @@ class SearchAvailableRooms extends Component {
             onChange={this.handleChange}
             dateFormat='dd/MM/yyyy'
             showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={30}
+            timeCaption="time"
           />
           <img
             src={searchIcon}
