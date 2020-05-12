@@ -3,6 +3,7 @@ import Profile from "../../../Images/Ellipse 2.jpg";
 import Delete from "../../../Images/delete.jpg";
 import Edit from "../../../Images/Edit.png";
 import { Link } from "react-router-dom";
+import ServerErr from '../../Errors/Err500/ServerErr'
 
 import "./userHome.css";
 import axios from "axios";
@@ -12,17 +13,21 @@ class UserHome extends Component {
   };
   state = {
     events: [],
+    errorFound : false
   };
   componentDidMount() {
     const id = 3;
     axios
       .get(`/api/user-events/${id}`)
       .then((res) => this.setState({ events: res.data }))
-      .catch((err) => console.log(err));
+      .catch((err) => this.setState({errorFound : !this.state.errorFound}));
   }
 
   render() {
     return (
+      this.state.errorFound ? 
+          <ServerErr />
+          :
       <div className="component_continer">
         <div className="user_profile__div">
           <img src={Profile} />

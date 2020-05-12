@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+}
+.error_continer_div{
+    margin: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.error_continer_div h2{
+    color: #3B5A9D;
+    font-size: 5em;
+}
+.error_continer_div h3{
+    color: #4FB2AA;
+    font-size: 3em;
+    margin-top: 1em;
+}
+.server_icon img {
+    width: 5em;
+    height: 7em;
+    margin-top: 2.5em;
+}
+.server_icon{
+    display: flex;
+    justify-content: center;
+}
+.server_icon h1 {
+    font-size: 10em;
+    color: #3B5A9D;
+}

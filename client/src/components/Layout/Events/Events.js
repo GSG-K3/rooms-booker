@@ -3,6 +3,7 @@ import ClipLoader from 'react-spinners/ClipLoader'
 import axios from 'axios'
 import './events.css'
 import Event from '../Event/Event'
+import ServerErr from './../../Errors/Err500/ServerErr'
 
 class Events extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Events extends Component {
     this.state = {
       events: [],
       searchQuery: '',
+      errorFound : false
     }
   }
   componentDidMount () {
@@ -19,7 +21,7 @@ class Events extends Component {
           events: res.data
         })
       })
-      .catch((err) => console.log(err))
+      .catch((err) => this.setState({errorFound : !this.state.errorFound}))
   }
 
   setSearchQuery = name => this.setState({ searchQuery: name.target.value })
@@ -32,6 +34,8 @@ class Events extends Component {
     const { events, searchQuery } = this.state
     return (
       <>{
+        this.state.errorFound ? 
+          <ServerErr /> :
         !events ?
           <div className="loading-spinner">
             <ClipLoader
@@ -41,7 +45,7 @@ class Events extends Component {
               color={'#123abc'}
             />
           </div>
-          :
+          : 
           <div>
             <div className='SearchEvent'>
               <div>
