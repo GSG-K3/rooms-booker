@@ -10,7 +10,7 @@ class Event extends Component {
     const { event_title , event_date } = this.props
     return (
       <div  onClick={this.showInfo}>
-        <Link className='link' to = {{pathname:`/event/${this.props.event.event_id}`
+        <Link className='event_link' to = {{pathname:`/event/${this.props.event.event_id}`
       }}>
         <div className="event">
         <h2>{event_title}</h2>
