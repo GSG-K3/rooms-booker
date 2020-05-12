@@ -10,12 +10,12 @@ body{
 .profile{
     width: 2.8em;
     height: 2.8em;
-    margin: 1.8em;
+    margin: 1.8em 4em;
     display: flex;
     align-self: center;
 }
 .logo{
-margin: -12px 0em;
+margin: -12px 2em;
     height: 150%;
 }
 
@@ -26,13 +26,10 @@ margin: -12px 0em;
     .profile{
         width: 2.5em;
         height: 2.0em;
-        margin: 1.1em 1.5em 1.5em 0;
     }
     .logo{
         height: 100%;
-
     }
-
 }
 
 @media only screen and (max-width:450px){
@@ -43,9 +40,10 @@ margin: -12px 0em;
     .profile{
         width: 2.0em;
         height: 2.0em;
-        margin: 1.1em 1em 0.5em 0;
+        margin: 1.2em 1.1em;
     }
     .logo{
         height: 150%;
+        margin: -12px 0em;
     }
 }
