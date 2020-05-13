@@ -3,7 +3,6 @@ import ClipLoader from 'react-spinners/ClipLoader'
 import axios from "axios";
 import "./style.css";
 import ServerErr from './../../Errors/Err500/ServerErr'
-// import SearchAvailableRooms from './../SearchAvailableRooms/SearchAvailableRooms';
 import 'react-datepicker/dist/react-datepicker.css'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
@@ -24,6 +23,7 @@ class Rooms extends Component {
       showAvailableRooms : false ,
       startDate: new Date(),
       availableRooms: [],
+      showForm : false,
     };
   }
 
@@ -84,8 +84,7 @@ class Rooms extends Component {
           :
       <div>
         <div>
-        {/* <SearchAvailableRooms /> */}
-        <div>
+        <div className='available-rooms-container__search-bar'>
         <DatePicker
             placeholderText='Enter Date'
             className='available-rooms-container__date-picker'
@@ -99,12 +98,13 @@ class Rooms extends Component {
             src={searchIcon}
             className='available-rooms-container__iconDiv__search'
             onClick={this.searchAvailableRooms}
+            alt='search'
             />
             </div>
             {this.state.availableRooms.length > 0 ?  (
           this.renderAvailableRooms ()
         ) :  (
-          <p className='message'> Enter Date to check available rooms. </p>
+          <p className='search_message'> Enter Date to check available rooms </p>
         )}
         </div>
         <ul className="rooms">
