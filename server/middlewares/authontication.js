@@ -8,15 +8,13 @@ exports.authontication = (req, res, next) => {
     jwt.verify(token, SECRET, (err, result) => {
       if (err) {
         return res.status(400)
-          .json({ message: 'server error' })
       }
       if (result) {
-        console.log(result)
         req.email = result.email
         return next()
       }
     })
   } else {
-    return res.status(403).json({ message: 'unauthorized' })
+    return res.status(403)
   }
 }
