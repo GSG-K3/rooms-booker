@@ -37,7 +37,6 @@ exports.login = (req, res) => {
             .status(200)
             .json({ status: "sucess" })
         } else {
-          console.log("let me know");
           res.status(500).json({ message: "email and password are not match" })
         }
       })

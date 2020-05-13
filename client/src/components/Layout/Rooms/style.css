@@ -12,12 +12,13 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 90%;
   justify-content: space-between;
-  padding: 0.8em 1em 0.2em 1.5em;
+  padding: 1em 1em 1em 1.5em;
   margin: 1em 0 1em 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  border-left: #FFA633 2px solid;
 }
 .rooms__card h2 {
   text-align: center;
@@ -27,11 +28,12 @@
 }
 .rooms__card__content {
   overflow: hidden;
-  width: 300px;
+  width: 95%;
   padding: 0.8em 0 1em 0.5em;
   column-count: 2;
   column-gap: 4px;
   column-rule: 4px;
+  line-height: 1.7em;
 }
 
 .rooms__card:hover {
@@ -40,19 +42,117 @@
 
 li {
   list-style: none;
+  color: #3B5A9D;
+  padding-right: 0;
+  text-align: start;
+
+}
+.available-rooms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5%;
+}
+
+.available-rooms-container__search-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.available-rooms-container__date-picker {
+  width: 170px;
+  height: 0px;
+  border: 4px solid #4fb2aa;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  color: #3b5a9d;
+}
+
+.available-rooms-container__iconDiv__search {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(79, 178, 170, 0.78);
+  background-size: 35px;
+  margin-left: 5%;
+}
+
+.date-and-time{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFA633;
+  width: 60%;
+  margin: 2%;
+  padding: 2%;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 3%;
+}
+
+.date {
+  display: flex;
+  margin: 4%;
+  width: 90%;
+  justify-content: flex-start;
+}
+
+.time {
+  display: flex;
+  margin: 4%;
+  width: 90%;
+  justify-content: flex-start;
+}
+
+.search_message {
+  color: #FFA633;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 380;
+  font-size: 20px;
+  margin-top: 0;
+}
+
+@media only screen and (min-width: 600px){
+  .available-rooms-container__date-picker input[type=text]{
+    width: 220px;
+  }
+  .date-and-time{
+    margin-left: 9em;
+  }
 }
 @media only screen and (min-width: 885px) {
   
   .rooms__card {
     width: 700px;
+    
   }
   .rooms__card h2 {
-   font-size: 35px;
+   font-size: 30px;
   }
   .rooms__card__content {
     padding: 0.8em 0em 1em 9em;
     font-size: 20px;
-    width: 400px;
+    width: 80%;
+  }
+  .search_message {
+    margin-right: 6em;
   }
  }
  

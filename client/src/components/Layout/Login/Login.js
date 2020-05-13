@@ -18,10 +18,10 @@ class Login extends Component {
       .post("/api/login", data)
       .then((result) => {
         if (result.status === 200) {
-          alert("sucess");
+          this.props.history.goBack();
         }
       })
-      .catch((err) => 
+      .catch((err) =>
         this.setState({ message: err.response.data.message }));
   };
 

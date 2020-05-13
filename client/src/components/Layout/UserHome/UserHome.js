@@ -3,6 +3,8 @@ import Profile from "../../../Images/Ellipse 2.jpg";
 import Delete from "../../../Images/delete.jpg";
 import Edit from "../../../Images/Edit.png";
 import { Link } from "react-router-dom";
+import ServerErr from '../../Errors/Err500/ServerErr'
+import ClipLoader from 'react-spinners/ClipLoader'
 
 import "./userHome.css";
 import axios from "axios";
@@ -16,7 +18,8 @@ class UserHome extends Component {
     events: [],
     email: "",
     userId: "",
-    userName: ""
+    userName: "",
+    errorFound: false
   };
 
   componentDidMount() {
@@ -37,7 +40,7 @@ class UserHome extends Component {
               this.setState({ events: res.data })
             }
             )
-            .catch((err) => console.log(err))
+            .catch((err) => this.setState({ errorFound: !this.state.errorFound }));
 
         })
 
@@ -54,51 +57,62 @@ class UserHome extends Component {
     return (
       <>
         {
-          events == [] || userName == "" ? console.log("not exist yet")
+          this.state.errorFound ?
+            <ServerErr />
             :
-            <div className="component_continer">
-              <div className="user_profile__div">
-                <img src={Profile} />
-                <h2>{userName}</h2>
+            events == [] || userName == "" ?
+              <div className="loading-spinner">
+                <ClipLoader
+                  className="loading-spinner__home"
+                  sizeUnit={'px'}
+                  size={80}
+                  color={'#123abc'}
+                />
               </div>
-              <div className="events_continer__div">
-                <h3 className="events">Your Events</h3>
-                {this.state.events.map((event) => {
-                  return (
-                    <div key={event.event_id} className="event_card">
-                      <div className="event_title">
-                        <h3>{event.event_title}</h3>
-                        <p>{event.event_date}</p>
-                      </div>
-                      <div className="event_option">
-                        <div>
-                          <img src={Delete} alt="delete" />
+              :
+              <div className="component_continer">
+                <div className="user_profile__div">
+                  <img src={Profile} />
+                  <h2>{userName}</h2>
+                </div>
+                <div className="events_continer__div">
+                  <h3 className="events">Your Events</h3>
+                  {this.state.events.map((event) => {
+                    return (
+                      <div key={event.event_id} className="event_card">
+                        <div className="event_title">
+                          <h3>{event.event_title}</h3>
+                          <p>{event.event_date}</p>
                         </div>
-                        <div>
-                          <Link
-                            to={{
-                              pathname: `/event/edit/${event.event_id}`,
-                              state: { event: event },
-                            }}
-                            className="btn">
+                        <div className="event_option">
+                          <div>
+                            <img src={Delete} alt="delete" />
+                          </div>
+                          <div>
+                            <Link
+                              to={{
+                                pathname: `/event/edit/${event.event_id}`,
+                                state: { event: event },
+                              }}
+                              className="btn">
 
-                            <img src={Edit} alt="edit" />
-                          </Link>
+                              <img src={Edit} alt="edit" />
+                            </Link>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <button
-                className="back_button"
-                onClick={() => {
-                  this.goBack();
-                }}
-              >
-                Back
+                    );
+                  })}
+                </div>
+                <button
+                  className="back_button"
+                  onClick={() => {
+                    this.goBack();
+                  }}
+                >
+                  Back
           </button>
-            </div>
+              </div>
         }
       </>
     );

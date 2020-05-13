@@ -9,8 +9,7 @@ const availableRooms = (eventDate) => {
 
   return dbconnection
     .query(sql)
-    .then(res => res.rows)
-    .catch(err => err)
+
 }
 
 module.exports = availableRooms

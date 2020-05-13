@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+}
+
+.continer_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4em;
+}
+.icon_div img{
+    width: 8em;
+    height: 8em;
+    margin-top: 1em;
+}
+.icon_div h1 {
+    color: #3B5A9D;
+    font-size: 9em;
+}
+.icon_div{
+    display: flex;
+    justify-content: center;
+}
+.continer_div h2 {
+    font-size: 74px;
+    color: #3B5A9D;
+}
+.continer_div h3 {
+    color: #4FB2AA;
+    font-size: 46px;
+    margin-top: 1em;
+}
