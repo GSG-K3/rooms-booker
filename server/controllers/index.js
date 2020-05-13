@@ -12,11 +12,11 @@ const editEvent = require('./editEvent.js')
 
 router.get('/api/check', authontication, checkUser)
 router.get('/api/rooms', getAllRooms)
-router.get('/api/user-events/:id', authontication, userEvents)
+router.get('/api/user-events/:id', userEvents)
 router.post('/api/update-event', editEvent)
 router.get('/api/events', getAllEvents)
 router.get('/api/available-rooms', searchAvailableRooms)
 router.post('/api/login', login)
-router.post('/api/booking', authontication, addEvent)
+router.post('/api/booking', addEvent)
 
 module.exports = router

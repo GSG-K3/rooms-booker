@@ -11,7 +11,6 @@ exports.authontication = (req, res, next) => {
         return res.status(400)
       }
       if (result) {
-
         req.email = result.email
         req.userId = result.user_id
         req.userName = result.user_name
