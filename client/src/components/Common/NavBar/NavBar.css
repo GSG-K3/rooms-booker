@@ -50,12 +50,14 @@
   background-color: white;
   font-size: 18px;
 }
-.link:hover,
+.link:hover,.link:focus-within,
 .link:active {
   color: #4fb2aa;
   border-bottom: 2px solid #ffa633;
   outline: none;
+  
 }
+
 .li:active{
   color: #4fb2aa;
   border-bottom: 2px solid #ffa633;
