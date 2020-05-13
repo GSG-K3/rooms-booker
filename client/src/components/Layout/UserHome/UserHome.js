@@ -3,9 +3,9 @@ import Profile from "../../../Images/Ellipse 2.jpg";
 import Delete from "../../../Images/delete.jpg";
 import Edit from "../../../Images/Edit.png";
 import { Link } from "react-router-dom";
-
 import "./userHome.css";
 import axios from "axios";
+
 class UserHome extends Component {
   goBack = () => {
     this.props.history.goBack();

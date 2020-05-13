@@ -4,28 +4,30 @@ import Clock from "../../../Images/clock_icon.png";
 import RoomIcon from "../../../Images/room_icon.png";
 import "./bookingForm.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Popup from "./Popup";
 import moment from 'moment'
-import AvailableRooms from '../../Layout/AvailableRooms/AvailableRooms'
 
 class BookingForm extends Component {
   constructor(props) {
-    super(props);
-    let {roomName, date} = this.props.location.bookingProps
-    date = moment (date.toLocaleString ()).format (
-      'YYYY-MM-DD H:mm:ss'
-    )
-    console.log(this.props)
+    super(props); 
     this.state = {
       userId: 3,
-      date: date,
+      date: '',
       roomId: 5,
-      roomName: roomName,
+      roomName: '',
       reminder: false,
       showPopup: false,
       showNote : false
     };
+  }
+
+  componentDidMount () {
+    let {roomName, date} = this.props.location.bookingProps
+    date = moment (date.toLocaleString ()).format (
+      'YYYY-MM-DD H:mm:ss'
+    )
+    this.setState({roomName: roomName, date: date})
+    
   }
 
   handelChange = (e) => {
@@ -40,7 +42,7 @@ class BookingForm extends Component {
 
   handelSubmit = (e) => {
     e.preventDefault();
-    if(this.state.name!=null && this.state.title!=null && this.state.description!=null){
+    if(this.state.name!=null && this.state.title!=null && this.state.description!=null && this.state.notes != null){
       const formData = this.state;
       axios
         .post("/api/booking", formData)
@@ -50,21 +52,26 @@ class BookingForm extends Component {
     else this.setState({showNote : !this.state.showNote})
   };
 
+  goBack= () => {
+    this.props.history.push('/rooms');
+  }
+
   render() {
+    const {date, roomName, showNote, showPopup } = this.state
     return (
       <div>
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
-            {this.props.location.bookingProps.date.toLocaleDateString ()}
+            {date.slice(0,10)}
           </div>
           <div className="date_info__div">
             <img src={Clock} alt="clock" />
-            <h4>{this.props.location.bookingProps.date.toLocaleTimeString ()}</h4>
+            <h4>{date.slice(11,16)}</h4>
           </div>
           <div className="date_info__div">
             <img src={RoomIcon} alt="room" />
-            <h4>{this.props.location.bookingProps.roomName}</h4>
+            <h4>{roomName}</h4>
           </div>
         </div>
         <form className="booking_form">
@@ -73,27 +80,24 @@ class BookingForm extends Component {
             process:
           </p>
           <hr className="label_line" />
-          {this.state.showNote? <small className='message'>Please fill the first 3 fields</small> :null}
+          {showNote? <small className='message'>Please fill all the fields</small> :null}
           <input
             type="text"
             name="name"
             onChange={this.handelChange}
             placeholder="Your Name"
-            required
           />
           <input
             type="text"
             name="title"
             onChange={this.handelChange}
             placeholder="Event Title"
-            required
           />
           <input
             type="text"
             name="description"
             onChange={this.handelChange}
             placeholder="Event Description"
-            required
           />
           <input
             type="text"
@@ -112,9 +116,7 @@ class BookingForm extends Component {
             </label>
           </div>
           <div className="buttons_continer">
-            <Link to = '/'  className="text-link">
-              <button className="back_button">Back</button>
-            </Link>
+              <button className="back_button" onClick={this.goBack}>Back</button>
             <button
               type="submit"
               onClick={this.handelSubmit}
@@ -124,7 +126,7 @@ class BookingForm extends Component {
             </button>
           </div>
         </form>
-        {this.state.showPopup ? <Popup room={this.state.roomName} /> : null}
+        {showPopup ? <Popup room={roomName} /> : null}
       </div>
     );
   }

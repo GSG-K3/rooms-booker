@@ -6,13 +6,15 @@ import "./editEvent.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
+import moment from 'moment'
+
 class EditEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       userId: 3,
-      date: "2020-05-23T11:00:00.000Z",
-      roomId: 5,
+      date: '',
+      roomId: null,
       room_name: "Moscow",
       showPopup: false,
       eventId: "",
@@ -26,12 +28,18 @@ class EditEvent extends Component {
 
   componentDidMount() {
     let event = this.props.location.state.event;
+    console.log(event)
+    let date = moment (this.props.location.state.event.event_date.toLocaleString ()).format (
+      'YYYY-MM-DD H:mm:ss'
+    ) 
     this.setState({
       eventId: event.event_id,
       eventTitle: event.event_title,
       eventAuthor: event.event_author,
       eventDescription: event.event_description,
       eventNote: event.event_note,
+      date: date,
+      roomId: event.room_id
     });
   }
 
@@ -56,21 +64,21 @@ class EditEvent extends Component {
   };
 
   render() {
-    const { eventTitle, eventAuthor, eventDescription, eventNote } = this.state;
+    const { eventTitle, eventAuthor, eventDescription, eventNote, date, room_name, showPopup } = this.state;
     return (
       <div>
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
-            <h4>{this.state.date.slice(0, 10)}</h4>
+            <h4>{date.slice(0, 10)}</h4>
           </div>
           <div className="date_info__div">
             <img src={Clock} alt="clock" />
-            <h4>{this.state.date.slice(11, 16)}</h4>
+            <h4>{date.slice(11, 16)}</h4>
           </div>
           <div className="date_info__div">
             <img src={RoomIcon} alt="room" />
-            <h4>{this.state.room_name}</h4>
+            <h4>{room_name}</h4>
           </div>
         </div>
         <form className="edit_form">
@@ -123,7 +131,7 @@ class EditEvent extends Component {
             </button>
           </div>
         </form>
-        {this.state.showPopup ? <Popup /> : null}
+        {showPopup ? <Popup /> : null}
       </div>
     );
   }
