@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './event.css'
-
-const Event = (props) => {
-  const { event } = props
-  return (
-
-    <div className="event">
-      <h2> {event.event_title}</h2>
-      <p>{event.event_date}</p>
-    </div>
-  )
+import { Link } from 'react-router-dom'
+class Event extends Component {
+  showInfo = () => {
+    const { event} = this.props
+    sessionStorage.setItem('event', JSON.stringify(event))
+  }
+  render () {
+    const { event_title , event_date } = this.props
+    return (
+      <div  onClick={this.showInfo}>
+        <Link className='link' to = {{pathname:`/event/${this.props.event.event_id}`
+      }}>
+        <div className="event">
+        <h2>{event_title}</h2>
+        <p>{event_date}</p>
+        </div>
+        </Link>
+      </div> 
+      
+    )
+  }
 }
 
 export default Event

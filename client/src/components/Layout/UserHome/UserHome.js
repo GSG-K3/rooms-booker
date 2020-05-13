@@ -3,73 +3,110 @@ import Profile from "../../../Images/Ellipse 2.jpg";
 import Delete from "../../../Images/delete.jpg";
 import Edit from "../../../Images/Edit.png";
 import { Link } from "react-router-dom";
+import ServerErr from "../../Errors/Err500/ServerErr";
+import ClipLoader from "react-spinners/ClipLoader";
 import "./userHome.css";
 import axios from "axios";
 import Popup from "../../Common/DeleteEvent/Popup";
+
 class UserHome extends Component {
   goBack = () => {
-    this.props.history.goBack();
+    this.props.history.push("/");
   };
-  state = {
+  constructor(props) {
+    super(props);
+
+  this.state = {
     events: [],
     showPopup: false,
     eventId: "",
-    eventName:""
-  };
+    eventName: "",
+    errorFound: false,
+    message: null,
+    loading:true
+  };}
   componentDidMount() {
 
-    const id = 3;
+    const id = 3
     axios
       .get(`/api/user-events/${id}`)
-      .then((res) => this.setState({ events: res.data }))
-      .catch((err) => console.log(err));
+      .then((res) => this.setState({ events: res.data , loading:false  }))
+      .catch((err) => {
+        if (err.response.data.status === 403)
+          this.setState({ message: err.response.data.message});
+        else this.setState({ errorFound: !this.state.errorFound });
+      });
   }
 
-  handelSubmit = (id,name) => {
-    this.setState({ showPopup: !this.state.showPopup, eventId: id , eventName:name});
+  handelSubmit = (id, name) => {
+    this.setState({
+      showPopup: !this.state.showPopup,
+      eventId: id,
+      eventName: name,
+    });
   };
 
   render() {
-    return (
+    const { events, errorFound,loading } = this.state;
+
+    return errorFound ? (
+      <ServerErr />
+    ) : (
       <div className="component_continer">
         <div className="user_profile__div">
           <img src={Profile} />
           <h2>Bayan_Seder</h2>
         </div>
         <div className="events_continer__div">
-          <h3 className="events">Your Events</h3>
-          {this.state.events.map((event) => {
-            return (
-              <div key={event.event_id} className="event_card">
-                <div className="event_title">
-                  <h3>{event.event_title}</h3>
-                  <p>{event.event_date}</p>
-                </div>
-                <div className="event_option">
-                  <div>
-                    <img
-                      onClick={() => {
-                        this.handelSubmit(event.event_id,event.event_title);
-                      }}
-                      src={Delete}
-                      alt="delete"
-                    />
+          
+          {this.state.message ? <p className="events_message"> {this.state.message} </p> : null}
+
+            <div className="loading-spinner">
+              <ClipLoader
+                className="loading-spinner__home"
+                sizeUnit={"px"}
+                size={80}
+                color={"#123abc"}
+                loading={loading}
+
+              />
+                        <h3 className="events">Your Events</h3>
+
+            </div>
+            
+            {events.map((event) => {
+              return (
+                <div key={event.event_id} className="event_card">
+                  <div className="event_title">
+                    <h3>{event.event_title}</h3>
+                    <p>{event.event_date}</p>
                   </div>
-                  <div>
-                    <Link
-                      to={{
-                        pathname: `/event/edit/${event.event_id}`,
-                        state: { event: event },
-                      }}
-                      className="btn"
-                    >
-                      <img src={Edit} alt="edit" />
-                    </Link>
+                  <div className="event_option">
+                    <div>
+                      <img
+                        onClick={() => {
+                          this.handelSubmit(event.event_id, event.event_title);
+                        }}
+                        src={Delete}
+                        alt="delete"
+                      />
+                    </div>
+                    <div>
+                      <Link
+                        to={{
+                          pathname: `/event/edit/${event.event_id}`,
+                          state: { event: event },
+                        }}
+                        className="btn"
+                      >
+                        <img src={Edit} alt="edit" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          }
         </div>
         <button
           className="back_button"
@@ -84,7 +121,6 @@ class UserHome extends Component {
             handelSubmit={this.handelSubmit}
             eventId={this.state.eventId}
             eventName={this.state.eventName}
-
           />
         ) : null}
       </div>

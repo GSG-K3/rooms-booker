@@ -7,6 +7,6 @@ exports.getAllRooms = (req, res) => {
     .then(result => {
       res.json(result.rows)
     })
-    .catch(err => console.log(err))
+    .catch(err => res.status(500).json({ message: err.message }))
 }
 

@@ -7,7 +7,7 @@ import searchIcon from '../../../Images/search.png'
 import calenderIcon from '../../../Images/calendar_icon.png'
 import clockIcon from '../../../Images/clock_icon.png'
 import AvailableRooms from '../AvailableRooms/AvailableRooms'
-
+import ServerErr from '../../Errors/Err500/ServerErr'
 import './SearchAvailableRooms.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -18,6 +18,7 @@ class SearchAvailableRooms extends Component {
       startDate: new Date(),
       display: false,
       availableRooms: [],
+      errFound : false
     }
   }
 
@@ -38,11 +39,14 @@ class SearchAvailableRooms extends Component {
         },
       })
       .then ( (res) => this.setState ({ availableRooms: res.data, display: true }))
-      .catch ( (err) => err)
+      .catch ( (err) => this.setState({errFound : !this.state.errFound}))
   }
 
   renderAvailableRooms () {
     return  (
+      this.state.errorFound ? 
+          <ServerErr />
+          :
       <div>
         <div className='date-and-time'>
           <div className='date'>
