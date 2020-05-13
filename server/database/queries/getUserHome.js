@@ -5,7 +5,8 @@ const userHome = (userId) => {
     text: 'SELECT * FROM events WHERE user_id =$1',
     values: [userId]
   }
- return dbconniction.query(sql)
+  return dbconniction.query(sql)
 }
-
 module.exports = userHome
+
+
