@@ -20,6 +20,26 @@ class BookingForm extends Component {
     };
   }
 
+  componentDidMount() {
+    const { history } = this.props;
+    axios.get("/api/check").then(({ data }) => {
+      const { success } = data;
+
+      if (success) {
+        let event = this.props.location.state.event;
+        this.setState({
+          eventId: event.event_id,
+          eventTitle: event.event_title,
+          eventAuthor: event.event_author,
+          eventDescription: event.event_description,
+          eventNote: event.event_note,
+        });
+      } else return history.push("/login");
+    });
+  }
+
+
+
   handelChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
