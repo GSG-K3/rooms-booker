@@ -1,5 +1,8 @@
 exports.checkUser = (req, res) => {
-  const { email } = req
 
-  res.json({ success: true, email: email })
+  console.log("checkUser");
+
+  const { email, userId, userName } = req
+  res.json({ success: true, email, userId, userName })
+
 }

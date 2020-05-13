@@ -7,18 +7,51 @@ import { Link } from "react-router-dom";
 import "./userHome.css";
 import axios from "axios";
 class UserHome extends Component {
+
   goBack = () => {
     this.props.history.goBack();
   };
+
   state = {
     events: [],
+    email: "",
+    userId: "",
+    userName: ""
   };
+
   componentDidMount() {
-    const id = 3;
-    axios
-      .get(`/api/user-events/${id}`)
-      .then((res) => this.setState({ events: res.data }))
-      .catch((err) => console.log(err));
+
+    const { history } = this.props
+    axios.get('/api/check').then(({ data }) => {
+      console.log("data", data);
+
+      const { success, email, userId, userName } = data
+      console.log("success", success);
+
+      if (success) {
+
+        this.setState({
+          email, userId, userName
+        }).then(() => {
+
+          const { userId } = this.state
+
+          axios.get(`/api/user-events/${userId}`)
+            .then((res) => {
+              console.log("yes");
+
+              this.setState({ events: res.data })
+            }
+            )
+            .catch((err) => console.log(err))
+
+        })
+
+      } else {
+        return history.push('/login')
+      }
+
+    })
   }
 
   render() {
@@ -48,7 +81,7 @@ class UserHome extends Component {
                         state: { event: event },
                       }}
                       className="btn">
-                    
+
                       <img src={Edit} alt="edit" />
                     </Link>
                   </div>

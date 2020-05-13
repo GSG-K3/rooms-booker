@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const { SECRET } = process.env
 
 exports.authontication = (req, res, next) => {
+
   if (req.headers.cookie) {
     const { token } = cookie.parse(req.headers.cookie)
     jwt.verify(token, SECRET, (err, result) => {
@@ -10,11 +11,14 @@ exports.authontication = (req, res, next) => {
         return res.status(400)
       }
       if (result) {
+
         req.email = result.email
+        req.userId = result.user_id
+        req.userName = result.user_name
         return next()
       }
     })
   } else {
-    return res.status(403)
+    return res.json({ success: false })
   }
 }

@@ -17,11 +17,9 @@ exports.login = (req, res) => {
 
   getPassword(email)
     .then((result) => {
-      // console.log("ress", result)
+
       if (!result || result.rows.length === 0) {
         res.status(500).json({ message: "email is not in our record" })
-
-        // throw { status: 403, message: "Incorrect Email or Password" }
       }
 
       const hash = result.rows[0].password
