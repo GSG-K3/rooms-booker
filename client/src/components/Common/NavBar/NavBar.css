@@ -5,6 +5,7 @@
 
 .container {
   margin: -15px 5%;
+  
 }
 
 .container__div {
@@ -58,19 +59,13 @@
   outline: none;
 }
 
-.li:active{
-  color: #4fb2aa;
-  border-bottom: 2px solid #ffa633;
-  outline: none;
-}
-
 @media only screen and (min-width: 885px) {
   .container__div__list {
     padding: 1px 350px;
   
   }
   .link {
-    font-size: 25px;
+    font-size: 22px;
   }
   .container {
     margin: 30px 5%;
@@ -81,6 +76,6 @@
     font-size: 18px;
   }
   .container {
-    margin: 2% 5%;
+    margin: 10px 5%;
   }
  }
