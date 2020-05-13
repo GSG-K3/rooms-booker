@@ -11,13 +11,14 @@
   font-size: 30px;
   padding: 1%;
   margin: 2%;
+  justify-content: center;
 }
 
 .container__div__list {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 10px 1px;
+  padding: 10px 10px;
   list-style-type: none;
 }
 
@@ -55,7 +56,6 @@
   color: #4fb2aa;
   border-bottom: 2px solid #ffa633;
   outline: none;
-  
 }
 
 .li:active{
@@ -73,7 +73,7 @@
     font-size: 25px;
   }
   .container {
-    margin: -20px 5%;
+    margin: -40px 5%;
   }
  }
  @media only screen and (max-width: 450px) {
