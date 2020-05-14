@@ -41,6 +41,7 @@
 .edit_form input{
     margin: 1.4em 0 0.3em 2.3em;
     font-size: 20px;
+    color: #3B5A9D;
 }
 .edit_form input[type=text]::placeholder{
     color: rgba(79, 178, 170, 0.336);

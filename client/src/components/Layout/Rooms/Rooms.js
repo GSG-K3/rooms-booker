@@ -72,7 +72,7 @@ class Rooms extends Component {
             {this.state.startDate.toLocaleTimeString ()}
           </div>
         </div>
-        <AvailableRooms availableRooms={this.state.availableRooms} />
+        <AvailableRooms availableRooms={this.state.availableRooms} date = {this.state.startDate}/>
       </div>
     )
   }
