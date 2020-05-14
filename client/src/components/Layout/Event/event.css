@@ -1,60 +1,105 @@
 
-.event {
+.event_card {
     display: flex;
+    flex-direction: column;
     width: 300px;
-    height: 30px;
-    justify-content: space-between;
+    height: 60px;
     border: 1px solid #3b5a9d;
     border-radius: 12px;
-    margin: 1.3em 3em 1.3em 2em;
-    padding: 0.8em 1em 0.2em 1.5em;
+    margin: 0.7em 3em 0.7em 2em;
   }
-  .link{
+  .color_div_yellow{
+    background-color: #f5ab4be1;
+    width: 100%;
+    height: 2px;
+    /* border-radius: 10px; */
+  }
+  .color_div_blue{
+    background-color: #3b5a9d;
+    width: 100%;
+    height: 5px;
+    /* border-radius: 10px; */
+  }
+  .color_div_lightBlue{
+    background-color: #59c7be;
+    width: 100%;
+    height: 2px;
+    /* border-radius: 10px; */
+  }
+  .more_link{
     color: white;
   }
+  .event_title_div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-top: 0.3em;
+  }
   
-  .event h2 {
+  .event_title_div h2 {
     font-family: Roboto;
-    font-size: 15px;
+    font-size: 17px;
     color: #ffa633;
   }
-  .event p {
+  .event_title_div p {
     font-family: Roboto;
-    font-size: small;
+    font-size: 14px;
     color: #3b5a9d;
+    font-weight: bold;
+  }
+  .read_more_div small {
+    color: #4fb2aa;
+  }
+  .read_more_div{
+    justify-self: self-end;
+    align-self: flex-end;
+    margin-right: 1em;
+    margin-top: 0;
   }
   
   @media only screen and (min-width: 600px) {
-    .event {
-      height: 30px;
+    .event_card {
+      height: 80px;
       width: 500px;
-      margin: 1.3em 3em 1.3em 2em;
-      padding: 0.4em 1em 0.4em 1.5em;
+      margin: 1em 3em 1em 3em;
+      /* padding: 1.2em 1em 0.4em 1.5em; */
     }
-    .event h2 {
-      font-size: 20px;
+    .event_title_div h2 {
+      font-size: 24px;
     }
-    .event p {
-      font-size: 20px;
+    .event_title_div p {
+      font-size: 18px;
     }
   }
   
   @media only screen and (min-width: 885px) {
-    .event {
-      height: 80px;
-      width: 800px;
-      margin: 1.3em 3em 1.3em 2em;
-      padding: 0.8em 1em 0.8em 1.5em;
+    .event_card {
+      height: 100px;
+      width: 650px;
+      margin: 1.3em 3em 1.3em 3em;
     }
-    .event h2 {
-      font-size: 35px;
-      margin-top: 15px;
-      margin-bottom: 10px;
+    .event_title_div h2 {
+      font-size: 28px;
     }
-    .event p {
-      font-size: 35px;
-      margin-top: 15px;
-      margin-bottom: 10px;
+    .event_title_div p {
+      font-size: 20px;
     }
+    .read_more_div{
+      margin-right: 2em;
+    }
+    .read_more_div small {
+      font-size: 18px;
+    }
+    .color_div_yellow{
+    height: 4px;
+    }
+    .color_div_blue{
+      height: 10px;
+    }
+    .color_div_lightBlue{
+      height: 4px;
+    }
+
   }
   

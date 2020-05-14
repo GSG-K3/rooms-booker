@@ -10,13 +10,21 @@ class Event extends Component {
     const { event_title , event_date } = this.props
     return (
       <div  onClick={this.showInfo}>
-        <Link className='link' to = {{pathname:`/event/${this.props.event.event_id}`
-      }}>
-        <div className="event">
+        <div className="event_card">
+          <div className='color_div_yellow'></div>
+          <div className='color_div_blue'></div>
+          <div className='color_div_lightBlue'></div>
+          <div className='event_title_div'>
         <h2>{event_title}</h2>
-        <p>{event_date}</p>
-        </div>
+        <p>{event_date.slice(0,10)}</p>
+          </div>
+        <div className='read_more_div'>
+        <Link className='more_link' to = {{pathname:`/event/${this.props.event.event_id}`
+      }}>
+        <small>more ...</small>
         </Link>
+        </div>
+        </div>
       </div> 
       
     )
