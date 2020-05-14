@@ -3,51 +3,80 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;  
-    margin-top: 50px;
+    margin-top: 30px;
 }
+
 .eventinfo__title {
 color: #FFA633;
-font-size: 20px;
+font-size: 18px;
+margin-bottom: -8px;
+}
+.eventinfo__information{
+ margin-top: 5px;
+ margin-bottom: -90;
+font-size: small;
+color: teal;
 }
 .event_info{
-    border: 1px solid #4FB2AA;
-    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 300px;
+    height: 280px;
+    box-shadow: 0 16px 8px 0 #FFA633;
+    transition: 0.3s;
+    border-radius: 10px;
     margin-top: 20px;
-    color:#3B5A9D ;
+    background-color: whitesmoke;
 }
-.event_info h2 {
-    font-size: 16px;
-}
+.event_info:hover {
+    box-shadow: 0 8px 16px 0 rgba(247, 189, 103, 0.966);
+  }
+
 .event_info p {
-    margin-top: 5px;
+    color: teal;
     font-size: small;
+    display: flex;
+    justify-content: start;
+}
+.event_info h3 {
+    color:#3B5A9D ;
+    font-size: small;
+    display: flex;
+    justify-content: start;
+    margin-left: 5px;
 }
 
 .event_info__description{
-    margin: 15px 15px 0px 30px;
+    margin: 30px 2px 0px 2.7px;
 }
 
 .event_info__author{
-    margin: 15px 0px 0px 30px;
+    display: flex;
+    margin: 20px 0px 0px 10px;
+    
 }
 .event_info__date{
-    margin: 15px 0px 0px 30px;
+    margin: 25px 0px 0px 7px;
 }
 .event_info__room{
-    margin: 15px 0px 0px 30px;  
+    display: flex;
+    margin: 20px 0px 0px 10px;  
 }
 .event_info__note{
-    margin: 15px 10px 30px 30px;
+    display: flex;
+    margin: 20px 0px 0px 10px ;
 }
+
 .eventinfo_button{
-    margin-top: 10px;
+    margin-top: 5px;
     display: flex;
     
 }
 
 .eventinfo_button__back{
-    width: 100px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
     border: 1px #FFA633 solid ;
     border-radius: 10px;
     background-color: white;
@@ -55,12 +84,12 @@ font-size: 20px;
     display: flex;
     align-self: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 15px;
     margin: 2em 2em 2em 2em;
 }
 .eventinfo_button__remindme{
-    width: 100px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
     border: 1px solid ;
     border-radius: 10px;
     background-color: #3B5A9D;
@@ -68,24 +97,43 @@ font-size: 20px;
     display: flex;
     align-self: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 12px;
     margin: 2em 2em 2em 2em;
 }
 
 @media only screen and (min-width: 885px) {
+    .eventinfo{
+        margin-top: 20px;
+    }
     .eventinfo__title {
-        font-size: 30px;
+        font-size: 22px;
+        margin-top: 30px;
+        }
+        .eventinfo__information{
+           font-size: 14.5px;
+           }
+        .event_info{
+            width: 430px;
+            height: 330px;
         }
 
-        .event_info h2 {
-            font-size: 25px;
-        }
         .event_info p {
-            font-size: 20px;
+            font-size: 18px;
         }
+        .event_info h3 {
+            font-size: 18px;
+        }
+        .event_info__date{
+            margin-top: 30px;
+        }
+        .eventinfo_button{
+            margin-top: 10px;   
+        }
+        
         .eventinfo_button__back{
             width: 120px;
             height: 50px; 
+            font-size: 22px;
         }  
         .eventinfo_button__remindme{
             width: 120px;
