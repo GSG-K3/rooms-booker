@@ -20,7 +20,7 @@ input[type=text]{
     height: 30px;
     display: inline-block;
     border: none;
-    border-bottom: 1px solid #4FB2AA ;
+    border-bottom: 1.5px solid #4FB2AA ;
 }
 
 input::placeholder{
@@ -36,7 +36,7 @@ input::placeholder{
 
 @media only screen and (min-width: 885px) {
  input[type=text]{
-  width: 400px;
+  width: 240px;
   }
 }
 
