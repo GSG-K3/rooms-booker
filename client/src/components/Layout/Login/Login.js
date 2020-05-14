@@ -31,9 +31,6 @@ class Login extends Component {
     const value = e.target.value;
     this.setState({ [name]: value, message: null });
   };
-  goBack = () => { 
-    this.props.history.goBack()
-    }
   render() {
     return (
       <form className='form-container'>
@@ -66,9 +63,8 @@ class Login extends Component {
             Login
           </button>
 
-            <button type="submit" className="login-form__back__btn" onClick={ () => {
-          this.goBack()
-        }}> Back
+            <button type="submit" className="login-form__back__btn" onClick={this.props.history.goBack}
+            > Back
             </button>
         </div>
       </form>
