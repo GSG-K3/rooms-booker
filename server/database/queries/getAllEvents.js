@@ -2,8 +2,6 @@
 const dbconnection = require('../db_connection')
 const events = () => {
   return dbconnection
-    .query('select * from events inner join rooms on events.room_id = rooms.room_id')
-    .then(res => res.rows)
-    .catch(err => console.log(err))
+    .query('select events.event_title, events.event_date from events')
 }
 module.exports = events
