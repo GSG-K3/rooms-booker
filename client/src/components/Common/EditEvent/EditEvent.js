@@ -29,7 +29,6 @@ class EditEvent extends Component {
 
   componentDidMount() {
     let event = this.props.location.state.event;
-    console.log(event)
     let date = moment (this.props.location.state.event.event_date.toLocaleString ()).format (
       'YYYY-MM-DD H:mm:ss'
     ) 
@@ -40,15 +39,15 @@ class EditEvent extends Component {
       eventDescription: event.event_description,
       eventNote: event.event_note,
       date: date,
-      roomId: event.room_id
+      roomId: event.room_id,
     });
     axios
       .get(`/api/rooms`)
-      .then((res) => this.setState({ rooms: res.data }))
-      .catch((err) => this.setState({ errFound: !this.state.errFound }))
-    console.log(this.state.rooms)
-    this.state.rooms = this.state.rooms.filter(room => room.room_id !== this.state.room_id)
-    this.setState({ room_name: this.state.rooms.room_name })
+      .then((res) => this.setState({ rooms: res.data })).then(() => {
+        this.state.rooms = this.state.rooms.filter(room => room.room_id === this.state.roomId)
+        this.setState({ room_name: this.state.rooms[0].room_name })
+      })
+      .catch((err) => err)
   }
 
   handelChange = (e) => {
