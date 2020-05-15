@@ -28,11 +28,11 @@
 }
 .rooms__card__content {
   overflow: hidden;
-  width: 95%;
-  padding: 0.8em 0 1em 0.5em;
+  width: 100%;
+  padding: 0.8em 0 1em 0.4em;
   column-count: 2;
-  column-gap: 4px;
-  column-rule: 4px;
+  column-gap: 10px;
+  column-rule: 8px;
   line-height: 1.7em;
 }
 
@@ -40,7 +40,7 @@
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-li {
+.room_info_li {
   list-style: none;
   color: #3B5A9D;
   padding-right: 0;
@@ -75,66 +75,65 @@ li {
 }
 
 .available-rooms-container__iconDiv__search {
-  width: 32px;
-  height: 32px;
+  width: 2.3em;
+  height: 2.3em;
   background-color: rgba(79, 178, 170, 0.78);
   background-size: 35px;
-  margin-left: 5%;
+  margin-left: 2%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.246);
+  transition: 0.3s;
+}
+.available-rooms-container__iconDiv__search :hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  
 }
 
 .date-and-time{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: Roboto;
   font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 24px;
+  font-weight: bold;
+  font-size: 18px;
   display: flex;
   align-items: center;
   text-align: center;
   color: #FFA633;
-  width: 60%;
-  margin: 2%;
-  padding: 2%;
+  width: 50%;
+  margin-left: 2em;
+  margin-top: 1em;
 }
 
 .icon {
-  width: 35px;
-  height: 35px;
+  width: 1.8em;
+  height: 1.8em;
   margin-right: 3%;
 }
 
-.date {
+.availabale_room_date {
   display: flex;
-  margin: 4%;
+  margin: 0.5em;
   width: 90%;
   justify-content: flex-start;
 }
-
-.time {
-  display: flex;
-  margin: 4%;
-  width: 90%;
-  justify-content: flex-start;
+.availabale_room_date h3 {
+  margin-top: 0.23em;
 }
 
 .search_message {
   color: #FFA633;
   font-family: Roboto;
-  font-style: normal;
-  font-weight: 380;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 14px;
   margin-top: 0;
+  margin-right: 3em;
 }
 
 @media only screen and (min-width: 600px){
-  .available-rooms-container__date-picker input[type=text]{
-    width: 220px;
-  }
   .date-and-time{
-    margin-left: 9em;
+    margin-left: 7em;
   }
 }
 @media only screen and (min-width: 885px) {
@@ -152,7 +151,10 @@ li {
     width: 80%;
   }
   .search_message {
-    margin-right: 6em;
+    margin-right: 5em;
+  }
+  .date-and-time{
+    margin-left: 8em;
   }
  }
  
@@ -160,5 +162,4 @@ li {
   .rooms{
     margin-top: 30px;
   }
-  
  }
