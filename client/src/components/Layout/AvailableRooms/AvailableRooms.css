@@ -5,20 +5,24 @@
     font-size: 23px;
     line-height: 27px;
     display: flex;
-    align-items: center;
     color: #FFA633;
+    margin-top: 1em;
+    margin-left: 2em;
 }
-
+.available-rooms-container{
+  margin-top: 1.5em;
+}
 .available-rooms-container__available-room {
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    width: 300px;
+    width: 280px;
     justify-content: space-between;
-    padding: 0.8em 1em 0.2em 1.5em;
-    margin: 1em 0 1em 0;
+    padding: 0em 1em 0.2em 1.5em;
+    margin: 0em 0 1em 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+    height: 60px;
   }
 
   .available-rooms-container__available-room__room-name{
@@ -36,14 +40,15 @@
 
   .available-rooms-container__available-room__addIcon{
     width: 35px;
-    height: 35px
+    height: 35px;
+    margin-top: 1em;
   }
 
   .available-rooms-container__available-room:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
 
-  .message {
+  .no_room_message {
     margin-top: 5%;
     color: #FFA633;
     font-family: Roboto;
@@ -52,3 +57,16 @@
     font-size: 24px;
     line-height: 28px;
   }
+@media only screen and (min-width : 600px){
+  .available-rooms-title{
+    margin-left: 5em;
+  }
+  .available-rooms-container__available-room{
+    width: 55%;
+  }
+}
+@media only screen and (min-width : 800px){
+  .available-rooms-title{
+    margin-left: 7em;
+  }
+}

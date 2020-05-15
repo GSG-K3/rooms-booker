@@ -5,11 +5,13 @@ import Edit from "../../../Images/Edit.png";
 import { Link } from "react-router-dom";
 import ServerErr from "../../Errors/Err500/ServerErr";
 import ClipLoader from "react-spinners/ClipLoader";
+
 import "./userHome.css";
 import axios from "axios";
 import Popup from "../../Common/DeleteEvent/Popup";
 
 class UserHome extends Component {
+
   goBack = () => {
     this.props.history.push("/");
   };
@@ -23,19 +25,45 @@ class UserHome extends Component {
     eventName: "",
     errorFound: false,
     message: null,
-    loading:true
+    loading:true,
+    email: "",
+    userId: "",
+    userName: "",
+
   };}
+
+
   componentDidMount() {
 
-    const id = 3
-    axios
-      .get(`/api/user-events/${id}`)
-      .then((res) => this.setState({ events: res.data , loading:false  }))
-      .catch((err) => {
-        if (err.response.data.status === 403)
-          this.setState({ message: err.response.data.message});
-        else this.setState({ errorFound: !this.state.errorFound });
-      });
+    const { history } = this.props
+    axios.get('/api/check').then(({ data }) => {
+
+      const { success, email, userId, userName } = data
+
+      if (success) {
+        this.setState({
+          email, userId, userName
+        }, () => {
+
+          const { userId } = this.state
+          axios.get(`/api/user-events/${userId}`)
+            .then(res => {
+              this.setState({ events: res.data , loading:false})
+            }
+            )
+            .catch((err) => {
+              if (err.response.data.status === 403)
+                this.setState({ message: err.response.data.message , loading:false});
+              else this.setState({ errorFound: !this.state.errorFound });
+            
+        })
+      })
+
+      } else {
+        return history.push('/login')
+      }
+
+    })
   }
 
   handelSubmit = (id, name) => {
@@ -47,15 +75,16 @@ class UserHome extends Component {
   };
 
   render() {
-    const { events, errorFound,loading } = this.state;
+    const { events, errorFound,loading,userName } = this.state;
 
-    return errorFound ? (
-      <ServerErr />
-    ) : (
+    return (
+      <>
+          {errorFound ?
+           <ServerErr/>  : (
       <div className="component_continer">
         <div className="user_profile__div">
           <img src={Profile} />
-          <h2>Bayan_Seder</h2>
+          <h2>{userName}</h2>
         </div>
         <div className="events_continer__div">
           
@@ -124,7 +153,7 @@ class UserHome extends Component {
           />
         ) : null}
       </div>
-    );
-  }
-}
+    )
+ }</> 
+  )}}
 export default UserHome;
