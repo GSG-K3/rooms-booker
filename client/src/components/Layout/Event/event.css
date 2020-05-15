@@ -30,6 +30,7 @@
   }
   .event_title_div p {
     font-family: Roboto;
+    width: 30%;
     font-size: 12px;
     color: #3b5a9d;
     font-weight: bold;
@@ -46,10 +47,12 @@
   
   @media only screen and (min-width: 600px) {
     .event_card_event_component {
-      height: 80px;
+      height: 85px;
       width: 500px;
       margin: 1em 3em 1em 3em;
-      /* padding: 1.2em 1em 0.4em 1.5em; */
+    }
+    .event_title_div{
+      width: 85%;
     }
     .event_title_div h2 {
       font-size: 24px;
