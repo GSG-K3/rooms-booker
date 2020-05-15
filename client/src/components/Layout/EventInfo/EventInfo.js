@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './eventInfo.css'
+import Background from '../../../Images/background.jpg'
 
 class EventInfo extends Component {
   render () {
@@ -14,28 +15,30 @@ class EventInfo extends Component {
         </div>
 
         <div className='event_info'>
+          <div> <img src={Background}/></div>
+          <div className='event_info2'>
+            <div className ='event_info__description'>
+              <h3> {eventInfo.event_description}</h3>
+            </div>
+            <div className ='event_info__date'>
+              <h3> {eventInfo.event_date.slice(0, 10)}</h3>
+              <h3> {eventInfo.event_date.slice(11, 19)}</h3>
+            </div>
+            <div className ='event_info__room'>
+              <p>Room</p>
+              <h3>{eventInfo.room_name}</h3>
+            </div>
 
-          <div className ='event_info__description'>
-            <h3> {eventInfo.event_description}</h3>
-          </div>
-          <div className ='event_info__date'>
-            <h3> {eventInfo.event_date}</h3>
-          </div>
-          <div className ='event_info__room'>
-            <p>Room</p>
-            <h3>{eventInfo.room_name}</h3>
-          </div>
+            <div className ='event_info__author'>
+              <p>Author of this event</p>
+              <h3> {eventInfo.event_author}</h3>
+            </div>
 
-          <div className ='event_info__author'>
-            <p>Author of this event</p>
-            <h3> {eventInfo.event_author}</h3>
+            <div className ='event_info__note'>
+              <p>Notes</p>
+              <h3> {eventInfo.event_note}</h3>
+            </div>
           </div>
-
-          <div className ='event_info__note'>
-            <p>Notes</p>
-            <h3> {eventInfo.event_note}</h3>
-          </div>
-
         </div>
         <div className ='eventinfo_button'>
 

@@ -6,6 +6,7 @@
     margin-top: 30px;
 }
 
+
 .eventinfo__title {
 color: #FFA633;
 font-size: 18px;
@@ -19,7 +20,6 @@ color: teal;
 }
 .event_info{
     display: flex;
-    flex-direction: column;
     align-content: center;
     width: 300px;
     height: 280px;
@@ -27,10 +27,16 @@ color: teal;
     transition: 0.3s;
     border-radius: 10px;
     margin-top: 20px;
-    background-color: whitesmoke;
 }
+
 .event_info:hover {
     box-shadow: 0 8px 16px 0 rgba(247, 189, 103, 0.966);
+  }
+  .event_info img{
+      display: flex;
+      width: 85px;
+      height: 280px;
+      margin-left: -10px;
   }
 
 .event_info p {
@@ -48,24 +54,25 @@ color: teal;
 }
 
 .event_info__description{
-    margin: 30px 2px 0px 2.7px;
+    margin: 25px 2px 0px -27px;
 }
+
 
 .event_info__author{
     display: flex;
-    margin: 20px 0px 0px 10px;
+    margin: 20px 0px 0px -15px;
     
 }
 .event_info__date{
-    margin: 25px 0px 0px 7px;
+    margin: 18px 0px 0px -15px;
 }
 .event_info__room{
     display: flex;
-    margin: 20px 0px 0px 10px;  
+    margin: 20px 0px 0px -15px;  
 }
 .event_info__note{
     display: flex;
-    margin: 20px 0px 0px 10px ;
+    margin: 20px 0px 0px -15px ;
 }
 
 .eventinfo_button{
@@ -140,6 +147,12 @@ color: teal;
             height: 50px;
             font-size: 18px;
         }
-
+        .event_info img{
+            width: 100px;
+            height: 330px;
+        }
+        .event_info__description{
+            width: 300px;
+        }
 }
 
