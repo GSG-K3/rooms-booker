@@ -6,12 +6,25 @@
 .user_profile__div{
     margin: 1em 0 0 3em ;
     display: flex;
-    align-self: start;
+
 }
 .user_profile__div img{
     height: 3.2em;
     width: 3.2em;
     margin: 0em 2em 0.5em 0.5em;
+
+}
+.logout{
+    margin-right: 4.5vw;
+    color: rgb(0, 0, 0);
+        display: flex;
+justify-content: flex-end;
+text-decoration: underline;
+cursor: pointer;
+
+}
+.logout p :hover{
+    opacity: 0.8;
 }
 .user_profile__div h2{
     margin-top: 0.8em;
@@ -24,6 +37,11 @@
 .events{
     color: #C4C4C4;
     margin: 2.5em 0 0.7em 2.1em ;
+}
+.events_message{
+    color: rgb(172, 31, 31);
+    margin: 2.5em 0 0.7em 2.1em ;
+ font-size: 1.2rem;
 }
 .event_card{
     border: #3B5A9D 1px solid;
@@ -54,6 +72,8 @@ color: white;
     height: 1.7em;
     width: 1.7em;
     margin: 1em 0.5em 0em 3em;
+    cursor: pointer;
+
 }
 .event_option{
     display: flex;

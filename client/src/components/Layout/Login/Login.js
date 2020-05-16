@@ -10,6 +10,16 @@ class Login extends Component {
     message: null,
   };
 
+  componentDidMount() {
+    const { history } = this.props;
+    axios.get("/api/check").then(({ data }) => {
+      const { success} = data;
+
+      if (success) return history.push("/home");
+    
+    });
+  }
+
   handleForm = (e) => {
     e.preventDefault();
     const data = { email: this.state.email, password: this.state.password };
@@ -18,11 +28,10 @@ class Login extends Component {
       .post("/api/login", data)
       .then((result) => {
         if (result.status === 200) {
-          this.props.history.goBack();
+          this.props.history.push('/home');
         }
       })
-      .catch((err) =>
-        this.setState({ message: err.response.data.message }));
+      .catch((err) => this.setState({ message: err.response.data.message }));
   };
 
   handleInput = (e) => {
@@ -31,10 +40,9 @@ class Login extends Component {
     const value = e.target.value;
     this.setState({ [name]: value, message: null });
   };
-
   render() {
     return (
-      <form className='form-container'>
+      <form className="form-container">
         <div className="login-form">
           <h1> LogIn </h1>
           <div className="login-form__email">
@@ -63,11 +71,10 @@ class Login extends Component {
           >
             Login
           </button>
-          <Link to="/" className="text-link">
-            <button type="submit" className="login-form__back__btn">
-              Back
+
+            <button type="submit" className="login-form__back__btn" onClick={this.props.history.goBack}
+            > Back
             </button>
-          </Link>
         </div>
       </form>
     );
