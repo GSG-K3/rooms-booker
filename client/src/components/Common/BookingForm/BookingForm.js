@@ -4,21 +4,20 @@ import Clock from "../../../Images/clock_icon.png";
 import RoomIcon from "../../../Images/room_icon.png";
 import "./bookingForm.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Popup from "./Popup";
+import moment from 'moment'
 import logout from "../../Layout/logout/logout";
 
 class BookingForm extends Component {
   constructor(props) {
-    super(props);
+    super(props); 
     this.state = {
-      userId: 3,
-      date: "2020-05-23T11:00:00.000Z",
-      roomId: 5,
-      roomName: "Moscow",
+      userId: null,
+      date: '',
+      roomId: null,
+      roomName: '',
       reminder: false,
-      showPopup: false,
-      showNote: false,
+      showPopup: false
     };
   }
 
@@ -26,9 +25,19 @@ class BookingForm extends Component {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
-
-      if (!success) return history.push("/login");
-    });
+      if (success) {
+        let {roomName, roomId, date} = this.props.location.bookingProps
+        date = moment (date.toLocaleString ()).format (
+          'YYYY-MM-DD H:mm:ss'
+        )
+        this.setState({
+          roomName: roomName,
+           date: date,
+           userId: data.userId,
+           roomId: roomId
+        });
+      } else return history.push("/login");
+    });       
   }
 
   handelChange = (e) => {
@@ -36,28 +45,26 @@ class BookingForm extends Component {
     const value = e.target.value;
     this.setState({ [name]: value });
   };
+
   toggleReminder = () => {
     this.setState({ reminder: !this.state.reminder });
   };
 
   handelSubmit = (e) => {
     e.preventDefault();
-    if (
-      this.state.name != null &&
-      this.state.title != null &&
-      this.state.description != null
-    ) {
-      const formData = this.state;
-      axios
-        .post("/api/booking", formData)
-        .then((response) => this.setState({ showPopup: !this.state.showPopup }))
-        .catch((err) =>
-          alert(`An Error happend : ${err.message} !! try again !!`)
-        );
-    } else this.setState({ showNote: !this.state.showNote });
+    const formData = this.state;
+    axios
+      .post("/api/booking", formData)
+      .then((response) => this.setState({ showPopup: !this.state.showPopup }))
+      .catch((err) => this.setState({ message: err.response.data.message }));
   };
 
+  goBack= () => {
+    this.props.history.push('/rooms');
+  }
+
   render() {
+    const {date, roomName, showNote, showPopup } = this.state
     return (
       <div>
         <div className="logout">
@@ -73,15 +80,15 @@ class BookingForm extends Component {
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
-            <h4>{this.state.date.slice(0, 10)}</h4>
+            <h4>{date.slice(0,10)}</h4>
           </div>
           <div className="date_info__div">
             <img src={Clock} alt="clock" />
-            <h4>{this.state.date.slice(11, 16)}</h4>
+            <h4>{date.slice(11,16)}</h4>
           </div>
           <div className="date_info__div">
             <img src={RoomIcon} alt="room" />
-            <h4>{this.state.roomName}</h4>
+            <h4>{roomName}</h4>
           </div>
         </div>
         <form className="booking_form">
@@ -90,9 +97,6 @@ class BookingForm extends Component {
             process:
           </p>
           <hr className="label_line" />
-          {this.state.showNote ? (
-            <small className="message">Please fill the first 3 fields</small>
-          ) : null}
           <input
             type="text"
             name="name"
@@ -127,10 +131,11 @@ class BookingForm extends Component {
               Remind me
             </label>
           </div>
+          {this.state.message ? (
+            <p className='edit_form_message'> {this.state.message} </p>
+          ) : null}
           <div className="buttons_continer">
-            <Link to="/" className="text-link">
-              <button className="back_button">Back</button>
-            </Link>
+              <button className="back_button" onClick={this.goBack}>Back</button>
             <button
               type="submit"
               onClick={this.handelSubmit}
@@ -140,7 +145,7 @@ class BookingForm extends Component {
             </button>
           </div>
         </form>
-        {this.state.showPopup ? <Popup room={this.state.roomName} /> : null}
+        {showPopup ? <Popup room={roomName} /> : null}
       </div>
     );
   }
