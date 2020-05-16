@@ -20,6 +20,17 @@ class BookingForm extends Component {
     };
   }
 
+  componentDidMount() {
+    const { history } = this.props;
+    axios.get("/api/check").then(({ data }) => {
+      const { success } = data;
+
+      if (!success) return history.push("/login");
+    });
+  }
+
+
+
   handelChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
