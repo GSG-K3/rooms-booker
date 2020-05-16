@@ -26,11 +26,6 @@ cursor: pointer;
 .logout p :hover{
     opacity: 0.8;
 }
-.logout_icon img{
-  height: 2.5em;
-    width: 2.5em;
-
-}
 .user_profile__div h2{
     margin-top: 0.8em;
     color: #4FB2AA;

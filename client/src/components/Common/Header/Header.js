@@ -8,7 +8,7 @@ function Header () {
   return (
     <div className='header'>
       <img className='logo' src={GSGlog} alt='logo' />
-      <Link to = {'/home'}>
+      <Link to = {'/login'}>
         <img className='profile' src={Profile} alt='profile'/></Link>
     </div>
   )

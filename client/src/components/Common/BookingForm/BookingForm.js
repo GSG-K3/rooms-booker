@@ -6,6 +6,8 @@ import "./bookingForm.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
+import logout from "../../Layout/logout/logout";
+
 class BookingForm extends Component {
   constructor(props) {
     super(props);
@@ -16,8 +18,17 @@ class BookingForm extends Component {
       roomName: "Moscow",
       reminder: false,
       showPopup: false,
-      showNote : false
+      showNote: false,
     };
+  }
+
+  componentDidMount() {
+    const { history } = this.props;
+    axios.get("/api/check").then(({ data }) => {
+      const { success } = data;
+
+      if (!success) return history.push("/login");
+    });
   }
 
   handelChange = (e) => {
@@ -31,19 +42,34 @@ class BookingForm extends Component {
 
   handelSubmit = (e) => {
     e.preventDefault();
-    if(this.state.name!=null && this.state.title!=null && this.state.description!=null){
+    if (
+      this.state.name != null &&
+      this.state.title != null &&
+      this.state.description != null
+    ) {
       const formData = this.state;
       axios
         .post("/api/booking", formData)
         .then((response) => this.setState({ showPopup: !this.state.showPopup }))
-        .catch((err) => alert(`An Error happend : ${err.message} !! try again !!`));
-    }
-    else this.setState({showNote : !this.state.showNote})
+        .catch((err) =>
+          alert(`An Error happend : ${err.message} !! try again !!`)
+        );
+    } else this.setState({ showNote: !this.state.showNote });
   };
 
   render() {
     return (
       <div>
+        <div className="logout">
+          <p
+            onClick={() => {
+              logout();
+            }}
+          >
+            Logout
+          </p>
+        </div>
+
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
@@ -64,7 +90,9 @@ class BookingForm extends Component {
             process:
           </p>
           <hr className="label_line" />
-          {this.state.showNote? <small className='message'>Please fill the first 3 fields</small> :null}
+          {this.state.showNote ? (
+            <small className="message">Please fill the first 3 fields</small>
+          ) : null}
           <input
             type="text"
             name="name"
