@@ -62,6 +62,7 @@ class UserHome extends Component {
       }
     });
   }
+  
 
   handelSubmit = (id, name) => {
     this.setState({
@@ -105,11 +106,18 @@ class UserHome extends Component {
                 </div>
 
                 {events.map((event) => {
+                   const showInfo = () => {
+                    sessionStorage.setItem('event', JSON.stringify(event))
+                  }
                   return (
                     <div key={event.event_id} className="event_card">
-                      <div className="event_title">
+
+                      <div className="event_title" onClick={showInfo}>
+                      <Link className='event_title__link' to = {{pathname:`/event/${event.event_id}`
+      }}>
                         <h3>{event.event_title}</h3>
                         <p>{event.event_date}</p>
+                        </Link>  
                       </div>
                       <div className="event_option">
                         <div>

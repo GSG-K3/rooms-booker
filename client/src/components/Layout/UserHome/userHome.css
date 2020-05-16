@@ -65,6 +65,9 @@ cursor: pointer;
     font-size: medium;
     color: #3B5A9D;
 }
+.event_title__link{
+color: white;
+}
 .event_option img{
     height: 1.7em;
     width: 1.7em;

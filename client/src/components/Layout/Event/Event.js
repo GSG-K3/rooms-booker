@@ -7,6 +7,7 @@ class Event extends Component {
     sessionStorage.setItem('event', JSON.stringify(event))
   }
   render () {
+    
     const { event_title , event_date } = this.props
     return (
       <div  onClick={this.showInfo}>
