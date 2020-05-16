@@ -5,9 +5,9 @@ const deleteEvent = (req, res) => {
 
   eventDelete(eventId).then(() => {
     res.send();
-  }).catch(() => {
-    console.log("something wrong")
   })
+    .catch((err) => res.status(500).json({ message: err.message }));
+
 };
 
 module.exports = deleteEvent;

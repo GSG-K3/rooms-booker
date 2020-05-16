@@ -7,7 +7,7 @@ const DeleteEvent = (Id) => {
     .then(() => {
       window.location.reload(false);
     })
-    .catch((err) => console.log("err", err))
-};
+    .catch((err) => alert(`An Error happend : ${err.message} !! try again !!`))
+}
 
 export default DeleteEvent;

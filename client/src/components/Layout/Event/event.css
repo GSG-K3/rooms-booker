@@ -9,6 +9,9 @@
     margin: 1.3em 3em 1.3em 2em;
     padding: 0.8em 1em 0.2em 1.5em;
   }
+  .link{
+    color: white;
+  }
   
   .event h2 {
     font-family: Roboto;
@@ -20,7 +23,7 @@
     font-size: small;
     color: #3b5a9d;
   }
-
+  
   @media only screen and (min-width: 600px) {
     .event {
       height: 30px;
@@ -38,16 +41,20 @@
   
   @media only screen and (min-width: 885px) {
     .event {
-      height: 50px;
+      height: 80px;
       width: 800px;
       margin: 1.3em 3em 1.3em 2em;
       padding: 0.8em 1em 0.8em 1.5em;
     }
     .event h2 {
       font-size: 35px;
+      margin-top: 15px;
+      margin-bottom: 10px;
     }
     .event p {
       font-size: 35px;
+      margin-top: 15px;
+      margin-bottom: 10px;
     }
   }
   

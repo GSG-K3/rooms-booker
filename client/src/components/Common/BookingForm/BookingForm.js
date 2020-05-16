@@ -36,7 +36,7 @@ class BookingForm extends Component {
       axios
         .post("/api/booking", formData)
         .then((response) => this.setState({ showPopup: !this.state.showPopup }))
-        .catch((err) => alert('An Error happend in the server !! try again '));
+        .catch((err) => alert(`An Error happend : ${err.message} !! try again !!`));
     }
     else this.setState({showNote : !this.state.showNote})
   };
