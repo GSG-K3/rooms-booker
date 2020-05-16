@@ -99,13 +99,13 @@ class UserHome extends Component {
                     sessionStorage.setItem('event', JSON.stringify(event))
                   }
                   return (
-                    <div key={event.event_id} className="user_event_card">
+                    <div key={event.event_id} className="event_card">
 
-                      <div className="user_event_title" onClick={showInfo}>
+                      <div className="event_title" onClick={showInfo}>
                       <Link className='event_title__link' to = {{pathname:`/event/${event.event_id}`
       }}>
                         <h3>{event.event_title}</h3>
-                        <p>{event.event_date.slice(0,10)}</p>
+                        <p>{event.event_date}</p>
                         </Link>  
                       </div>
                       <div className="event_option">
