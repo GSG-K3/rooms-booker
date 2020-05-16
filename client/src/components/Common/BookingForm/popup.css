@@ -81,3 +81,16 @@
         margin: 1em 2em 1em 2em;
     }
 }
+@media only screen and (min-height:550px) {
+   
+    .send_btn{
+        width: 80px;
+        font-size: 13px;  
+    }
+}
+@media only screen and (max-height:800px){
+    .send_btn{
+        width: 80px;
+        font-size: 13px;  
+    }
+}
