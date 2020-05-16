@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;  
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .eventinfo__info{
@@ -28,11 +28,12 @@ color: teal;
     box-shadow: 0 16px 8px 0 rgb(243, 242, 240);
     transition: 0.3s;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .event_info__desc{
     margin-left: -20px;
+    margin-top: 30px;
 }
   .event_info img{
       display: flex;
@@ -155,6 +156,7 @@ color: teal;
         }
         .event_info__desc{
             margin-left: -40px;
+            margin-top: 40px;
         }
 }
 @media only screen and (max-width: 400px) {
