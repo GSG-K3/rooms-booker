@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Popup from './Popup';
 import moment from 'moment'
+import logout from "../../Layout/logout/logout";
 
 class EditEvent extends Component {
   constructor(props) {
@@ -81,9 +82,19 @@ class EditEvent extends Component {
     const { eventTitle, eventAuthor, eventDescription, eventNote, date, room_name, showPopup } = this.state;
     return (
       <div>
-        <div className='date_info_continer__div'>
-          <div className='date_info__div'>
-            <img src={Calender} alt='calender' />
+              <div className="logout">
+          <p
+            onClick={() => {
+              logout();
+            }}
+          >
+            Logout
+          </p>
+        </div>
+
+        <div className="date_info_continer__div">
+          <div className="date_info__div">
+            <img src={Calender} alt="calender" />
             <h4>{date.slice(0, 10)}</h4>
           </div>
           <div className='date_info__div'>
