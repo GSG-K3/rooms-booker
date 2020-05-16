@@ -40,7 +40,6 @@ class Login extends Component {
     const value = e.target.value;
     this.setState({ [name]: value, message: null });
   };
-
   render() {
     return (
       <form className="form-container">
@@ -72,11 +71,10 @@ class Login extends Component {
           >
             Login
           </button>
-          <Link to="/" className="text-link">
-            <button type="submit" className="login-form__back__btn">
-              Back
+
+            <button type="submit" className="login-form__back__btn" onClick={this.props.history.goBack}
+            > Back
             </button>
-          </Link>
         </div>
       </form>
     );
