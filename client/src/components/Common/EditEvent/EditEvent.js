@@ -38,14 +38,13 @@ class EditEvent extends Component {
       eventAuthor: event.event_author,
       eventDescription: event.event_description,
       eventNote: event.event_note,
-      date: date,
       roomId: event.room_id,
     });
     axios
       .get(`/api/rooms`)
       .then((res) => this.setState({ rooms: res.data })).then(() => {
         this.state.rooms = this.state.rooms.filter(room => room.room_id === this.state.roomId)
-        this.setState({ room_name: this.state.rooms[0].room_name })
+        this.setState({ room_name: this.state.rooms[0].room_name,  date: date})
       })
       .catch((err) => err)
   }
