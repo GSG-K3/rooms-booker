@@ -26,7 +26,7 @@ class EditEvent extends Component {
       rooms: []
     };
   }
-
+  
   componentDidMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {

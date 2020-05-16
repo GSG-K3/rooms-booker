@@ -16,8 +16,7 @@ class BookingForm extends Component {
       roomId: null,
       roomName: '',
       reminder: false,
-      showPopup: false,
-      showNote : false
+      showPopup: false
     };
   }
 
