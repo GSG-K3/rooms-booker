@@ -120,8 +120,8 @@ color: teal;
            font-size: 14.5px;
            }
         .event_info{
-            width: 430px;
-            height: 330px;
+            width: 600px;
+            height: 400px;
         }
 
         .event_info p {
@@ -148,8 +148,8 @@ color: teal;
             font-size: 18px;
         }
         .event_info img{
-            width: 100px;
-            height: 330px;
+            width: 150px;
+            height: 400px;
         }
         .event_info__description{
             width: 300px;
