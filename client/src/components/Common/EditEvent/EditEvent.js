@@ -12,7 +12,7 @@ class EditEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: 3,
+      userId: null,
       date: '',
       roomId: null,
       room_name: '',
@@ -28,16 +28,15 @@ class EditEvent extends Component {
   }
 
   componentDidMount() {
-let event = this.props.location.state.event;
-    let date = moment (this.props.location.state.event.event_date.toLocaleString ()).format (
-      'YYYY-MM-DD H:mm:ss'
-    ) 
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
 
       if (success) {
         let event = this.props.location.state.event;
+        let date = moment (this.props.location.state.event.event_date.toLocaleString ()).format (
+          'YYYY-MM-DD H:mm:ss'
+        ) 
         this.setState({
           eventId: event.event_id,
           eventTitle: event.event_title,
@@ -45,16 +44,17 @@ let event = this.props.location.state.event;
           eventDescription: event.event_description,
           eventNote: event.event_note,
           roomId: event.room_id,
+          userId: event.user_id
         });
-      } else return history.push("/login");
-    });
-    axios
+        axios
       .get(`/api/rooms`)
       .then((res) => this.setState({ rooms: res.data })).then(() => {
         this.state.rooms = this.state.rooms.filter(room => room.room_id === this.state.roomId)
         this.setState({ room_name: this.state.rooms[0].room_name,  date: date})
       })
       .catch((err) => err)
+      } else return history.push("/login");
+    }); 
   }
 
   handelChange = (e) => {

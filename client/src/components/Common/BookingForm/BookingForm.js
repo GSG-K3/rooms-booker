@@ -11,9 +11,9 @@ class BookingForm extends Component {
   constructor(props) {
     super(props); 
     this.state = {
-      userId: 3,
+      userId: null,
       date: '',
-      roomId: 5,
+      roomId: null,
       roomName: '',
       reminder: false,
       showPopup: false,
@@ -22,17 +22,24 @@ class BookingForm extends Component {
   }
 
   componentDidMount() {
-    let {roomName, date} = this.props.location.bookingProps
-    date = moment (date.toLocaleString ()).format (
-      'YYYY-MM-DD H:mm:ss'
-    )
-    this.setState({roomName: roomName, date: date})
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
-
-      if (!success) return history.push("/login");
-    });
+      console.log(data)
+      if (success) {
+        console.log(this.props.location.bookingProps)
+        let {roomName, roomId, date} = this.props.location.bookingProps
+        date = moment (date.toLocaleString ()).format (
+          'YYYY-MM-DD H:mm:ss'
+        )
+        this.setState({
+          roomName: roomName,
+           date: date,
+           userId: data.userId,
+           roomId: roomId
+        });
+      } else return history.push("/login");
+    });       
   }
 
 
