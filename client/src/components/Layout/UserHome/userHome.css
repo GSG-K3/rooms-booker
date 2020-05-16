@@ -25,6 +25,11 @@
     color: #C4C4C4;
     margin: 2.5em 0 0.7em 2.1em ;
 }
+.events_message{
+    color: rgb(172, 31, 31);
+    margin: 2.5em 0 0.7em 2.1em ;
+ font-size: 1.2rem;
+}
 .event_card{
     border: #3B5A9D 1px solid;
     border-radius: 10px;
