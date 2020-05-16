@@ -16,6 +16,6 @@ router.get('/api/events', getAllEvents)
 router.get('/api/available-rooms', searchAvailableRooms)
 router.post('/api/login', login)
 router.post('/api/booking', addEvent)
-router.post('/api/delete-event', deleteEvent)
+router.delete('/api/delete-event/:id', deleteEvent)
 
 module.exports = router

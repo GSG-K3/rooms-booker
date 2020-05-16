@@ -1,14 +1,13 @@
 import axios from "axios";
 
 const DeleteEvent = (Id) => {
-  let eventId = { eventId: Id };
 
   axios
-    .post("/api/delete-event", eventId)
-    .then((response) => {
+    .delete(`/api/delete-event/${Id}`)
+    .then(() => {
       window.location.reload(false);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("err", err))
 };
 
 export default DeleteEvent;
