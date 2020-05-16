@@ -43,7 +43,10 @@
 }
 .remind_me_input__div input{
     margin-right: 0.7em;
-    
+}
+.remind_me_input__div{
+    display: flex;
+    align-self: flex-start;
 }
 .buttons_continer{
     display: flex;

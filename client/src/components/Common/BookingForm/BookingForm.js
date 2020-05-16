@@ -75,7 +75,7 @@ class BookingForm extends Component {
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
-            {date.slice(0,10)}
+            <h4>{date.slice(0,10)}</h4>
           </div>
           <div className="date_info__div">
             <img src={Clock} alt="clock" />
