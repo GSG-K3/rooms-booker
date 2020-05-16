@@ -10,13 +10,17 @@ class Login extends Component {
     message: null,
   };
 
+  goBack = (e) => {
+    this.props.history.push('/');
+    
+  };
+
   componentDidMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
-      const { success} = data;
+      const { success } = data;
 
       if (success) return history.push("/home");
-    
     });
   }
 
@@ -28,7 +32,7 @@ class Login extends Component {
       .post("/api/login", data)
       .then((result) => {
         if (result.status === 200) {
-          this.props.history.push('/home');
+          this.props.history.push("/home");
         }
       })
       .catch((err) => this.setState({ message: err.response.data.message }));
@@ -72,9 +76,16 @@ class Login extends Component {
             Login
           </button>
 
-            <button type="submit" className="login-form__back__btn" onClick={this.props.history.goBack}
-            > Back
-            </button>
+          <button
+            type="submit"
+            className="login-form__back__btn"
+            onClick={() => {
+              this.goBack();
+            }}
+          >
+            {" "}
+            Back
+          </button>
         </div>
       </form>
     );
