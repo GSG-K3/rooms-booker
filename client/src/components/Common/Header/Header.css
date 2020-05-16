@@ -17,6 +17,7 @@ body{
 .logo{
 margin: -12px 2em;
     height: 150%;
+    width: 50%;
 }
 .header_link{
     display: flex;

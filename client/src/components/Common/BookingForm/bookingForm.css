@@ -10,56 +10,62 @@
   cursor: pointer;
   font-size: 0.8rem;
 }
-.logout p :hover {
-  opacity: 0.8;
-}
-
-.date_info__div {
+.date_info__div{
   display: flex;
   width: 200px;
   margin: 0.5em 0 0.5em 2em;
-  color: #ffa633;
+  color: #FFA633;
 }
-.date_info__div h4 {
+.date_info__div h4{
   margin-top: 0.4em;
 }
-.date_info__div img {
+.date_info__div img{
   width: 1.8em;
   height: 1.8em;
   margin-right: 1.5em;
 }
-.booking_form {
+.booking_form{
   display: flex;
   flex-direction: column;
   justify-items: center;
   margin: 0 2em 1em 1em;
-  color: #3b5a9d;
+  color: #3B5A9D;
   font-size: 20px;
 }
-.booking_form p {
+.booking_form p{
   text-align: center;
   margin: 0 1em 0 1em;
 }
-.label_line {
+.label_line{
   margin: 0.4em 1.2em 0.4em 1.2em;
-  border-top: #4fb2aa solid 3px;
+  border-top:#4FB2AA solid 3px ;
   align-items: center;
 }
-.booking_form input {
+.booking_form input{
   margin: 1.4em 0 0.3em 2.3em;
-  font-size: 20px;
+  font-size: 18px;
+  color: #3B5A9D;
 }
-.booking_form input[type="text"]::placeholder {
+.booking_form input[type=text]::placeholder{
   color: rgba(79, 178, 170, 0.336);
 }
-.remind_me_input__div input {
+.remind_me_input__div input{
   margin-right: 0.7em;
 }
-.buttons_continer {
+.remind_me_input__div{
+  display: flex;
+  align-self: flex-start;
+}
+.buttons_continer{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+.logout p :hover {
+  opacity: 0.8;
+}
+
 .text-link {
   color: inherit;
   text-decoration: inherit;
