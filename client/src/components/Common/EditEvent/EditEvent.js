@@ -6,6 +6,8 @@ import "./editEvent.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Popup from "./Popup";
+import logout from "../../Layout/logout/logout";
+
 class EditEvent extends Component {
   constructor(props) {
     super(props);
@@ -66,6 +68,16 @@ class EditEvent extends Component {
     const { eventTitle, eventAuthor, eventDescription, eventNote } = this.state;
     return (
       <div>
+              <div className="logout">
+          <p
+            onClick={() => {
+              logout();
+            }}
+          >
+            Logout
+          </p>
+        </div>
+
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
