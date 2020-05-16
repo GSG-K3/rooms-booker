@@ -2,7 +2,6 @@ const eventPost = require('../database/queries/eventPost')
 
 const addEvent = (req, res) => {
   const data = req.body
-  console.log(data)
   const { title, name, description, notes } = data
 
   if (!title || !name || !description || !notes) {
