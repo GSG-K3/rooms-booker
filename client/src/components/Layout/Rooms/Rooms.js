@@ -108,12 +108,12 @@ class Rooms extends Component {
         )}
         </div>
         <ul className="rooms">
-          {!rooms ?
+          {!rooms.length ?
             <div className="loading-spinner">
               <ClipLoader
                 className="loading-spinner__home"
                 sizeUnit={'px'}
-                size={80}
+                size={150}
                 color={'#123abc'}
               />
             </div>

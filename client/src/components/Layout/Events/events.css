@@ -27,12 +27,15 @@ input::placeholder{
     color: #C4C4C4;
     font-size: 24px;
 }
-
+.loading-spinner{
+  margin-top: 7em;
+}
 @media only screen and (min-width: 600px) {
   input[type=text]{
     width: 300px;
   }
 }
+
 
 @media only screen and (min-width: 885px) {
  input[type=text]{
