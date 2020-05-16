@@ -12,7 +12,7 @@ import axios from "axios";
 class UserHome extends Component {
 
   goBack = () => {
-    this.props.history.goBack();
+    this.props.history.push('/');
   };
 
   state = {

@@ -21,14 +21,21 @@ class BookingForm extends Component {
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     let {roomName, date} = this.props.location.bookingProps
     date = moment (date.toLocaleString ()).format (
       'YYYY-MM-DD H:mm:ss'
     )
     this.setState({roomName: roomName, date: date})
-    
+    const { history } = this.props;
+    axios.get("/api/check").then(({ data }) => {
+      const { success } = data;
+
+      if (!success) return history.push("/login");
+    });
   }
+
+
 
   handelChange = (e) => {
     const name = e.target.name;

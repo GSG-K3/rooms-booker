@@ -38,7 +38,7 @@ class AvailableRooms extends Component {
               )
             })
           ) : (
-            <p className='message'>There is no available rooms</p>
+            <p className='no_room_message'>There is no available rooms</p>
           )}
         </div>
       </div>

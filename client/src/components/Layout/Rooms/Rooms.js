@@ -63,13 +63,13 @@ class Rooms extends Component {
     return  (
       <div>
         <div className='date-and-time'>
-          <div className='date'>
+          <div className='availabale_room_date'>
             <img src={calenderIcon} className='icon' />
-            {this.state.startDate.toLocaleDateString ()}
+           <h3>{this.state.startDate.toLocaleDateString ()}</h3> 
           </div>
-          <div className='time'>
+          <div className='availabale_room_date'>
             <img src={clockIcon} className='icon' />
-            {this.state.startDate.toLocaleTimeString ()}
+            <h3>{this.state.startDate.toLocaleTimeString ()}</h3>
           </div>
         </div>
         <AvailableRooms availableRooms={this.state.availableRooms} date = {this.state.startDate}/>
@@ -126,14 +126,14 @@ class Rooms extends Component {
                 </h2>
                 {rooms.room_id === shownCardId && show ? (
                   <div className="rooms__card__content">
-                    <li className="li"> capacity : {rooms.capacity}</li>
-                    <li className="li"> space : {rooms.space}</li>
-                    <li className="li"> {rooms.datashow ? "DataShow" : null}</li>
-                    <li className="li"> {rooms.wifi ? "Wifi" : null}</li>
-                    <li className="li">
+                    <li className="room_info_li"> capacity : {rooms.capacity}</li>
+                    <li className="room_info_li"> space : {rooms.space}</li>
+                    <li className="room_info_li"> {rooms.datashow ? "DataShow" : null}</li>
+                    <li className="room_info_li"> {rooms.wifi ? "Wifi" : null}</li>
+                    <li className="room_info_li">
                       {rooms.coffee_bar ? "Coffee Bar" : null}
                     </li>
-                    <li className="li">
+                    <li className="room_info_li">
                       {rooms.white_board ? "White Board " : null}
                     </li>
                   </div>

@@ -28,17 +28,25 @@ class EditEvent extends Component {
   }
 
   componentDidMount() {
-    let event = this.props.location.state.event;
+let event = this.props.location.state.event;
     let date = moment (this.props.location.state.event.event_date.toLocaleString ()).format (
       'YYYY-MM-DD H:mm:ss'
     ) 
-    this.setState({
-      eventId: event.event_id,
-      eventTitle: event.event_title,
-      eventAuthor: event.event_author,
-      eventDescription: event.event_description,
-      eventNote: event.event_note,
-      roomId: event.room_id,
+    const { history } = this.props;
+    axios.get("/api/check").then(({ data }) => {
+      const { success } = data;
+
+      if (success) {
+        let event = this.props.location.state.event;
+        this.setState({
+          eventId: event.event_id,
+          eventTitle: event.event_title,
+          eventAuthor: event.event_author,
+          eventDescription: event.event_description,
+          eventNote: event.event_note,
+          roomId: event.room_id,
+        });
+      } else return history.push("/login");
     });
     axios
       .get(`/api/rooms`)
