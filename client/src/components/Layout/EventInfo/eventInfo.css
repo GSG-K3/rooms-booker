@@ -12,7 +12,7 @@ color: #FFA633;
 font-size: 18px;
 margin-bottom: -8px;
 }
-.eventinfo__information{
+.eventinfo__details{
  margin-top: 5px;
  margin-bottom: -90;
 font-size: small;
@@ -23,7 +23,7 @@ color: teal;
     align-content: center;
     width: 300px;
     height: 280px;
-    box-shadow: 0 16px 8px 0 #FFA633;
+    box-shadow: 0 16px 8px 0 rgb(243, 242, 240);
     transition: 0.3s;
     border-radius: 10px;
     margin-top: 20px;
@@ -116,7 +116,7 @@ color: teal;
         font-size: 22px;
         margin-top: 30px;
         }
-        .eventinfo__information{
+        .eventinfo__details{
            font-size: 14.5px;
            }
         .event_info{

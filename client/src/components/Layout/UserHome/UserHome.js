@@ -9,7 +9,7 @@ import ClipLoader from 'react-spinners/ClipLoader'
 import "./userHome.css";
 import axios from "axios";
 class UserHome extends Component {
-
+  
   goBack = () => {
     this.props.history.goBack();
   };
@@ -50,6 +50,7 @@ class UserHome extends Component {
 
     })
   }
+  
 
   render() {
     const { userName, events } = this.state
@@ -78,12 +79,19 @@ class UserHome extends Component {
                 <div className="events_continer__div">
                   <h3 className="events">Your Events</h3>
                   {this.state.events.map((event) => {
+                   const showInfo = () => {
+                      sessionStorage.setItem('event', JSON.stringify(event))
+                    }
                     return (
                       <div key={event.event_id} className="event_card">
-                        <div className="event_title">
+                        <div className="event_title"  onClick={showInfo}>
+                        <Link className='event_title__link' to = {{pathname:`/event/${event.event_id}`
+      }}>
                           <h3>{event.event_title}</h3>
                           <p>{event.event_date}</p>
+                         </Link>
                         </div>
+                         
                         <div className="event_option">
                           <div>
                             <img src={Delete} alt="delete" />
