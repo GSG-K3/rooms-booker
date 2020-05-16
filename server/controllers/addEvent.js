@@ -2,9 +2,10 @@ const eventPost = require('../database/queries/eventPost')
 
 const addEvent = (req, res) => {
   const data = req.body
-  const { eventTitle, eventAuthor } = data
+  console.log(data)
+  const { title, name, description, notes } = data
 
-  if (!eventTitle || !eventAuthor) {
+  if (!title || !name || !description || !notes) {
     res
       .status(400)
       .json({ message: ' Fields Are Required', status: 400 })
