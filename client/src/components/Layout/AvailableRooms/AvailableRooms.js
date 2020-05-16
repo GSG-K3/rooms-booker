@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 class AvailableRooms extends Component {
   render () {
     let { availableRooms, date} = this.props
-    console.log(availableRooms)
     return (
       <div>
         <p className='available-rooms-title'>Available Rooms</p>

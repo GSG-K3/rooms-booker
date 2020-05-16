@@ -25,9 +25,7 @@ class BookingForm extends Component {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
-      console.log(data)
       if (success) {
-        console.log(this.props.location.bookingProps)
         let {roomName, roomId, date} = this.props.location.bookingProps
         date = moment (date.toLocaleString ()).format (
           'YYYY-MM-DD H:mm:ss'
