@@ -21,21 +21,21 @@ color: teal;
 .event_info{
     display: flex;
     align-content: center;
-    width: 300px;
-    height: 280px;
+    width: 370px;
+    height: 320px;
     box-shadow: 0 16px 8px 0 rgb(243, 242, 240);
     transition: 0.3s;
     border-radius: 10px;
     margin-top: 20px;
 }
 
-.event_info:hover {
-    box-shadow: 0 8px 16px 0 rgba(247, 189, 103, 0.966);
-  }
+.event_info__desc{
+    margin-left: -20px;
+}
   .event_info img{
       display: flex;
       width: 85px;
-      height: 280px;
+      height: 320px;
       margin-left: -10px;
   }
 
@@ -54,25 +54,25 @@ color: teal;
 }
 
 .event_info__description{
-    margin: 25px 2px 0px -27px;
+    margin: 25px 2px 0px 0px;
 }
 
 
 .event_info__author{
     display: flex;
-    margin: 20px 0px 0px -15px;
+    margin: 20px 0px 0px 0px;
     
 }
 .event_info__date{
-    margin: 18px 0px 0px -15px;
+    margin: 18px 0px 0px 0px;
 }
 .event_info__room{
     display: flex;
-    margin: 20px 0px 0px -15px;  
+    margin: 20px 0px 0px 0px;  
 }
 .event_info__note{
     display: flex;
-    margin: 20px 0px 0px -15px ;
+    margin: 20px 0px 0px 0px ;
 }
 
 .eventinfo_button{
@@ -113,11 +113,11 @@ color: teal;
         margin-top: 20px;
     }
     .eventinfo__title {
-        font-size: 22px;
+        font-size: 25px;
         margin-top: 30px;
         }
         .eventinfo__details{
-           font-size: 14.5px;
+           font-size: 15px;
            }
         .event_info{
             width: 600px;
@@ -151,8 +151,38 @@ color: teal;
             width: 150px;
             height: 400px;
         }
-        .event_info__description{
-            width: 300px;
+        .event_info__desc{
+            margin-left: -40px;
         }
 }
+@media only screen and (max-width: 400px) {
+    .event_info{
+        width: 300px;
+        height: 280px;
+}
+.event_info p {
+    font-size: x-small;
+}
+.event_info h3 {
+    font-size: x-small;
+}
+.event_info img{
+    height: 280px;
+}
 
+}
+
+@media only screen and (max-width: 300px) {
+    .event_info{
+        width: 250px;
+        height: 280px;
+}
+.event_info p {
+    font-size: xx-small;
+}
+.event_info h3 {
+    font-size: xx-small;
+}
+.event_info img{
+    height: 280px;
+}}

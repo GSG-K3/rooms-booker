@@ -16,7 +16,7 @@ class EventInfo extends Component {
 
         <div className='event_info'>
           <div> <img src={Background}/></div>
-          <div className='event_info2'>
+          <div className='event_info__desc'>
             <div className ='event_info__description'>
               <h3> {eventInfo.event_description}</h3>
             </div>
