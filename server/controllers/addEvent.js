@@ -8,7 +8,7 @@ const addEvent = (req, res) => {
   if (!title || !name || !description || !notes) {
     res
       .status(400)
-      .json({ message: ' Fields Are Required', status: 400 })
+      .json({ message: 'There is one item or more missing. Please filled it!', status: 400 })
   } else {
     eventPost(data)
       .then(response => res.send(response))

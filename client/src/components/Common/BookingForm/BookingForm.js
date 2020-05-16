@@ -54,14 +54,11 @@ class BookingForm extends Component {
 
   handelSubmit = (e) => {
     e.preventDefault();
-    if(this.state.name!=null && this.state.title!=null && this.state.description!=null && this.state.notes != null){
-      const formData = this.state;
-      axios
-        .post("/api/booking", formData)
-        .then((response) => this.setState({ showPopup: !this.state.showPopup }))
-        .catch((err) => alert(`An Error happend : ${err.message} !! try again !!`));
-    }
-    else this.setState({showNote : !this.state.showNote})
+    const formData = this.state;
+    axios
+      .post("/api/booking", formData)
+      .then((response) => this.setState({ showPopup: !this.state.showPopup }))
+      .catch((err) => this.setState({ message: err.response.data.message }));
   };
 
   goBack= () => {
@@ -127,6 +124,9 @@ class BookingForm extends Component {
               Remind me
             </label>
           </div>
+          {this.state.message ? (
+            <p className='edit_form_message'> {this.state.message} </p>
+          ) : null}
           <div className="buttons_continer">
               <button className="back_button" onClick={this.goBack}>Back</button>
             <button

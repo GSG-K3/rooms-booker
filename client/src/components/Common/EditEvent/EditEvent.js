@@ -132,7 +132,6 @@ class EditEvent extends Component {
           {this.state.message ? (
             <p className='edit_form_message'> {this.state.message} </p>
           ) : null}
-
           <div className='buttons_continer'>
             <Link to='/home' className='text-link'>
               <button className='back_button'>Back</button>
