@@ -48,7 +48,7 @@ class Rooms extends Component {
 
   searchAvailableRooms =  () => {
     const date = moment (this.state.startDate.toLocaleString ()).format (
-      'YYYY-MM-DD h:mm:ss'
+      'YYYY-MM-DD H:mm:ss'
     )
     axios
       .get (`/api/available-rooms`, {
