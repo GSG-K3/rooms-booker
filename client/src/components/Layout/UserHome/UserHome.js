@@ -88,31 +88,20 @@ class UserHome extends Component {
                 <img src={Profile} />
                 <h2>{userName}</h2>
               </div>
-              <div className="events_continer__div">
+              <div className="user_home_events_continer__div">
 
                 {this.state.message ? <p className="events_message"> {this.state.message} </p> : null}
+                  <h3 className="user_events_strg">Your Events</h3>
 
-                <div className="loading-spinner">
-                  <ClipLoader
-                    className="loading-spinner__home"
-                    sizeUnit={"px"}
-                    size={80}
-                    color={"#123abc"}
-                    loading={loading}
-
-                  />
-                  <h3 className="events">Your Events</h3>
-
-                </div>
-
+                
                 {events.map((event) => {
                    const showInfo = () => {
                     sessionStorage.setItem('event', JSON.stringify(event))
                   }
                   return (
-                    <div key={event.event_id} className="event_card">
+                    <div key={event.event_id} className="user_event_card">
 
-                      <div className="event_title" onClick={showInfo}>
+                      <div className="user_event_title" onClick={showInfo}>
                       <Link className='event_title__link' to = {{pathname:`/event/${event.event_id}`
       }}>
                         <h3>{event.event_title}</h3>
@@ -146,6 +135,16 @@ class UserHome extends Component {
                 })
                 }
               </div>
+              <div className="loading-spinner">
+                  <ClipLoader
+                    className="loading-spinner__home"
+                    sizeUnit={"px"}
+                    size={80}
+                    color={"#123abc"}
+                    loading={loading}
+                    
+                    />
+                    </div>
               <button
                 className="back_button"
                 onClick={() => {
@@ -161,6 +160,7 @@ class UserHome extends Component {
                   eventName={this.state.eventName}
                 />
               ) : null}
+              
             </div>
           )
         }</>
