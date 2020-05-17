@@ -105,7 +105,7 @@ class UserHome extends Component {
                       <Link className='event_title__link' to = {{pathname:`/event/${event.event_id}`
       }}>
                         <h3>{event.event_title}</h3>
-                        <p>{event.event_date}</p>
+                        <p>{event.event_date.slice(0,10)}</p>
                         </Link>  
                       </div>
                       <div className="event_option">
