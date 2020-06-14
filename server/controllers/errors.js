@@ -1,6 +1,3 @@
-const notFound = (req, res) => {
-  res.status(404).send({ message: '404  PAGE NOT FOUND' })
-}
 
 const serverErr = (err, req, res, next) => {
   if (err) {
