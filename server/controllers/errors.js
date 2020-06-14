@@ -3,8 +3,10 @@ const notFound = (req, res) => {
 }
 
 const serverErr = (err, req, res, next) => {
-  res.status(500).send({ message: '500  SERVER ERROR' })
-  next()
+  if (err) {
+    res.status(500).send({ message: '500  SERVER ERROR' })
+    next()
+  }
 }
 
 module.exports = { notFound, serverErr }
