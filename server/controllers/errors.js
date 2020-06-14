@@ -6,4 +6,4 @@ const serverErr = (err, req, res, next) => {
   }
 }
 
-module.exports = { notFound, serverErr }
+module.exports = serverErr
