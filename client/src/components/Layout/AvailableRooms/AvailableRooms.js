@@ -22,7 +22,7 @@ class AvailableRooms extends Component {
                   </h2>
                   <Link to = {{
                     pathname: '/booking',
-                    bookingProps: {
+                    state: {
                       roomName: room.room_name,
                       roomId: room.room_id,
                       date: date

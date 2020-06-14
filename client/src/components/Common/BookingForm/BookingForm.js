@@ -5,39 +5,37 @@ import RoomIcon from "../../../Images/room_icon.png";
 import "./bookingForm.css";
 import axios from "axios";
 import Popup from "./Popup";
-import moment from 'moment'
+import moment from "moment";
 import logout from "../../Layout/logout/logout";
 
 class BookingForm extends Component {
   constructor(props) {
-    super(props); 
+    super(props);
     this.state = {
       userId: null,
-      date: '',
+      date: "",
       roomId: null,
-      roomName: '',
+      roomName: "",
       reminder: false,
-      showPopup: false
+      showPopup: false,
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
       if (success) {
-        let {roomName, roomId, date} = this.props.location.bookingProps
-        date = moment (date.toLocaleString ()).format (
-          'YYYY-MM-DD H:mm:ss'
-        )
+        let { roomName, roomId, date } = this.props.location.state;
+        date = moment(date.toLocaleString()).format("YYYY-MM-DD H:mm:ss");
         this.setState({
           roomName: roomName,
-           date: date,
-           userId: data.userId,
-           roomId: roomId
+          date: date,
+          userId: data.userId,
+          roomId: roomId,
         });
       } else return history.push("/login");
-    });       
+    });
   }
 
   handelChange = (e) => {
@@ -59,12 +57,13 @@ class BookingForm extends Component {
       .catch((err) => this.setState({ message: err.response.data.message }));
   };
 
-  goBack= () => {
-    this.props.history.push('/rooms');
-  }
+  goBack = () => {
+    this.props.history.push("/rooms");
+  };
 
   render() {
-    const {date, roomName, showNote, showPopup } = this.state
+    const { roomName, date, showPopup } = this.state;
+
     return (
       <div>
         <div className="logout">
@@ -80,11 +79,11 @@ class BookingForm extends Component {
         <div className="date_info_continer__div">
           <div className="date_info__div">
             <img src={Calender} alt="calender" />
-            <h4>{date.slice(0,10)}</h4>
+            <h4>{date.slice(0, 10)}</h4>
           </div>
           <div className="date_info__div">
             <img src={Clock} alt="clock" />
-            <h4>{date.slice(10,19)}</h4>
+            <h4>{date.slice(10, 19)}</h4>
           </div>
           <div className="date_info__div">
             <img src={RoomIcon} alt="room" />
@@ -132,10 +131,12 @@ class BookingForm extends Component {
             </label>
           </div>
           {this.state.message ? (
-            <p className='edit_form_message'> {this.state.message} </p>
+            <p className="edit_form_message"> {this.state.message} </p>
           ) : null}
           <div className="buttons_continer">
-              <button className="back_button" onClick={this.goBack}>Back</button>
+            <button className="back_button" onClick={this.goBack}>
+              Back
+            </button>
             <button
               type="submit"
               onClick={this.handelSubmit}
