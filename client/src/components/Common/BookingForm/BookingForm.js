@@ -21,7 +21,7 @@ class BookingForm extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
