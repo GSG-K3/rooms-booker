@@ -72,7 +72,7 @@ class Login extends Component {
             Login
           </button>
 
-            <button type="submit" className="login-form__back__btn" onClick={this.props.history.goBack}
+            <button type="submit" className="login-form__back__btn" onClick={()=> this.props.history.push("/")}
             > Back
             </button>
         </div>
