@@ -23,6 +23,6 @@ router.post('/api/login', login)
 router.post('/api/logout', logout)
 router.post('/api/booking', addEvent)
 router.delete('/api/delete-event/:id', deleteEvent)
-router.use(errors.serverErr)
+router.use(errors)
 
 module.exports = router
