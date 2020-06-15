@@ -30,7 +30,7 @@ class EventInfo extends Component {
             </div>
 
             <div className ='event_info__author'>
-              <p>Author of this event</p>
+              <p>Organizer</p>
               <h3> {eventInfo.event_author}</h3>
             </div>
 

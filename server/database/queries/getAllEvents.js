@@ -1,4 +1,4 @@
-
+// get all coming events
 const dbconnection = require('../db_connection')
 const events = () => {
   return dbconnection
