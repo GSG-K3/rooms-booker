@@ -27,6 +27,7 @@ class Rooms extends Component {
     };
   }
 
+  
   componentDidMount() {
     axios
       .get("/api/rooms")

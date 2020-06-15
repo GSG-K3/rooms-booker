@@ -10,6 +10,7 @@ class Login extends Component {
     message: null,
   };
 
+  // check if the user logged in and redirect to /home
   componentDidMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {

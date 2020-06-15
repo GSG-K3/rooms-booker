@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const { SECRET } = process.env
 
 exports.authontication = (req, res, next) => {
-
+// check if the user logged in from coockies 
   if (req.headers.cookie) {
     const { token } = cookie.parse(req.headers.cookie)
     jwt.verify(token, SECRET, (err, result) => {

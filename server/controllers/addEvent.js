@@ -3,7 +3,7 @@ const eventPost = require('../database/queries/eventPost')
 const addEvent = (req, res) => {
   const data = req.body
   const { title, name, description, notes } = data
-
+//  check if the all booking fields is filled.
   if (!title || !name || !description || !notes) {
     res
       .status(400)
