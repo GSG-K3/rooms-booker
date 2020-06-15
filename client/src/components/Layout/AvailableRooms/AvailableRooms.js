@@ -5,7 +5,7 @@ import addRoomIcon from '../../../Images/addRoom.png'
 import { Link } from 'react-router-dom'
 class AvailableRooms extends Component {
   render () {
-    let { availableRooms, date} = this.props
+    let { availableRooms, date } = this.props
     return (
       <div>
         <p className='available-rooms-title'>Available Rooms</p>
