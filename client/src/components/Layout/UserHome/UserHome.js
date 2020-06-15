@@ -32,8 +32,8 @@ class UserHome extends Component {
     };
   }
 
-
   componentDidMount() {
+    //check if user login successfully
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success, email, userId, userName } = data;
@@ -42,7 +42,7 @@ class UserHome extends Component {
         this.setState({
           email, userId, userName
         }, () => {
-
+    // get user info from database
           const { userId } = this.state
           axios.get(`/api/user-events/${userId}`)
             .then(res => {
@@ -63,7 +63,7 @@ class UserHome extends Component {
     });
   }
   
-
+//check if user sure about deleting the event
   handelSubmit = (id, name) => {
     this.setState({
       showPopup: !this.state.showPopup,

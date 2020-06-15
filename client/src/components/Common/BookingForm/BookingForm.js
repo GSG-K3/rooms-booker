@@ -22,6 +22,7 @@ class BookingForm extends Component {
   }
 
   componentDidMount() {
+    // check if user login successfully
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
@@ -49,7 +50,7 @@ class BookingForm extends Component {
   toggleReminder = () => {
     this.setState({ reminder: !this.state.reminder });
   };
-
+//handeling submit form to add event for the user 
   handelSubmit = (e) => {
     e.preventDefault();
     const formData = this.state;
