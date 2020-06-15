@@ -34,18 +34,22 @@ class Rooms extends Component {
       .catch((err) => this.setState({errorFound : !this.state.errorFound}));
   }
 
+  //To show information of any room that user click on it
   showInfo = (id) => {
     this.setState((prevState) => ({
       shownCardId: id,
       show: !prevState.show,
     }));
-  };
+  }
+
+  //change date to the date that user select 
   handleChange =  (date) => {
     this.setState ({
       startDate: date,
     })
   }
 
+  //To search about rooms that will be available at the date user selected
   searchAvailableRooms =  () => {
     const date = moment (this.state.startDate.toLocaleString ()).format (
       'YYYY-MM-DD H:mm:ss'
@@ -59,6 +63,7 @@ class Rooms extends Component {
       .then ( (res) => this.setState ({ availableRooms: res.data.rows, showAvailableRooms: true }))
       .catch ( (err) => this.setState({errFound : !this.state.errFound}))
   }
+
   renderAvailableRooms () {
     return  (
       <div>
@@ -76,6 +81,7 @@ class Rooms extends Component {
       </div>
     )
   }
+  
   render() {
     const { rooms, shownCardId, show ,showAvailableRooms} = this.state;
     return (
