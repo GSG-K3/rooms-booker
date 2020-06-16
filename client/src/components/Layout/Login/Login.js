@@ -8,27 +8,30 @@ class Login extends Component {
     email: "",
     password: "",
     message: null,
+    userId: ''
   };
 
   componentDidMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
-      const { success} = data;
-
-      if (success) return history.push("/home");
-    
+      const { success, userId } = data;
+      console.log('user id',userId);
+      
+      if (success) {
+        this.setState({userId: userId})
+        // return history.push(`/home/${this.state.userId}`)
+      };
     });
   }
 
   handleForm = (e) => {
     e.preventDefault();
-    const data = { email: this.state.email, password: this.state.password };
-
+    const data = { email: this.state.email, password: this.state.password };   
     axios
       .post("/api/login", data)
       .then((result) => {
         if (result.status === 200) {
-          this.props.history.push('/home');
+          this.props.history.push(`/home/${this.state.userId}`)
         }
       })
       .catch((err) => this.setState({ message: err.response.data.message }));
