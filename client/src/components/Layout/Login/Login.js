@@ -29,7 +29,6 @@ class Login extends Component {
       .post("/api/login", data)
       .then((result) => {
         if (result.status === 200) {
-          console.log(result)
           this.props.history.push(`/home/${result.data.userId}`);
         }
       })
