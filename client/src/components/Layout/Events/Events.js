@@ -24,7 +24,7 @@ class Events extends Component {
       .catch((err) => this.setState({errorFound : !this.state.errorFound}))
   }
   
-  //Search abi=out events using event name
+  //Search about events using event name
   setSearchQuery = name => this.setState({ searchQuery: name.target.value })
   filterSearch = () => {
     const { events, searchQuery } = this.state

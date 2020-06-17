@@ -10,12 +10,12 @@ class NavBar extends Component {
     navBarStatus : true
   }
 
-  //change the value of navBarStatus to show Evets component
+  //change the value of navBarStatus to show Evets Component
   handleEvent = () => {
     this.setState({ navBarStatus: true })
   }
 
-  //change the value of navBarStatus to show Rooms component
+  //change the value of navBarStatus to show Rooms Component
   handleRoom = () => {
     this.setState({ navBarStatus: false })
   }

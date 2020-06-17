@@ -1,7 +1,7 @@
 const dbconnection = require('../db_connection')
 
-// To get available rooms from rooms table where t's room_id doesn't exist in the result of second query, 
-// which return available rooms id's that doesn't have an event at this date 
+// To get all available rooms from rooms table where t's room_id doesn't exist in the result of second query,
+// which return available rooms id's that doesn't have an event at this date
 const availableRooms = (eventDate) => {
   const sql = {
     text:

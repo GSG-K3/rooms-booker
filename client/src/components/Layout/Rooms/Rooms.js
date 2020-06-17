@@ -11,7 +11,6 @@ import calenderIcon from '../../../Images/calendar_icon.png'
 import clockIcon from '../../../Images/clock_icon.png'
 import AvailableRooms from '../AvailableRooms/AvailableRooms'
 
-
 class Rooms extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +63,7 @@ class Rooms extends Component {
       .catch ( (err) => this.setState({errFound : !this.state.errFound}))
   }
 
+  // To show available rooms to the user
   renderAvailableRooms () {
     return  (
       <div>
