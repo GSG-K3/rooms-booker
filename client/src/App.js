@@ -9,6 +9,7 @@ import BookingForm from './components/Common/BookingForm/BookingForm'
 import Err404 from './components/Errors/Err404/NotFound'
 import EditEvent from './components/Common/EditEvent/EditEvent'
 import Rooms from './components/Layout/Rooms/Rooms'
+import AvailableRooms from './components/Layout/AvailableRooms/AvailableRooms'
 
 function App () {
   return (
@@ -18,6 +19,7 @@ function App () {
         <Route exact path='/' component={NavBar} />
         <Route exact path="/home/:id" component={UserHome} />
         <Route exact path="/rooms" component={Rooms} />
+        <Route exact path="/available/rooms" component={AvailableRooms} />
         <Route exact path="/event/edit/:id" component={EditEvent} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/booking" component={BookingForm} />
