@@ -3,6 +3,8 @@ import GSGlog from '../../../Images/gsg_logo.jpg'
 import Profile from '../../../Images/Ellipse 2.jpg'
 import './Header.css'
 import { Link } from 'react-router-dom'
+// through withRouter You can get access to the history object’s properties 
+// withRouter will pass updated match,location, and history props to the wrapped component whenever it renders.
 import { withRouter } from 'react-router'
 import axios from 'axios'
 
@@ -42,4 +44,5 @@ class Header extends Component {
     )
   }
 }
+
 export default withRouter(Header)
