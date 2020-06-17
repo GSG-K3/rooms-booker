@@ -5,7 +5,7 @@ import addRoomIcon from '../../../Images/addRoom.png'
 import { Link } from 'react-router-dom'
 class AvailableRooms extends Component {
   render () {
-    let { availableRooms, date} = this.props
+    let { availableRooms, date } = this.props
     return (
       <div>
         <p className='available-rooms-title'>Available Rooms</p>
@@ -22,7 +22,7 @@ class AvailableRooms extends Component {
                   </h2>
                   <Link to = {{
                     pathname: '/booking',
-                    bookingProps: {
+                    state: {
                       roomName: room.room_name,
                       roomId: room.room_id,
                       date: date
