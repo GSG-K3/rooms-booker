@@ -8,6 +8,12 @@ import Popup from "./Popup";
 import moment from 'moment'
 import logout from "../../Layout/logout/logout";
 
+/* var gapi = window.gapi
+var CLIENT_ID = '899914747048-9teogtptdbjon6qvh0dkhfb5t7o4skam.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyALR3afKMfwFiYlPYcAGLcpUaxH91_sx0k';
+var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+var SCOPES = "https://www.googleapis.com/auth/calendar.events";
+ */
 class BookingForm extends Component {
   constructor(props) {
     super(props); 
@@ -27,6 +33,8 @@ class BookingForm extends Component {
       const { success } = data;
       if (success) {
         let {roomName, roomId, date} = this.props.location.bookingProps
+        console.log(this.props.location.bookingProps);
+        
         date = moment (date.toLocaleString ()).format (
           'YYYY-MM-DD H:mm:ss'
         )
@@ -61,6 +69,25 @@ class BookingForm extends Component {
 
   goBack= () => {
     this.props.history.push('/rooms');
+  }
+
+  handleClick = () => {
+  /*   gapi.load('client:auth2', () => {
+console.log('Loaded client');
+
+gapi.client.init({
+  apiKey: API_KEY,
+  clientId: CLIENT_ID,
+  discoveryDocs: DISCOVERY_DOCS,
+  scope: SCOPES
+})
+gapi.client.load('calendar', 'v3', ()=> console.log('bam1'))
+gapi.auth2.getAuthInstance().signIn()
+
+    });
+ */
+    console.log('Loaded client');
+
   }
 
   render() {
@@ -130,6 +157,7 @@ class BookingForm extends Component {
               />
               Remind me
             </label>
+            <button onClick={()=> this.handleClick} > Add Event </button>
           </div>
           {this.state.message ? (
             <p className='edit_form_message'> {this.state.message} </p>
