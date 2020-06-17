@@ -1,25 +1,23 @@
-const bcrypt = require("bcrypt");
-const { sign } = require("jsonwebtoken");
-const getPassword = require("../database/queries/getPassword");
-const { SECRET } = process.env;
+const bcrypt = require('bcrypt')
+const { sign } = require('jsonwebtoken')
+const getPassword = require('../database/queries/getPassword')
+const { SECRET } = process.env
 const createToken = (email, user_id, user_name, secret) => {
-
-  return sign({ email, user_id, user_name }, secret);
-};
+  return sign({ email, user_id, user_name }, secret)
+}
 
 exports.login = (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body
 
   // Validation
   if (!email || !password) {
-    res.status(400).json({ message: "All Fields are Required", status: 400 });
+    res.status(400).json({ message: 'All Fields are Required', status: 400 })
   }
 
   getPassword(email)
     .then((result) => {
-
       if (!result || result.rows.length === 0) {
-        res.status(500).json({ message: "email is not in our record" })
+        res.status(500).json({ message: 'email is not in our record' })
       }
 
       const hash = result.rows[0].password
@@ -33,11 +31,11 @@ exports.login = (req, res) => {
 
           const token = createToken(email, user_id, user_name, SECRET)
           return res
-            .cookie("token", token, { maxAge: 900000, httpOnly: true })
+            .cookie('token', token, { maxAge: 900000, httpOnly: true })
             .status(200)
-            .json({ status: "sucess" })
+            .json({ status: 'sucess', userId: user_id })
         } else {
-          res.status(500).json({ message: "email and password are not match" })
+          res.status(500).json({ message: 'email and password are not match' })
         }
       })
     })
