@@ -16,7 +16,7 @@ function App () {
       <Header />
       <Switch>
         <Route exact path='/' component={NavBar} />
-        <Route exact path="/home" component={UserHome} />
+        <Route exact path="/home/:id" component={UserHome} />
         <Route exact path="/rooms" component={Rooms} />
         <Route exact path="/event/edit/:id" component={EditEvent} />
         <Route exact path="/login" component={Login} />

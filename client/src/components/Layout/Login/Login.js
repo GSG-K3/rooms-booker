@@ -13,10 +13,11 @@ class Login extends Component {
   componentDidMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
-      const { success} = data;
-
-      if (success) return history.push("/home");
-    
+      const { success,userId} = data;
+      if (success)  {
+        this.setState({userId: userId})
+        history.push(`/home/${userId}`)
+      }        
     });
   }
 
@@ -28,7 +29,7 @@ class Login extends Component {
       .post("/api/login", data)
       .then((result) => {
         if (result.status === 200) {
-          this.props.history.push('/home');
+          this.props.history.push(`/home/${result.data.userId}`);
         }
       })
       .catch((err) => this.setState({ message: err.response.data.message }));

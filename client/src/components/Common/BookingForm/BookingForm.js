@@ -22,9 +22,10 @@ class BookingForm extends Component {
   }
 
   componentDidMount() {
-    const { history } = this.props
-    axios.get('/api/check').then(({ data }) => {
-      const { success } = data
+    // check if user login successfully
+    const { history } = this.props;
+    axios.get("/api/check").then(({ data }) => {
+      const { success } = data;
       if (success) {
         let { roomName, roomId, date } = this.props.location.state
         date = moment(date.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
@@ -45,9 +46,9 @@ class BookingForm extends Component {
   }
 
   toggleReminder = () => {
-    this.setState({ reminder: !this.state.reminder })
-  }
-
+    this.setState({ reminder: !this.state.reminder });
+  };
+//handeling submit form to add event for the user 
   handelSubmit = (e) => {
     e.preventDefault()
     const formData = this.state
