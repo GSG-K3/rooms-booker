@@ -8,10 +8,11 @@ import { Link } from 'react-router-dom'
 
 class AvailableRooms extends Component {
   render () {
-    let availableRooms = sessionStorage.getItem('availableRooms')
-    let date = sessionStorage.getItem('date')
+    let availableRooms = localStorage.getItem('availableRooms')
+    let date = localStorage.getItem('date')
     availableRooms = JSON.parse(availableRooms)
-    date = date.toJSON()
+    date = new Date(date)
+
     return (
       <div>
         <div className='date-and-time'>

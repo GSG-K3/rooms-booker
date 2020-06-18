@@ -62,8 +62,8 @@ class Rooms extends Component {
 
   renderAvailableRooms () {
     let { availableRooms, startDate } = this.state
-    sessionStorage.setItem('availableRooms', JSON.stringify(availableRooms))
-    sessionStorage.setItem('date', JSON.stringify(startDate))
+    localStorage.setItem('availableRooms', JSON.stringify(availableRooms))
+    localStorage.setItem('date', startDate)
     this.props.history.push('/available/rooms', {availableRooms: availableRooms, date: startDate})
   }
   
