@@ -1,7 +1,7 @@
-
 const dbconniction = require('../db_connection')
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+// To return table of password, user id and user name from users table
+// where user email is the same as entered by user
 const getPassword = (email) => {
   const sql = {
     text: 'SELECT password,user_id,user_name FROM users where email=$1',

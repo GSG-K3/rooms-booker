@@ -1,5 +1,6 @@
 const dbconniction = require('../db_connection')
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+
+// To return all events that has user id equal to the user id
 const userHome = (userId) => {
   const sql = {
     text: 'SELECT * FROM events WHERE user_id =$1',
@@ -8,5 +9,3 @@ const userHome = (userId) => {
   return dbconniction.query(sql)
 }
 module.exports = userHome
-
-
