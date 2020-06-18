@@ -1,9 +1,9 @@
-const dbConnection = require('../db_connection');
+const dbConnection = require('../db_connection')
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+// To get all rooms from rooms table
 const getAllRooms = () => {
   return dbConnection
     .query('SELECT * FROM rooms')
 }
 
-module.exports = getAllRooms;
+module.exports = getAllRooms
