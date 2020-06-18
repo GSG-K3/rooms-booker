@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 class Event extends Component {
   showInfo = () => {
     const { event} = this.props
-    sessionStorage.setItem('event', JSON.stringify(event))
+    localStorage.setItem('event', JSON.stringify(event))
   }
   render () {
     
