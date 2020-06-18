@@ -8,12 +8,11 @@ import Popup from './Popup'
 import moment from 'moment'
 import logout from '../../Layout/logout/logout'
 
-var gapi = window.gapi
-var CLIENT_ID = '558072145685-hl8laqhvbqcd0f5vfrnt61v1ts1ls5lh.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyBaXfE46xxRXpcw7vSUmIZaKlwJrec1bGY';
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-var SCOPES = "https://www.googleapis.com/auth/calendar";
- 
+const gapi = window.gapi
+const CLIENT_ID = '558072145685-hl8laqhvbqcd0f5vfrnt61v1ts1ls5lh.apps.googleusercontent.com';
+const API_KEY = 'AIzaSyBaXfE46xxRXpcw7vSUmIZaKlwJrec1bGY';
+const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+const SCOPES = "https://www.googleapis.com/auth/calendar";
 
 class BookingForm extends Component {
   constructor(props) {
@@ -27,6 +26,7 @@ class BookingForm extends Component {
       showPopup: false,
     }
   }
+  
 
   componentDidMount() {
     // check if user login successfully
@@ -68,7 +68,6 @@ class BookingForm extends Component {
         let location = ' YDRC /' + this.state.roomName + ' Room'
         gapi.load('client:auth2', () => {
           console.log('Loaded client');
-          
           gapi.client.init({
             apiKey: API_KEY,
             clientId: CLIENT_ID,
@@ -84,12 +83,11 @@ class BookingForm extends Component {
               'description': this.state.description,
               'start': {
                 'dateTime': this.props.location.state.date,
-                'timeZone': 'America/Los_Angeles'
+                'timeZone': 'Asia/Jerusalem'
               },
               'end': {
-                'dateTime': '2020-06-18T17:00:00-07:00',
-                'timeZone':  "Asia/Jerusalem",
-
+                'dateTime': this.props.location.state.endTime,
+                'timeZone': 'Asia/Jerusalem'
               },
               'reminders': {
                 'useDefault': false,

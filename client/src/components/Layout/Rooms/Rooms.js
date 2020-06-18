@@ -24,6 +24,7 @@ class Rooms extends Component {
       startDate: new Date(),
       availableRooms: [],
       showForm : false,
+      endTime : new Date(),
     };
   }
 
@@ -42,9 +43,12 @@ class Rooms extends Component {
     }));
   };
   handleChange =  (date) => {
+    let endDate = new Date(this.state.startDate.getTime() +180*60000);
     this.setState ({
       startDate: date,
+      endTime : endDate
     })
+    console.log(endDate)
   }
 
   searchAvailableRooms =  () => {
@@ -60,6 +64,7 @@ class Rooms extends Component {
       .then ( (res) => this.setState ({ availableRooms: res.data.rows, showAvailableRooms: true }))
       .catch ( (err) => this.setState({errFound : !this.state.errFound}))
   }
+ 
   renderAvailableRooms () {
     return  (
       <div>
@@ -70,10 +75,12 @@ class Rooms extends Component {
           </div>
           <div className='availabale_room_date'>
             <img src={clockIcon} className='icon' />
-            <h3>{this.state.startDate.toLocaleTimeString ()}</h3>
+    <h3>{this.state.startDate.toLocaleTimeString ()}</h3>
           </div>
         </div>
-        <AvailableRooms availableRooms={this.state.availableRooms} date = {this.state.startDate}/>
+        <AvailableRooms availableRooms={this.state.availableRooms} 
+        date = {this.state.startDate} 
+        end={this.state.endTime} />
       </div>
     )
   }
@@ -91,8 +98,8 @@ class Rooms extends Component {
             className='available-rooms-container__date-picker'
             selected={this.state.startDate}
             onChange={this.handleChange}
-            dateFormat='dd/MM/yyyy'
-            timeFormat='HH:mm' 
+            timeFormat="HH:mm"
+            dateFormat="dd-MM-yyyy HH:mm"
             showTimeSelect
             />
           <img
