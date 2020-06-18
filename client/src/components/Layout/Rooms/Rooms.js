@@ -48,7 +48,6 @@ class Rooms extends Component {
       startDate: date,
       endTime : endDate
     })
-    console.log(endDate)
   }
 
   searchAvailableRooms =  () => {
