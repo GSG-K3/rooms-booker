@@ -28,6 +28,8 @@ class EditEvent extends Component {
     };
   }
   
+  // check if the user logged in and redirect to /home
+
   componentDidMount() {
     const { history } = this.props;
     axios.get("/api/check").then(({ data }) => {
@@ -48,7 +50,7 @@ class EditEvent extends Component {
           userId: event.user_id
         });
         axios
-      .get(`/api/rooms`)
+      .get(`/api/rooms`)  // get the room name from api/rooms endpoint and make filter by room id . 
       .then((res) => this.setState({ rooms: res.data })).then(() => {
         this.state.rooms = this.state.rooms.filter(room => room.room_id === this.state.roomId)
         this.setState({ room_name: this.state.rooms[0].room_name,  date: date})
