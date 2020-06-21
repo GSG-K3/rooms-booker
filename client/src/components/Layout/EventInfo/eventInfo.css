@@ -1,0 +1,169 @@
+.eventinfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    margin-top: 40px;
+}
+
+.eventinfo__info{
+    margin-bottom: -10px;
+}
+.eventinfo__title {
+    color: #FFA633;
+    font-size: 18px;
+    margin-bottom: -8px;
+}
+.eventinfo__details{
+    margin-top: 5px;
+    margin-bottom: -90;
+    font-size: small;
+    color: teal;
+}
+.event_info{
+    display: flex;
+    align-content: center;
+    width: 80%;
+    box-shadow: 0 16px 8px 0 rgba(231, 230, 229, 0.849);
+    transition: 0.3s;
+    margin-top: 40px;
+}
+.event_date_icon_contener{
+    display: flex;
+    margin: 0.3em;
+}
+.event_info__desc{
+    margin-left: -20px;
+    margin-top: 20px;
+}
+.event_info img{
+    display: flex;
+    width: 85px;
+    height: 320px;
+    margin-left: -10px;
+}
+
+.event_info p {
+    color: teal;
+    font-size: small;
+    display: flex;
+    justify-content: start;
+}
+.event_info h3 {
+    color:#3B5A9D ;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    margin-left: 5px;
+}
+
+.event_info__description{
+    margin: 25px 2px 0px 0px;
+}
+
+
+.event_info__author{
+    display: flex;
+    margin: 10px 0px 0px 2px;
+    
+}
+.event_info__date{
+    margin: 20px 0px 0px 0px;
+}
+.event_info__room{
+    display: flex;
+    margin: 10px 0px 0px 2px;  
+}
+.event_info__note{
+    display: flex;
+    margin: 10px 0px 20px 2px ;
+}
+
+.eventinfo_button{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.eventinfo_button__back{
+    width: 80px;
+    height: 30px;
+    border: 1px #FFA633 solid ;
+    border-radius: 10px;
+    background-color: white;
+    color: #3B5A9D;
+    font-size: 15px;
+    margin: 2em 2em 2em 1em;
+}
+.eventinfo_button__remindme{
+    width: 80px;
+    height: 30px;
+    border: 1px solid ;
+    border-radius: 10px;
+    background-color: #3B5A9D;
+    color: white;
+    font-size: 12px;
+    margin: 2em 1em 2em 2em;
+}
+
+@media only screen and (min-width: 885px) {
+    .eventinfo{
+        margin-top: 20px;
+        margin-left: 10em;
+        margin-right: 10em;
+    }
+    .eventinfo__title {
+        font-size: 34px;
+        margin-top: 30px;
+    }
+    .eventinfo__details{
+        font-size: 15px;
+    }
+    .event_info{
+        width: 800px;
+    }
+    .event_info p {
+        font-size: x-large;
+    }
+    .event_info h3{
+        font-size: x-large;
+    }
+    .event_info__date{
+        margin-top: 30px;
+    }
+    .eventinfo_button{
+        margin-top: 10px;   
+    }        
+    .eventinfo_button__back{
+        width: 150px;
+        height: 43px;
+        font-size: 25px;
+    }  
+    .eventinfo_button__remindme{
+        width: 150px;
+        height: 43px;
+        font-size: 20px;
+    }
+    .event_info img{
+        width: 180px;
+        height: 400px;
+    }
+    .event_info__desc{
+        margin-left: -40px;
+        margin-top: 40px;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .event_info{
+        width: 80%;
+    }
+   .event_info h3{
+    font-size: medium;
+    margin-top: 0.5em;
+   }
+.event_info img{
+    height: 100%;
+}
+
+}
