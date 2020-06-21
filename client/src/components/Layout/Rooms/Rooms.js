@@ -67,11 +67,7 @@ class Rooms extends Component {
       .then ( (res) => this.setState ({ availableRooms: res.data.rows, showAvailableRooms: true }))
       .catch ( (err) => this.setState({errFound : !this.state.errFound}))
   }
-<<<<<<< HEAD
  
-=======
-
->>>>>>> 4eb885f5dc7d59649aa3c0b2ea19605e42664993
   renderAvailableRooms () {
     return  (
       <div>

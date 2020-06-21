@@ -66,6 +66,7 @@ class BookingForm extends Component {
 
       if(this.state.reminder){
         let location = ' YDRC /' + this.state.roomName + ' Room'
+        // make authontication by google account
         gapi.load('client:auth2', () => {
           console.log('Loaded client');
           gapi.client.init({
@@ -75,9 +76,11 @@ class BookingForm extends Component {
             scope: SCOPES
           })
           gapi.client.load('calendar', 'v3', ()=> console.log('bam1'))
+          // check if user login by google
           gapi.auth2.getAuthInstance().signIn()
           .then( ()=> {
-            var event = {
+            // make request body for the event
+            let event = {
               'summary': this.state.title,
               'location': location,
               'description': this.state.description,
@@ -97,11 +100,13 @@ class BookingForm extends Component {
                 ]
               }
             }
-            var request = gapi.client.calendar.events.insert({
+            // add the event to user calendar
+            let request = gapi.client.calendar.events.insert({
               'calendarId': 'primary',
               'resource': event
             
             })
+            // open google calendar in new window 
             request.execute((event) => {
               window.open(event.htmlLink);
               console.log(event);

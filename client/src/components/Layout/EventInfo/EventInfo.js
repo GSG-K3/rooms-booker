@@ -8,11 +8,12 @@ const API_KEY = 'AIzaSyBaXfE46xxRXpcw7vSUmIZaKlwJrec1bGY'
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest']
 const SCOPES = 'https://www.googleapis.com/auth/calendar'
 class EventInfo extends Component {
+  //handelClick will send event info to google calendar
   handelClick=()=>{
     const data = sessionStorage.getItem('event')
     const eventInformation = JSON.parse(data)
     const locationEvent =  ' YDRC /' + eventInformation.room_name + ' Room'
-
+ //make authontication by google account
     gapi.load('client:auth2', () => {
       gapi.client.init({
         apiKey: API_KEY,
@@ -21,9 +22,11 @@ class EventInfo extends Component {
         scope: SCOPES
       })
       gapi.client.load('calendar', 'v3')
+      //check if user is login 
       gapi.auth2.getAuthInstance().signIn()
       .then( ()=> {
-        var event = {
+        //make request body for the event 
+        let event = {
           'summary': eventInformation.event_title,
           'location': locationEvent,
           'description': eventInformation.event_description,
@@ -43,11 +46,13 @@ class EventInfo extends Component {
             ]
           }
         }
-        var request = gapi.client.calendar.events.insert({
+        //add event to google calendar calendar
+        let request = gapi.client.calendar.events.insert({
           'calendarId': 'primary',
           'resource': event
         
         })
+        //open calendar in new window 
         request.execute((event) => {
           window.open(event.htmlLink);
           console.log(event);
