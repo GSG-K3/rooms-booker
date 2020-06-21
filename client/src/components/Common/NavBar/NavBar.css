@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin: -15px 5%;
+  
+}
+
+.container__div {
+  font-size: 30px;
+  padding: 1%;
+  margin: 2%;
+  justify-content: center;
+}
+
+.container__div__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px 10px;
+  list-style-type: none;
+}
+
+.container__div__list__events-item {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  margin: 1% 5%;
+}
+
+.container__div__list__rooms-item {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  display: flex;
+  align-items: center;
+  margin: 1% 5%;
+}
+
+.link {
+  text-decoration: none;
+  color: #3b5a9d;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+}
+.link:hover,.link:focus-within,
+.link:active {
+  color: #4fb2aa;
+  border-bottom: 2px solid #ffa633;
+  outline: none;
+}
+
+@media only screen and (min-width: 885px) {
+  .container__div__list {
+    padding: 1px 350px;
+  
+  }
+  .link {
+    font-size: 22px;
+  }
+  .container {
+    margin: 30px 5%;
+  }
+ }
+ @media only screen and (max-width: 450px) {
+  .link {
+    font-size: 18px;
+  }
+  .container {
+    margin: 10px 5%;
+  }
+ }

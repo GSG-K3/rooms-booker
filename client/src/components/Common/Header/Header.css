@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 5em;
+}
+.profile{
+    width: 2.8em;
+    height: 2.8em;
+    margin: 1.8em 4em;
+    display: flex;
+    align-self: center;
+}
+.logo{
+margin: -12px 2em;
+    height: 150%;
+    width: 50%;
+}
+.header_link{
+    display: flex;
+    justify-self: start;
+}
+
+@media only screen and (max-width: 700px){
+    .header{
+        height: 6em;
+    }
+    .profile{
+        width: 2.5em;
+        height: 2.0em;
+    }
+    .logo{
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width:450px){
+    .header{
+        width: 100%;
+        height: 4em;
+    }
+    .profile{
+        width: 2.0em;
+        height: 2.0em;
+        margin: 1.2em 1.1em;
+    }
+    .logo{
+        height: 150%;
+        margin: -12px 0em;
+    }
+    .header_link{
+        display: flex;
+        justify-self: start;
+    }
+}
