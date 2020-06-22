@@ -7,10 +7,6 @@ import 'react-datepicker/dist/react-datepicker.css'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import searchIcon from '../../../Images/search.png'
-import calenderIcon from '../../../Images/calendar_icon.png'
-import clockIcon from '../../../Images/clock_icon.png'
-import AvailableRooms from '../AvailableRooms/AvailableRooms'
-
 
 class Rooms extends Component {
   constructor(props) {
@@ -69,23 +65,10 @@ class Rooms extends Component {
   }
  
   renderAvailableRooms () {
-    return  (
-      <div>
-        <div className='date-and-time'>
-          <div className='availabale_room_date'>
-            <img src={calenderIcon} className='icon' />
-           <h3>{this.state.startDate.toLocaleDateString ()}</h3> 
-          </div>
-          <div className='availabale_room_date'>
-            <img src={clockIcon} className='icon' />
-    <h3>{this.state.startDate.toLocaleTimeString ()}</h3>
-          </div>
-        </div>
-        <AvailableRooms availableRooms={this.state.availableRooms} 
-        date = {this.state.startDate} 
-        end={this.state.endTime} />
-      </div>
-    )
+    let { availableRooms, startDate } = this.state
+    localStorage.setItem('availableRooms', JSON.stringify(availableRooms))
+    localStorage.setItem('date', startDate)
+    this.props.history.push('/rooms/available-rooms', {availableRooms: availableRooms, date: startDate})
   }
   
   render() {
