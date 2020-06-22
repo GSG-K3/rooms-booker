@@ -59,7 +59,7 @@ class BookingForm extends Component {
   }
 
   goBack = () => {
-    this.props.history.push('/rooms')
+    this.props.history.push('/rooms/available-rooms')
   }
 
   render() {
