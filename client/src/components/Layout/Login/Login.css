@@ -9,7 +9,7 @@
   }
 
 .login-form {
-  margin: 10vw;
+  margin: 4vw;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -59,11 +59,6 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin: 0;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 @media only screen and (min-width: 700px) {
@@ -71,7 +66,5 @@ button:hover {
   input[type="password"] {
     padding: 12px 10em 12px 5px;
   }
-  .form-container{
-    top: 50%;
-  }
+
 }

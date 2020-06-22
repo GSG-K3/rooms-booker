@@ -9,13 +9,14 @@ import BookingForm from './components/Common/BookingForm/BookingForm'
 import Err404 from './components/Errors/Err404/NotFound'
 import EditEvent from './components/Common/EditEvent/EditEvent'
 import Rooms from './components/Layout/Rooms/Rooms'
-
+import Event from './components/Layout/Events/Events'
 function App () {
   return (
     <Router>
       <Header />
+      <NavBar />
       <Switch>
-        <Route exact path='/' component={NavBar} />
+        <Route exact path='/' component={Event} />
         <Route exact path="/home/:id" component={UserHome} />
         <Route exact path="/rooms" component={Rooms} />
         <Route exact path="/event/edit/:id" component={EditEvent} />
