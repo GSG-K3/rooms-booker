@@ -1,7 +1,6 @@
-
-import React, { Component } from "react"
-import { withRouter } from "react-router";
-import "./NavBar.css"
+import React, { Component } from 'react'
+import { withRouter } from 'react-router'
+import './NavBar.css'
 import Rooms from '../../Layout/Rooms/Rooms'
 import Events from '../../Layout/Events/Events'
 
@@ -12,14 +11,16 @@ class NavBar extends Component {
 
   //change the value of navBarStatus to show Evets component
   handleEvent = () => {
-    const { history } = this.props;
-    history.push("/");
+    this.setState({navBarStatus: true})
+    const { history } = this.props
+    history.push('/')
   }
 
   //change the value of navBarStatus to show Rooms component
   handleRoom = () => {
-    const { history } = this.props;
-    history.push("/rooms");
+    this.setState({navBarStatus: false})
+    const { history } = this.props
+    history.push('/rooms')
   }
 
   render() {
