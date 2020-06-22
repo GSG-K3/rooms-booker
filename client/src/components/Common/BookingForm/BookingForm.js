@@ -14,6 +14,7 @@ class BookingForm extends Component {
     this.state = {
       userId: null,
       date: '',
+      enddate:'',
       roomId: null,
       roomName: '',
       reminder: false,
@@ -27,11 +28,13 @@ class BookingForm extends Component {
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
       if (success) {
-        let { roomName, roomId, date } = this.props.location.state
+        let { roomName, roomId, date ,enddate } = this.props.location.state
         date = moment(date.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
+        enddate = moment(enddate.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
         this.setState({
           roomName: roomName,
           date: date,
+          enddate:enddate,
           userId: data.userId,
           roomId: roomId,
         })
@@ -59,11 +62,11 @@ class BookingForm extends Component {
   }
 
   goBack = () => {
-    this.props.history.push('/available/rooms')
+    this.props.history.push('/rooms')
   }
 
   render() {
-    const { roomName, date, showPopup } = this.state
+    const { roomName, date, showPopup ,enddate} = this.state
 
     return (
       <div>
@@ -81,10 +84,13 @@ class BookingForm extends Component {
           <div className='date_info__div'>
             <img src={Calender} alt='calender' />
             <h4>{date.slice(0, 10)}</h4>
+           
           </div>
           <div className='date_info__div'>
             <img src={Clock} alt='clock' />
             <h4>{date.slice(10, 19)}</h4>
+            <h4>To</h4>
+            <h4>{enddate.slice(10, 19)}</h4>
           </div>
           <div className='date_info__div'>
             <img src={RoomIcon} alt='room' />
