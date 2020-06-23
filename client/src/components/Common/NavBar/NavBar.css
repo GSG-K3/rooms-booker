@@ -9,17 +9,15 @@
 
 .container__div_nav {
   font-size: 24px;
-  padding: 1%;
-  margin: 1%;
+  margin: 3% 0 8% 0;
   justify-content: center;
-
 }
 
 .container__div__list {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 2px 5px;
+  padding: 2px 3px;
   list-style-type: none;
 }
 .container__div_nav img{
@@ -32,16 +30,16 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  margin: 2% 9%;
+  margin: 1% 9%;
 }
 
 .link {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   text-decoration: none;
   color: #3b5a9d;
   border: none;
-  font-size: 22px;
+  font-size: 20px;
   background: none;
 }
 .link:hover,.link:focus-within,
@@ -53,12 +51,12 @@
 
 @media only screen and (min-width: 885px) {
   .link {
-    font-size: 28px;
+    font-size: 26px;
   }
  }
  @media only screen and (max-width: 450px) {
   .link {
-    font-size: 22px;
+    font-size: 20px;
   }
   .container__div_nav img{
     height: 5px;

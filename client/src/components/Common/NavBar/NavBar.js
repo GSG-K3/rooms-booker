@@ -11,16 +11,16 @@ class NavBar extends Component {
           <ul className='container__div__list'>
             <li className='container__div__list__item'>
               <Link to='/' >
-                <button className='link' >Events</button>
+                <button className='link' >EVENTS</button>
               </Link>
             </li>
             <li className='container__div__list__item'>
               <Link to='/rooms' >
-                <button className='link'>Rooms</button>
+                <button className='link'>ROOMS</button>
               </Link>
             </li>
           </ul>
-          <img src={Background} alt='back' />
+          {/* <img src={Background} alt='back' /> */}
         </div>
       </div>
     )
