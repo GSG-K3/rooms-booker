@@ -1,46 +1,30 @@
+
 import React, { Component } from 'react'
-import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom'
 import './NavBar.css'
-import Rooms from '../../Layout/Rooms/Rooms'
-import Events from '../../Layout/Events/Events'
-
+import Background from '../../../Images/back12.jpg'
 class NavBar extends Component {
-  state = {
-    navBarStatus : true
-  }
-
-  //change the value of navBarStatus to show Evets component
-  handleEvent = () => {
-    this.setState({navBarStatus: true})
-    const { history } = this.props
-    history.push('/')
-  }
-
-  //change the value of navBarStatus to show Rooms component
-  handleRoom = () => {
-    this.setState({navBarStatus: false})
-    const { history } = this.props
-    history.push('/rooms')
-  }
-
-  render() {
-    const {navBarStatus} = this.state
+  render () {
     return (
-      <div className ='container'>
-        <div className='container__div'>
+      <div className ='container_nav'>
+        <div className='container__div_nav'>
           <ul className='container__div__list'>
-            <li className='container__div__list__events-item'>
-              <button className='link' onClick={this.handleEvent}>Events</button>
+            <li className='container__div__list__item'>
+              <Link to='/' >
+                <button className='link' >EVENTS</button>
+              </Link>
             </li>
-            <li className='container__div__list__rooms-item'>
-              <button className='link' onClick={this.handleRoom}>Rooms</button>
+            <li className='container__div__list__item'>
+              <Link to='/rooms' >
+                <button className='link'>ROOMS</button>
+              </Link>
             </li>
           </ul>
+          {/* <img src={Background} alt='back' /> */}
         </div>
-        {navBarStatus?<Events/>:<Rooms/>}
       </div>
     )
   }
 }
 
-export default withRouter(NavBar)
+export default NavBar

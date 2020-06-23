@@ -16,6 +16,7 @@ function App () {
   return (
     <Router>
       <Header />
+      <NavBar />
       <Switch>
         <Route exact path='/' component={Events} />
         <Route exact path="/home/:id" component={UserHome} />
