@@ -7,6 +7,7 @@ import logout from "../../Layout/logout/logout";
 
 // through withRouter You can get access to the history object’s properties
 // withRouter will pass updated match,location, and history props to the wrapped component whenever it renders.
+
 import { withRouter } from "react-router";
 import axios from "axios";
 import Login from "../../Layout/Login/Login";
@@ -71,7 +72,6 @@ class Header extends Component {
     const { userId } = this.state;
     return (
       <div className="header">
-
         <Link to={"/"} className="header_link">
           <img
             className="logo"
@@ -80,89 +80,49 @@ class Header extends Component {
             onClick={this.showlog}
           />
         </Link>
-        {/*         <Link to = {{pathname:`/home/${userId}`}}>
-          <img className='profile' src={Profile} alt='profile' onClick={this.handleButtonClick}>/></img> </Link>
- */}
 
+        <div className="App">
+          <div className="container" ref={this.container}>
+            <button
+              type="button"
+              className="profile"
+              class="button"
+              onClick={this.handleButtonClick}
+            >
+              ☰
+            </button>
 
- <div className="App">
-        <div className="container" ref={this.container}>
-        <button type="button" className="profile" class="button" onClick={this.handleButtonClick}>
-            ☰
-          </button>
-
-          
-          {this.state.open && (
-            <div class="container">
-              <ul className="ul">
-              <li  onClick={this.show} >
-                
-                {this.state.success ? (
-                    <div className="Home">
-                      <p>
-                        Home
-                      </p>
-                    </div>
-                  ) : <p> Login </p>} </li>
-                  {this.state.success ? ( <li>
-                    <div>
-                      <p
-                        onClick={() => {
-                          logout();
-                        }}
-                      >
-                        Logout
-                      </p>
-                    </div>
-                  </li>) : null}
-              </ul>
-            </div>
-          )}
+            {this.state.open && (
+              <div class="container">
+                <ul className="ul">
+                  <li onClick={this.show}>
+                    {this.state.success ? (
+                      <div className="Home">
+                        <p>Home</p>
+                      </div>
+                    ) : (
+                      <p> Login </p>
+                    )}{" "}
+                  </li>
+                  {this.state.success ? (
+                    <li>
+                      <div>
+                        <p
+                          onClick={() => {
+                            logout();
+                          }}
+                        >
+                          Logout
+                        </p>
+                      </div>
+                    </li>
+                  ) : null}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-
-
-
-
-
-{/*         <div className="container" ref={this.container}>
-          <img
-            className="profile"
-            src={Profile}
-            alt="profile"
-            onClick={this.handleButtonClick}
-          />
-          {this.state.open && (
-            <div class="container">
-              <ul className="ul">
-                <li  onClick={this.show} >
-                
-                {this.state.success ? (
-                    <div className="Home">
-                      <p>
-                        Home
-                      </p>
-                    </div>
-                  ) : <p> Login </p>} </li>
-               
-                  {this.state.success ? ( <li>
-                    <div>
-                      <p
-                        onClick={() => {
-                          logout();
-                        }}
-                      >
-                        Logout
-                      </p>
-                    </div>
-                  </li>) : null}
-                
-              </ul>
-            </div>
-          )}
-        </div>
- */}    
-   </div>
     );
   }
 }
