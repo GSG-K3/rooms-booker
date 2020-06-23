@@ -7,12 +7,7 @@ import axios from 'axios'
 import Popup from './Popup'
 import moment from 'moment'
 import logout from '../../Layout/logout/logout'
-
-const gapi = window.gapi
-const CLIENT_ID = '558072145685-hl8laqhvbqcd0f5vfrnt61v1ts1ls5lh.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyBaXfE46xxRXpcw7vSUmIZaKlwJrec1bGY';
-const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-const SCOPES = "https://www.googleapis.com/auth/calendar";
+import CalenderApi from '../../Layout/GoogleCalendar/Calender'
 
 class BookingForm extends Component {
   constructor(props) {
@@ -67,19 +62,6 @@ class BookingForm extends Component {
       if(this.state.reminder){
         let location = ' YDRC /' + this.state.roomName + ' Room'
         // make authontication by google account
-        gapi.load('client:auth2', () => {
-          console.log('Loaded client');
-          gapi.client.init({
-            apiKey: API_KEY,
-            clientId: CLIENT_ID,
-            discoveryDocs: DISCOVERY_DOCS,
-            scope: SCOPES
-          })
-          gapi.client.load('calendar', 'v3', ()=> console.log('bam1'))
-          // check if user login by google
-          gapi.auth2.getAuthInstance().signIn()
-          .then( ()=> {
-            // make request body for the event
             let event = {
               'summary': this.state.title,
               'location': location,
@@ -100,24 +82,8 @@ class BookingForm extends Component {
                 ]
               }
             }
-            // add the event to user calendar
-            let request = gapi.client.calendar.events.insert({
-              'calendarId': 'primary',
-              'resource': event
-            
-            })
-            // open google calendar in new window 
-            request.execute((event) => {
-              window.open(event.htmlLink);
-              console.log(event);
-              
-            });
-            
-        
-        
-          })
-              });
-
+           
+      CalenderApi(event)
       }
   }
 
@@ -127,8 +93,6 @@ class BookingForm extends Component {
 
   render() {
     const { roomName, date, showPopup } = this.state
-console.log(date);
-
     return (
       <div>
         <div className='logout'>

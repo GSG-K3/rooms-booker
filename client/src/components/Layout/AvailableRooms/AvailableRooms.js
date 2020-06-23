@@ -43,7 +43,7 @@ class AvailableRooms extends Component {
                       roomName: room.room_name,
                       roomId: room.room_id,
                       date: date,
-                      endTime: end
+                      endTime: '2020-07-28T10:00:00-07:00'
                     }
                   }}>
                     <img
