@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 
 import './AvailableRooms.css'
 import addRoomIcon from '../../../Images/addRoom.png'
-import calenderIcon from '../../../Images/calendar_icon.png'
-import clockIcon from '../../../Images/clock_icon.png'
 import { Link } from 'react-router-dom'
-
 class AvailableRooms extends Component {
   render () {
     let availableRooms = localStorage.getItem('availableRooms')
@@ -15,16 +12,6 @@ class AvailableRooms extends Component {
 
     return (
       <div>
-        <div className='date-and-time'>
-          <div className='availabale_room_date'>
-            <img src={calenderIcon} className='icon' />
-            <h3>{date.toLocaleDateString()}</h3>
-          </div>
-          <div className='availabale_room_date'>
-            <img src={clockIcon} className='icon' />
-            <h3>{date.toLocaleTimeString()}</h3>
-          </div>
-        </div>
         <p className='available-rooms-title'>Available Rooms</p>
         <div className='available-rooms-container'>
           {availableRooms ? (
@@ -43,7 +30,7 @@ class AvailableRooms extends Component {
                       roomName: room.room_name,
                       roomId: room.room_id,
                       date: date,
-                      endTime: '2020-07-28T10:00:00-07:00'
+                      enddate: enddate
                     }
                   }}>
                     <img

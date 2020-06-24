@@ -26,7 +26,7 @@ class EventInfo extends Component {
             'timeZone': 'Asia/Jerusalem'
           },
           'end': {
-            'dateTime': '2020-07-28T10:00:00-07:00',
+            'dateTime': eventInformation.end_date,
             'timeZone': 'Asia/Jerusalem'
           },
           'reminders': {
@@ -64,7 +64,7 @@ class EventInfo extends Component {
               </div>
               <div className='event_date_icon_contener'>
                 <img style={iconStyle} src={ClockIcon} alt='Time' />
-                <h3> {eventInfo.event_date.slice(11, 19)}</h3>
+                <h3> {eventInfo.event_date.slice(11, 19)}_{eventInfo.end_date.slice(11, 19)}</h3>
               </div>
             </div>
             <div className ='event_info__room'>
