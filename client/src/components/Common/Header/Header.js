@@ -25,12 +25,17 @@ class Header extends Component {
     };
   }
 
+// We wire up click listeners on the document for mousedown. Then remove in our componentWillUnmount to properly cleanup our listeners.
+
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }
   componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
+
+  // We need to check to make sure that our current is actually filled in with a DOM element. Then using the DOM method contains we ask our container if we have the event.target which is the DOM element that was clicked.
+  // If we don't have the clicked target then that means it's outside of our container and we need to close our menu. So we call setState and set open to false.
   handleClickOutside = (event) => {
     if (
       this.container.current &&
