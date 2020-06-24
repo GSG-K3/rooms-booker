@@ -1,30 +1,30 @@
 import React, { Component } from 'react'
-
-import './AvailableRooms.css'
-import addRoomIcon from '../../../Images/addRoom.png'
 import calenderIcon from '../../../Images/calendar_icon.png'
 import clockIcon from '../../../Images/clock_icon.png'
+import './AvailableRooms.css'
+import addRoomIcon from '../../../Images/addRoom.png'
 import { Link } from 'react-router-dom'
-
 class AvailableRooms extends Component {
   render () {
     let availableRooms = localStorage.getItem('availableRooms')
-    let date = localStorage.getItem('date')
+    let startTime = localStorage.getItem('startTime')
+    let endTime = localStorage.getItem('endTime')
     availableRooms = JSON.parse(availableRooms)
-    date = new Date(date)
-
+    startTime = new Date(startTime)
+    endTime = new Date(endTime)
     return (
       <div>
-        <div className='date-and-time'>
-          <div className='availabale_room_date'>
-            <img src={calenderIcon} className='icon' />
-            <h3>{date.toLocaleDateString()}</h3>
+        <div className="date-and-time">
+          <div className="availabale_room_date">
+            <img src={calenderIcon} className="icon" />
+            <h3>{startTime.toLocaleDateString()}</h3>
           </div>
-          <div className='availabale_room_date'>
-            <img src={clockIcon} className='icon' />
-            <h3>{date.toLocaleTimeString()}</h3>
-          </div>
-        </div>
+          <div className="availabale_room_date">
+            <img src={clockIcon} className="icon" />
+            <h3>{startTime.toLocaleTimeString()}</h3>
+            <h3>To</h3>
+            <h3>{endTime.toLocaleTimeString()}</h3>
+          </div></div>
         <p className='available-rooms-title'>Available Rooms</p>
         <div className='available-rooms-container'>
           {availableRooms ? (
@@ -42,7 +42,8 @@ class AvailableRooms extends Component {
                     state: {
                       roomName: room.room_name,
                       roomId: room.room_id,
-                      date: date
+                      startTime: startTime,
+                      endTime: endTime
                     }
                   }}>
                     <img
