@@ -79,28 +79,14 @@ class Rooms extends Component {
       .catch((err) => this.setState({ errFound: !this.state.errFound }));
   };
   renderAvailableRooms() {
-    return (
-      <div>
-        <div className="date-and-time">
-          <div className="availabale_room_date">
-            <img src={calenderIcon} className="icon" />
-            <h3>{this.state.startDate.toLocaleDateString()}</h3>
-          </div>
-          <div className="availabale_room_date">
-            <img src={clockIcon} className="icon" />
-            <h3>{this.state.startDate.toLocaleTimeString()}</h3>
-            <h3>To</h3>
-            <h3>{this.state.endDate.toLocaleTimeString()}</h3>
-          </div>
-        </div>
-        <AvailableRooms
-          availableRooms={this.state.availableRooms}
-          date={this.state.startDate}
-          enddate={this.state.endDate}
-        />
-      </div>
-    );
+    let { availableRooms, startDate,endDate } = this.state
+    localStorage.setItem('availableRooms', JSON.stringify(availableRooms))
+    localStorage.setItem('startTime', startDate)
+    localStorage.setItem('endTime', endDate)
+    this.props.history.push('/rooms/available-rooms', {
+      availableRooms: availableRooms, startTime: startDate,endTime: endDate })
   }
+  
   render() {
     const { rooms, shownCardId, show, showAvailableRooms } = this.state;
     return this.state.errorFound ? (
