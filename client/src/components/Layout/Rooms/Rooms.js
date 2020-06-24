@@ -42,31 +42,31 @@ class Rooms extends Component {
   };
 
   //change date to the startdate that user select
-  handleChange = (date) => {
+  handleChange = (startTime) => {
     this.setState({
-      startDate: date,
+      startDate: startTime,
     });
   };
   //change date to the enddate that user select
-  handleChangeend = (enddate) => {
+  handleChangeend = (endTime) => {
     this.setState({
-      endDate: enddate,
+      endDate: endTime,
     });
   };
 
   //To search about rooms that will be available at the date user selected
   searchAvailableRooms = () => {
-    const date = moment(this.state.startDate.toLocaleString()).format(
+    const startTime = moment(this.state.startDate.toLocaleString()).format(
       "YYYY-MM-DD HH:mm:ss"
     );
-    const enddate = moment(this.state.endDate.toLocaleString()).format(
+    const endTime = moment(this.state.endDate.toLocaleString()).format(
       "YYYY-MM-DD HH:mm:ss"
     );
     axios
       .get(`/api/available-rooms`, {
         params: {
-          date: date,
-          enddate: enddate,
+          startTime: startTime,
+          endTime: endTime,
         },
      
       })
@@ -81,10 +81,10 @@ class Rooms extends Component {
   renderAvailableRooms() {
     let { availableRooms, startDate,endDate } = this.state
     localStorage.setItem('availableRooms', JSON.stringify(availableRooms))
-    localStorage.setItem('date', startDate)
-    localStorage.setItem('enddate', endDate)
+    localStorage.setItem('startTime', startDate)
+    localStorage.setItem('endTime', endDate)
     this.props.history.push('/rooms/available-rooms', {
-      availableRooms: availableRooms, date: startDate,enddate: endDate })
+      availableRooms: availableRooms, startTime: startDate,endTime: endDate })
   }
   
   render() {
