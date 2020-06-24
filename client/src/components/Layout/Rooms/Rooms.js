@@ -7,9 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 import searchIcon from "../../../Images/search.png";
-import calenderIcon from "../../../Images/calendar_icon.png";
-import clockIcon from "../../../Images/clock_icon.png";
-import AvailableRooms from "../AvailableRooms/AvailableRooms";
 
 class Rooms extends Component {
   constructor(props) {
