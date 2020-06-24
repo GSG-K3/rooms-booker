@@ -4,7 +4,7 @@
 }
 
 .user_profile__div{
-    margin: 1em 0 0 3em ;
+    margin: 1em 0 0 9em ;
     display: flex;
 
 }
@@ -19,12 +19,12 @@
     color: #4FB2AA;
 }
 .user_home_events_continer__div{
-    margin: 0.5em 1em 1em 1em;
+    margin: 0.5em 2em 1em 2em;
 }
 
 .user_events_strg{
     color: #C4C4C4;
-    margin: 2.5em 0 2.5em 4em ;
+    margin: 2.5em 0 2.5em 8em ;
     text-align: start;
 }
 .events_message{
@@ -33,12 +33,13 @@
  font-size: 1.2rem;
 }
 .user_event_card{
-    border: #3B5A9D 1px solid;
-    border-radius: 10px;
+    border-left: #3B5A9D 5px solid;
+    border-right: #3B5A9D 5px solid;
+    box-shadow: 2px 2px 2px rgb(185, 185, 185);
     padding: 0.4em 1em 0.4em 1.5em;
     display: flex;
     justify-content: space-between;
-    margin: 1.3em 3em 1.3em 2em;
+    margin: 1.3em 14em 1.3em 14em;
 }
 .user_event_title{
     width: 60%;
@@ -83,12 +84,16 @@ color: white;
     justify-content: center;
     font-size: 22px;
     margin: 2em 2em 2em 2em;
+    padding-top: 0.2em;
 }
 
-@media only screen and (max-width:650px){
+@media only screen and (max-width:800px){
     .user_profile__div img{
         width: 2.7em;
         height: 2.7em;
+    }
+    .user_event_card{
+        margin: 1.3em 8em 1.3em 8em;
     }
     .user_profile__div h2{
         margin-top: 0.8em;
@@ -132,8 +137,8 @@ color: white;
         margin-right: 0.4em;
     }
     .user_event_card{
-        padding: 0.5em 0.2em 0.5em 1em;
-        margin: 1.3em 1em 1.3em 1em;
+        padding: 0.5em 0.1em 0.5em 0.2em;
+        margin: 1.3em 0.2em 1.3em 0.2em;
     }
     .user_events_strg{
         margin: 2em 0 1.5em 1em;
