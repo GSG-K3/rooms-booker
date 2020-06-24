@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import calenderIcon from '../../../Images/calendar_icon.png'
+import clockIcon from '../../../Images/clock_icon.png'
 import './AvailableRooms.css'
 import addRoomIcon from '../../../Images/addRoom.png'
 import { Link } from 'react-router-dom'
@@ -13,6 +14,17 @@ class AvailableRooms extends Component {
     enddate = new Date(enddate)
     return (
       <div>
+        <div className="date-and-time">
+          <div className="availabale_room_date">
+            <img src={calenderIcon} className="icon" />
+            <h3>{date.toLocaleDateString()}</h3>
+          </div>
+          <div className="availabale_room_date">
+            <img src={clockIcon} className="icon" />
+            <h3>{date.toLocaleTimeString()}</h3>
+            <h3>To</h3>
+            <h3>{enddate.toLocaleTimeString()}</h3>
+          </div></div>
         <p className='available-rooms-title'>Available Rooms</p>
         <div className='available-rooms-container'>
           {availableRooms ? (
