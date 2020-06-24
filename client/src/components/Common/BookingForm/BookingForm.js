@@ -26,6 +26,7 @@ class BookingForm extends Component {
   componentDidMount() {
     // check if user login successfully
     const { history } = this.props;
+    console.log(this.props.location.startTime,'props')
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
       if (success) {
@@ -69,7 +70,7 @@ class BookingForm extends Component {
               'location': location,
               'description': this.state.description,
               'start': {
-                'dateTime': this.props.location.state.date,
+                'dateTime': this.props.location.state.startTime,
                 'timeZone': 'Asia/Jerusalem'
               },
               'end': {
