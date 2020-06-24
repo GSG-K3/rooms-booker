@@ -6,7 +6,6 @@ import './bookingForm.css'
 import axios from 'axios'
 import Popup from './Popup'
 import moment from 'moment'
-import logout from '../../Layout/logout/logout'
 
 class BookingForm extends Component {
   constructor(props) {
@@ -70,15 +69,6 @@ class BookingForm extends Component {
 
     return (
       <div>
-        <div className='logout'>
-          <p
-            onClick={() => {
-              logout()
-            }}
-          >
-            Logout
-          </p>
-        </div>
 
         <div className='date_info_continer__div'>
           <div className='date_info__div'>

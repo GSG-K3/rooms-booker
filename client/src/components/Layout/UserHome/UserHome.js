@@ -5,7 +5,6 @@ import Edit from "../../../Images/Edit.png";
 import { Link } from "react-router-dom";
 import ServerErr from "../../Errors/Err500/ServerErr";
 import ClipLoader from "react-spinners/ClipLoader";
-import logout from "../logout/logout"
 import "./userHome.css";
 import axios from "axios";
 import Popup from "../../Common/DeleteEvent/Popup";
@@ -80,9 +79,6 @@ class UserHome extends Component {
         {errorFound ?
           <ServerErr /> : (
             <div className="component_continer">
-            <div className="logout">
-            <p  onClick={() => {logout()}}>Logout</p>
-            </div>
 
               <div className="user_profile__div">
                 <img src={Profile} />
