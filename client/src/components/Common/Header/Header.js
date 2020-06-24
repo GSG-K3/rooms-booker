@@ -18,7 +18,7 @@ class Header extends Component {
     }
   }
 
-  show = ()=> {
+  redirectToHome = ()=> {
     const { history } = this.props
     axios.get('/api/check').then(({ data }) => {
       const { success, email, userId, userName } = data
@@ -33,14 +33,14 @@ class Header extends Component {
   }
 
   render () {
-    const { userId } = this.state 
+    
     return (
       <div className='header'>
         <Link to={'/'} className='header_link'>
           <img className='logo' src={GSGlog} alt='logo' />
         </Link>
-        <Link to = {{pathname:`/home/${userId}`}}>
-          <img className='profile' src={Profile} alt='profile' onClick={this.show}/></Link></div>
+          <img className='profile' src={Profile} alt='profile' onClick={this.redirectToHome}/>
+          </div>
     )
   }
 }
