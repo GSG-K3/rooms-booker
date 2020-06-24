@@ -2,14 +2,6 @@
   margin: 1.5em 0 1em 1.2em;
 }
 
-.logout {
-  color: rgb(0, 0, 0);
-  display: flex;
-  justify-content: flex-end;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 0.8rem;
-}
 .date_info__div{
   display: flex;
   width: 200px;
