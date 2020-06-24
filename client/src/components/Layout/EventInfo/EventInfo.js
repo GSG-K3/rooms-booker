@@ -64,7 +64,7 @@ class EventInfo extends Component {
               </div>
               <div className='event_date_icon_contener'>
                 <img style={iconStyle} src={ClockIcon} alt='Time' />
-                <h3> {eventInfo.event_date.slice(11, 19)}_{eventInfo.end_date.slice(11, 19)}</h3>
+                <h3> {new Date(eventInfo.event_date).toLocaleTimeString()}_{new Date(eventInfo.end_date).toLocaleTimeString()}</h3>
               </div>
             </div>
             <div className ='event_info__room'>
