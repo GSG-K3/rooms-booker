@@ -12,7 +12,8 @@ class BookingForm extends Component {
     super(props)
     this.state = {
       userId: null,
-      date: '',
+      startTime: '',
+      endTime:'',
       roomId: null,
       roomName: '',
       reminder: false,
@@ -26,11 +27,13 @@ class BookingForm extends Component {
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
       if (success) {
-        let { roomName, roomId, date } = this.props.location.state
-        date = moment(date.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
+        let { roomName, roomId, startTime ,endTime} = this.props.location.state
+        startTime = moment(startTime.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
+         endTime = moment(endTime.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
         this.setState({
           roomName: roomName,
-          date: date,
+          startTime: startTime,
+          endTime:endTime,
           userId: data.userId,
           roomId: roomId,
         })
@@ -58,11 +61,11 @@ class BookingForm extends Component {
   }
 
   goBack = () => {
-    this.props.history.push('/rooms')
+    this.props.history.push('/rooms/available-rooms')
   }
 
   render() {
-    const { roomName, date, showPopup } = this.state
+    const { roomName, startTime, showPopup,endTime} = this.state
 
     return (
       <div>
@@ -70,11 +73,14 @@ class BookingForm extends Component {
         <div className='date_info_continer__div'>
           <div className='date_info__div'>
             <img src={Calender} alt='calender' />
-            <h4>{date.slice(0, 10)}</h4>
+            <h4>{startTime.slice(0, 10)}</h4>
+           
           </div>
           <div className='date_info__div'>
             <img src={Clock} alt='clock' />
-            <h4>{date.slice(10, 19)}</h4>
+            <h4>{startTime.slice(10, 19)}</h4>
+            <h4>To</h4>
+            <h4>{endTime.slice(10, 19)}</h4>
           </div>
           <div className='date_info__div'>
             <img src={RoomIcon} alt='room' />

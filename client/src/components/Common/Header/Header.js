@@ -59,10 +59,10 @@ class Header extends Component {
     });
   };
 
-  show = () => {
-    const { history } = this.props;
-    axios.get("/api/check").then(({ data }) => {
-      const { success, email, userId, userName } = data;
+  redirectToHome = ()=> {
+    const { history } = this.props
+    axios.get('/api/check').then(({ data }) => {
+      const { success, email, userId, userName } = data
       if (success) {
         this.setState({ email, userId, userName }, () => {
           history.push(`/home/${userId}`);
@@ -82,7 +82,6 @@ class Header extends Component {
             className="logo"
             src={GSGlog}
             alt="logo"
-            onClick={this.showlog}
           />
         </Link>
 
@@ -100,7 +99,7 @@ class Header extends Component {
             {this.state.open && (
               <div class="container">
                 <ul className="ul">
-                  <li onClick={this.show}>
+                  <li onClick={this.redirectToHome}>
                     {this.state.success ? (
                       <div className="Home">
                         <p>Home</p>

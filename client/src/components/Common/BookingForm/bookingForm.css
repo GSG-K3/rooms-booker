@@ -8,8 +8,11 @@
   margin: 0.5em 0 0.5em 2em;
   color: #FFA633;
 }
+
 .date_info__div h4{
   margin-top: 0.4em;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .date_info__div img{
   width: 1.8em;
