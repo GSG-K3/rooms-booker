@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "autoprefixer": "^9.8.0",
     "axios": "^0.19.2",
+    "env-cmd": "^10.1.0",
     "moment": "^2.25.3",
     "react": "^16.13.1",
     "react-axios": "^2.0.3",
@@ -18,8 +19,8 @@
     "react-spinners": "^0.8.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start env-cmd .env.development",
+    "build": "react-scripts build env-cmd .env.development",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
