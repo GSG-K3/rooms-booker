@@ -1,9 +1,5 @@
-// const { CLIENT_ID, API_KEY, DISCOVERY_DOCS, SCOPES } = process.env
 const gapi = window.gapi
-const { REACT_APP_CLIENT_ID } = process.env
-const { REACT_APP_API_KEY } = process.env
-const { REACT_APP_DISCOVERY_DOCS } = process.env
-const { REACT_APP_SCOPES } = process.env
+const { REACT_APP_CLIENT_ID, REACT_APP_API_KEY, REACT_APP_DISCOVERY_DOCS, REACT_APP_SCOPES } = process.env
 
 const CalenderApi = (event) => {
   // make authontication by google account
@@ -14,7 +10,9 @@ const CalenderApi = (event) => {
       discoveryDocs: REACT_APP_DISCOVERY_DOCS,
       scope: REACT_APP_SCOPES
     })
+
     gapi.client.load('calendar', 'v3')
+
     // check if user is login
     gapi.auth2.getAuthInstance().signIn()
       .then(() => {
@@ -23,6 +21,7 @@ const CalenderApi = (event) => {
           resource: event
 
         })
+
         // open calendar in new window
         request.execute((event) => {
           window.open(event.htmlLink)
