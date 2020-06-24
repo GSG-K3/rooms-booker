@@ -7,9 +7,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
 import DatePicker from "react-datepicker";
 import searchIcon from "../../../Images/search.png";
-import calenderIcon from "../../../Images/calendar_icon.png";
-import clockIcon from "../../../Images/clock_icon.png";
-import AvailableRooms from "../AvailableRooms/AvailableRooms";
 
 class Rooms extends Component {
   constructor(props) {
@@ -45,31 +42,31 @@ class Rooms extends Component {
   };
 
   //change date to the startdate that user select
-  handleChange = (date) => {
+  handleChange = (startTime) => {
     this.setState({
-      startDate: date,
+      startDate: startTime,
     });
   };
   //change date to the enddate that user select
-  handleChangeend = (enddate) => {
+  handleChangeend = (endTime) => {
     this.setState({
-      endDate: enddate,
+      endDate: endTime,
     });
   };
 
   //To search about rooms that will be available at the date user selected
   searchAvailableRooms = () => {
-    const date = moment(this.state.startDate.toLocaleString()).format(
+    const startTime = moment(this.state.startDate.toLocaleString()).format(
       "YYYY-MM-DD HH:mm:ss"
     );
-    const enddate = moment(this.state.endDate.toLocaleString()).format(
+    const endTime = moment(this.state.endDate.toLocaleString()).format(
       "YYYY-MM-DD HH:mm:ss"
     );
     axios
       .get(`/api/available-rooms`, {
         params: {
-          date: date,
-          enddate: enddate,
+          startTime: startTime,
+          endTime: endTime,
         },
      
       })

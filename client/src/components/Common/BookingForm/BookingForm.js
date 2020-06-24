@@ -14,8 +14,8 @@ class BookingForm extends Component {
     super(props)
     this.state = {
       userId: null,
-      date: '',
-      enddate:'',
+      startTime: '',
+      endTime:'',
       roomId: null,
       roomName: '',
       reminder: false,
@@ -30,13 +30,13 @@ class BookingForm extends Component {
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
       if (success) {
-        let { roomName, roomId, date ,enddate} = this.props.location.state
-        date = moment(date.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
-         enddate = moment(enddate.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
+        let { roomName, roomId, startTime ,endTime} = this.props.location.state
+        startTime = moment(startTime.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
+         endTime = moment(endTime.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
         this.setState({
           roomName: roomName,
-          date: date,
-          enddate:enddate,
+          startTime: startTime,
+          endTime:endTime,
           userId: data.userId,
           roomId: roomId,
         })
@@ -95,7 +95,8 @@ class BookingForm extends Component {
   }
 
   render() {
-    const { roomName, date, showPopup } = this.state
+    const { roomName, startTime, showPopup,endTime} = this.state
+
     return (
       <div>
         <div className='logout'>
@@ -111,14 +112,14 @@ class BookingForm extends Component {
         <div className='date_info_continer__div'>
           <div className='date_info__div'>
             <img src={Calender} alt='calender' />
-            <h4>{date.slice(0, 10)}</h4>
+            <h4>{startTime.slice(0, 10)}</h4>
            
           </div>
           <div className='date_info__div'>
             <img src={Clock} alt='clock' />
-            <h4>{date.slice(10, 19)}</h4>
+            <h4>{startTime.slice(10, 19)}</h4>
             <h4>To</h4>
-            <h4>{enddate.slice(10, 19)}</h4>
+            <h4>{endTime.slice(10, 19)}</h4>
           </div>
           <div className='date_info__div'>
             <img src={RoomIcon} alt='room' />
