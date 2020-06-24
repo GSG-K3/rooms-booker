@@ -33,6 +33,7 @@ CREATE TABLE events
     event_description VARCHAR(500) NOT NULL,
     event_note VARCHAR(500) NOT NULL,
     event_date TIMESTAMP,
+    end_date TIMESTAMP,
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     room_id INTEGER,

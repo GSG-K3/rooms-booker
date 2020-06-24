@@ -28,9 +28,9 @@ class BookingForm extends Component {
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
       if (success) {
-        let { roomName, roomId, date ,enddate } = this.props.location.state
+        let { roomName, roomId, date ,enddate} = this.props.location.state
         date = moment(date.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
-        enddate = moment(enddate.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
+         enddate = moment(enddate.toLocaleString()).format('YYYY-MM-DD H:mm:ss')
         this.setState({
           roomName: roomName,
           date: date,
@@ -66,7 +66,7 @@ class BookingForm extends Component {
   }
 
   render() {
-    const { roomName, date, showPopup ,enddate} = this.state
+    const { roomName, date, showPopup,enddate} = this.state
 
     return (
       <div>
