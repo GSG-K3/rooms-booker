@@ -6,12 +6,8 @@ import CalendarIcon from '../../../Images/icons8-calendar-64.png'
 import LocationIcon from '../../../Images/icons8-location-96.png'
 import NoteIcon from '../../../Images/icons8-note-48.png'
 import PersonIcon from '../../../Images/icons8-person-60.png'
+import CalenderApi from '../GoogleCalendar/Calender'
 
-const gapi = window.gapi
-const CLIENT_ID = '558072145685-hl8laqhvbqcd0f5vfrnt61v1ts1ls5lh.apps.googleusercontent.com'
-const API_KEY = 'AIzaSyBaXfE46xxRXpcw7vSUmIZaKlwJrec1bGY'
-const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest']
-const SCOPES = 'https://www.googleapis.com/auth/calendar'
 
 const iconStyle={height : "2em" , width : "2em" , marginRight : "1em"}
 class EventInfo extends Component {
@@ -20,19 +16,7 @@ class EventInfo extends Component {
     const data = sessionStorage.getItem('event')
     const eventInformation = JSON.parse(data)
     const locationEvent =  ' YDRC /' + eventInformation.room_name + ' Room'
- //make authontication by google account
-    gapi.load('client:auth2', () => {
-      gapi.client.init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES
-      })
-      gapi.client.load('calendar', 'v3')
-      //check if user is login 
-      gapi.auth2.getAuthInstance().signIn()
-      .then( ()=> {
-        //make request body for the event 
+ 
         let event = {
           'summary': eventInformation.event_title,
           'location': locationEvent,
@@ -42,7 +26,7 @@ class EventInfo extends Component {
             'timeZone': 'Asia/Jerusalem'
           },
           'end': {
-            'dateTime': '2020-07-28T10:00:00-07:00',
+            'dateTime': eventInformation.end_date,
             'timeZone': 'Asia/Jerusalem'
           },
           'reminders': {
@@ -53,24 +37,8 @@ class EventInfo extends Component {
             ]
           }
         }
-        //add event to google calendar calendar
-        let request = gapi.client.calendar.events.insert({
-          'calendarId': 'primary',
-          'resource': event
-        
-        })
-        //open calendar in new window 
-        request.execute((event) => {
-          window.open(event.htmlLink);
-          console.log(event);
-          
-        });
-        
-    
-    
-      })
-          });
 
+    CalenderApi(event)
   }
   render () {
     const data = sessionStorage.getItem('event')
@@ -96,7 +64,7 @@ class EventInfo extends Component {
               </div>
               <div className='event_date_icon_contener'>
                 <img style={iconStyle} src={ClockIcon} alt='Time' />
-                <h3> {eventInfo.event_date.slice(11, 19)}</h3>
+                <h3> {eventInfo.event_date.slice(11, 19)}_{eventInfo.end_date.slice(11, 19)}</h3>
               </div>
             </div>
             <div className ='event_info__room'>

@@ -86,7 +86,6 @@ class Rooms extends Component {
     this.props.history.push('/rooms/available-rooms', {
       availableRooms: availableRooms, startTime: startDate,endTime: endDate })
   }
-  
   render() {
     const { rooms, shownCardId, show, showAvailableRooms } = this.state;
     return this.state.errorFound ? (

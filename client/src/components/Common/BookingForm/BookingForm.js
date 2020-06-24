@@ -6,6 +6,7 @@ import './bookingForm.css'
 import axios from 'axios'
 import Popup from './Popup'
 import moment from 'moment'
+import CalenderApi from '../../Layout/GoogleCalendar/Calender'
 
 class BookingForm extends Component {
   constructor(props) {
@@ -20,10 +21,12 @@ class BookingForm extends Component {
       showPopup: false,
     }
   }
+  
 
   componentDidMount() {
     // check if user login successfully
     const { history } = this.props;
+    console.log(this.props.location.startTime,'props')
     axios.get("/api/check").then(({ data }) => {
       const { success } = data;
       if (success) {
@@ -40,7 +43,6 @@ class BookingForm extends Component {
       } else return history.push('/login')
     })
   }
-
   handelChange = (e) => {
     const name = e.target.name
     const value = e.target.value
@@ -49,6 +51,7 @@ class BookingForm extends Component {
 
   toggleReminder = () => {
     this.setState({ reminder: !this.state.reminder });
+
   };
 //handeling submit form to add event for the user 
   handelSubmit = (e) => {
@@ -58,6 +61,33 @@ class BookingForm extends Component {
       .post('/api/booking', formData)
       .then((response) => this.setState({ showPopup: !this.state.showPopup }))
       .catch((err) => this.setState({ message: err.response.data.message }))
+
+      if(this.state.reminder){
+        let location = ' YDRC /' + this.state.roomName + ' Room'
+        // make authontication by google account
+            let event = {
+              'summary': this.state.title,
+              'location': location,
+              'description': this.state.description,
+              'start': {
+                'dateTime': this.props.location.state.startTime,
+                'timeZone': 'Asia/Jerusalem'
+              },
+              'end': {
+                'dateTime': this.props.location.state.endTime,
+                'timeZone': 'Asia/Jerusalem'
+              },
+              'reminders': {
+                'useDefault': false,
+                'overrides': [
+                  {'method': 'email', 'minutes': 24 * 60},
+                  {'method': 'popup', 'minutes': 10}
+                ]
+              }
+            }
+           
+      CalenderApi(event)
+      }
   }
 
   goBack = () => {
@@ -118,6 +148,7 @@ class BookingForm extends Component {
             placeholder=' Notes'
           />
           <div className='remind_me_input__div'>
+
             <label htmlFor='reminder' className='radio_input'>
               <input
                 type='radio'
@@ -127,6 +158,7 @@ class BookingForm extends Component {
               Remind me
             </label>
           </div>
+
           {this.state.message ? (
             <p className='edit_form_message'> {this.state.message} </p>
           ) : null}

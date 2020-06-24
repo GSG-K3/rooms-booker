@@ -88,6 +88,11 @@
   color: #ffa633;
   font-size: 18px;
 }
+.google_button{
+  display: flex;
+  justify-self: start;
+  justify-content: space-around;
+}
 
 @media only screen and (min-width: 600px) {
   .booking_form {
