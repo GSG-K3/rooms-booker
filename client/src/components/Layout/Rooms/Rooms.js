@@ -28,6 +28,7 @@ class Rooms extends Component {
     };
   }
 
+  
   componentDidMount() {
     axios
       .get("/api/rooms")
@@ -104,6 +105,15 @@ class Rooms extends Component {
     );
   }
 
+  renderAvailableRooms () {
+    let { availableRooms, startDate,endDate } = this.state
+    localStorage.setItem('availableRooms', JSON.stringify(availableRooms))
+    localStorage.setItem('date', startDate)
+    localStorage.setItem('enddate', endDate)
+    this.props.history.push('/rooms/available-rooms', {
+      availableRooms: availableRooms, date: startDate,enddate: endDate })
+  }
+  
   render() {
     const { rooms, shownCardId, show, showAvailableRooms } = this.state;
     return this.state.errorFound ? (

@@ -5,7 +5,12 @@ import addRoomIcon from '../../../Images/addRoom.png'
 import { Link } from 'react-router-dom'
 class AvailableRooms extends Component {
   render () {
-    const { availableRooms, date, enddate } = this.props
+    let availableRooms = localStorage.getItem('availableRooms')
+    let date = localStorage.getItem('date')
+    let enddate = localStorage.getItem('enddate')
+    availableRooms = JSON.parse(availableRooms)
+    date = new Date(date)
+    enddate = new Date(enddate)
     return (
       <div>
         <p className='available-rooms-title'>Available Rooms</p>
