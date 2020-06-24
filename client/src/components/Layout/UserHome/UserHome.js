@@ -80,10 +80,6 @@ class UserHome extends Component {
         {errorFound ?
           <ServerErr /> : (
             <div className="component_continer">
-            <div className="logout">
-            <p  onClick={() => {logout()}}>Logout</p>
-            </div>
-
               <div className="user_profile__div">
                 <img src={Profile} />
                 <h2>{userName}</h2>
