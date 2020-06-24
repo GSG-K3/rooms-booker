@@ -43,12 +43,12 @@ class EventInfo extends Component {
   render () {
     const data = sessionStorage.getItem('event')
     const eventInfo = JSON.parse(data)
+
     return (
       <div className='eventinfo'>
 
         <div className='eventinfo__info'>
           <h2 className ='eventinfo__title'> {eventInfo.event_title} </h2>
-          {/* <p className='eventinfo__details'> details about event</p> */}
         </div>
 
         <div className='event_info'>
@@ -64,24 +64,21 @@ class EventInfo extends Component {
               </div>
               <div className='event_date_icon_contener'>
                 <img style={iconStyle} src={ClockIcon} alt='Time' />
-                <h3> {eventInfo.event_date.slice(11, 19)}_{eventInfo.end_date.slice(11, 19)}</h3>
+    <h3> {new Date(eventInfo.event_date).toLocaleTimeString()}_{new Date(eventInfo.end_date).toLocaleTimeString()}</h3>
               </div>
             </div>
             <div className ='event_info__room'>
               <img style={iconStyle} src={LocationIcon} alt='room' />
               <h3>{eventInfo.room_name} Room /YDRC</h3>
-              {/* <p>Room</p> */}
             </div>
 
             <div className ='event_info__author'>
               <img style={iconStyle} src={PersonIcon} alt='author' />
-              {/* <p>Organizer</p> */}
               <h3> {eventInfo.event_author}</h3>
             </div>
 
             <div className ='event_info__note'>
               <img style={iconStyle} src={NoteIcon} alt='Note' />
-              {/* <p>Notes</p> */}
               <h3> {eventInfo.event_note}</h3>
             </div>
           </div>
